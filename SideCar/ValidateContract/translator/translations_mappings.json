@@ -1,0 +1,85 @@
+{
+  "@context": {
+        "@base": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "odrl": "http://www.w3.org/ns/odrl/2/",
+        "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
+        "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#"
+  },
+  "@graph": [
+    {
+      "@id": "ab:anonymize",
+      "@type": "tb:Operation",
+      "tb:hasTranslation": [
+        {
+          "@id": "ab:Imp2",
+          "@type": "tb:Implementation",
+          "tb:hasCode": [
+            {
+              "@id": "ab:Imp2Code",
+              "@type": "tb:Code",
+              "tb:code": "data[p].isna().all()"
+            }
+          ],
+          "tb:hasParameters": [
+            {
+              "@id": "ab:Imp2CodeParam1",
+              "@type": "tb:Parameter",
+              "tb:name": "p",
+              "tb:type": "str"
+            },
+            {
+              "@id": "ab:Imp1CodeParam2",
+              "@type": "tb:Parameter",
+              "tb:name": "data",
+              "tb:type": "pandas.DataFrame"
+            }
+          ],
+          "tb:dependsOn": [
+            {
+              "@id": "ab:Imp1CodeDep1",
+              "@type": "tb:Library",
+              "tb:name": "pandas",
+              "tb:version": "1.0.0"
+            }
+          ],
+          "tb:returns": "boolean"
+        }
+      ]
+    },
+    {
+      "@id": "ab:LoadData",
+      "@type": "tb:Operation", 
+      "tb:hasTranslation": [
+        {
+          "@id": "ab:Imp1",
+          "@type": "tb:Implementation",
+          "tb:hasCode": [
+            {
+              "@id": "ab:Imp1Code",
+              "@type": "tb:Code",
+              "tb:code": "pandas.read_csv(p)"
+            }
+          ],
+          "tb:hasParameters": [
+              {
+                "@id": "ab:Imp1CodeParam1",
+                "@type": "tb:Parameter",
+                "tb:name": "p",
+                "tb:type": "str"
+              }
+          ],
+            "tb:dependsOn": [
+              {
+                "@id": "ab:Imp1CodeDep1",
+                "@type": "tb:Library"
+              }
+            ],
+            "tb:returns": "pandas.DataFrame"
+        }
+      ]
+    }
+  ]
+}

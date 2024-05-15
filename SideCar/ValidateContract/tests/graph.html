@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Naebb0992ce044fd0b51a27bb59d4386b", "label": "Naebb0992ce044fd0b51a27bb59d4386b", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Ndbb5f82cd2394b33a9154bae6d05df41", "label": "Ndbb5f82cd2394b33a9154bae6d05df41", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "N95a5667e6fe845b4b35e3f0ccca2c674", "label": "N95a5667e6fe845b4b35e3f0ccca2c674", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Name", "label": "Name", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Load", "label": "Load", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "N59ea517bc5ed455aa37b659006756ac1", "label": "N59ea517bc5ed455aa37b659006756ac1", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Nbd53d7fe6db540b6958047a43c5362b3", "label": "Nbd53d7fe6db540b6958047a43c5362b3", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Call", "label": "Call", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Na22c62df4637416d89dfb258e16a5ef0", "label": "Na22c62df4637416d89dfb258e16a5ef0", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "N6a619ba8f31f44888227e306ca613c94", "label": "N6a619ba8f31f44888227e306ca613c94", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Attribute", "label": "Attribute", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "N8c56957576814b9fae63ef631bdd38ed", "label": "N8c56957576814b9fae63ef631bdd38ed", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "N6002c9fb7f3643dea3b1cc2fbdff8296", "label": "N6002c9fb7f3643dea3b1cc2fbdff8296", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Expr", "label": "Expr", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Module", "label": "Module", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "Naebb0992ce044fd0b51a27bb59d4386b", "title": "hasChild", "to": "Ndbb5f82cd2394b33a9154bae6d05df41", "width": 1}, {"from": "Naebb0992ce044fd0b51a27bb59d4386b", "title": "hasChild", "to": "N95a5667e6fe845b4b35e3f0ccca2c674", "width": 1}, {"from": "Naebb0992ce044fd0b51a27bb59d4386b", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Name", "width": 1}, {"from": "Ndbb5f82cd2394b33a9154bae6d05df41", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Load", "width": 1}, {"from": "N95a5667e6fe845b4b35e3f0ccca2c674", "title": "hasChild", "to": "N59ea517bc5ed455aa37b659006756ac1", "width": 1}, {"from": "N95a5667e6fe845b4b35e3f0ccca2c674", "title": "hasChild", "to": "Nbd53d7fe6db540b6958047a43c5362b3", "width": 1}, {"from": "N95a5667e6fe845b4b35e3f0ccca2c674", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Call", "width": 1}, {"from": "N59ea517bc5ed455aa37b659006756ac1", "title": "hasChild", "to": "Na22c62df4637416d89dfb258e16a5ef0", "width": 1}, {"from": "N59ea517bc5ed455aa37b659006756ac1", "title": "hasChild", "to": "N6a619ba8f31f44888227e306ca613c94", "width": 1}, {"from": "N59ea517bc5ed455aa37b659006756ac1", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Attribute", "width": 1}, {"from": "Na22c62df4637416d89dfb258e16a5ef0", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Name", "width": 1}, {"from": "Na22c62df4637416d89dfb258e16a5ef0", "title": "hasChild", "to": "N8c56957576814b9fae63ef631bdd38ed", "width": 1}, {"from": "Nbd53d7fe6db540b6958047a43c5362b3", "title": "hasChild", "to": "N6002c9fb7f3643dea3b1cc2fbdff8296", "width": 1}, {"from": "Nbd53d7fe6db540b6958047a43c5362b3", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Expr", "width": 1}, {"from": "N6002c9fb7f3643dea3b1cc2fbdff8296", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Module", "width": 1}, {"from": "N6a619ba8f31f44888227e306ca613c94", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "Load", "width": 1}, {"from": "Load", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "N8c56957576814b9fae63ef631bdd38ed", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+@prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
+
+ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
+    dcterms:identifier "b4f5450e04e5c1669e36df0e37e5e172872e9cce5924c24955222d7f58004afc" ;
+    tb:hasAttribute ab:Age_at_scan_years,
+        ab:GTR_over90percent,
+        ab:Gender,
+        ab:ID,
+        ab:IDH1,
+        ab:KPS,
+        ab:MGMT,
+        ab:PsP_TP_score,
+        ab:Survival_Censor,
+        ab:Survival_Status,
+        ab:Survival_from_surgery_days_UPDATED,
+        ab:Time_since_baseline_preop ;
+    tb:hasDC ab:dc_UPENN-GBM_clinical_info_v2 ;
+    tb:hasDTT ab:Tabular ;
+    tb:hasTA ab:TA1 ;
+    tb:owner "UPENN" .
+
+ab:Age_at_scan_years a tb:Attribute ;
+    tb:attribute "Age_at_scan_years" .
+
+ab:AnonDuty a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:target ab:ID .
+
+ab:GTR_over90percent a tb:Attribute ;
+    tb:attribute "GTR_over90percent" .
+
+ab:Gender a tb:Attribute ;
+    tb:attribute "Gender" .
+
+ab:IDH1 a tb:Attribute ;
+    tb:attribute "IDH1" .
+
+ab:KPS a tb:Attribute ;
+    tb:attribute "KPS" .
+
+ab:MGMT a tb:Attribute ;
+    tb:attribute "MGMT" .
+
+ab:PsP_TP_score a tb:Attribute ;
+    tb:attribute "PsP_TP_score" .
+
+ab:Static a tb:Acces ;
+    tb:path "/home/acraf/psr/tfm/Prototype/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
+
+ab:Survival_Censor a tb:Attribute ;
+    tb:attribute "Survival_Censor" .
+
+ab:Survival_Status a tb:Attribute ;
+    tb:attribute "Survival_Status" .
+
+ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
+    tb:attribute "Survival_from_surgery_days_UPDATED" .
+
+ab:TA1 a tb:TechnologyAspects ;
+    tb:typeAcces ab:Static .
+
+ab:Tabular a tb:DatasetTypeTemplate ;
+    dcterms:format "application/csv" .
+
+ab:Time_since_baseline_preop a tb:Attribute ;
+    tb:attribute "Time_since_baseline_preop" .
+
+ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
+    tb:hasMapping ab:map1 ;
+    tb:hasPolicy ab:p1 .
+
+ab:map1 a tb:SchemaMapping ;
+    tb:mfrom ab:ID ;
+    tb:mto ab:Subject .
+
+ab:p1 a odrl:Privacy ;
+    odrl:duty ab:AnonDuty .
+
+odrl:anonymize a odrl:Action .
+
+ab:ID a tb:Attribute ;
+    tb:attribute "ID" .
+

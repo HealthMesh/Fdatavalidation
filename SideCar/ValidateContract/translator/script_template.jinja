@@ -1,0 +1,12 @@
+{% for library in context.libraries %}
+    <li>import {{ library.name }}</li>
+{% endfor %}
+
+{% for function in functions %}
+    <li>{{ function.code }}</li>
+{% endfor %}
+
+{% for decorator in decorators %}
+    <li>@{{ decorator }}</li>
+{% endfor %}
+{{ main }}

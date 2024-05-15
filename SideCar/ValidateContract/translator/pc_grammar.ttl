@@ -1,0 +1,50 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
+@prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+tb:PolicyCheckerShape
+    a sh:NodeShape ;
+    sh:targetClass tb:PolicyChecker ;
+    sh:property [
+        sh:path tb:nextStep ;
+        sh:minCount 1 ;
+        sh:class tb:InitOperation ;
+    ] ;
+    sh:property [
+        sh:path tb:validates ;
+        sh:minCount 1 ;
+        sh:class odrl:Privacy ;
+    ] .
+
+
+tb:initOperationShape
+    a sh:NodeShape ;
+    sh:targetClass tb:initOperation ;
+    sh:property [
+        sh:path tb:hasParameter ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path tb:nextStep ;
+        sh:minCount 0 ;
+        sh:class tb:Operation ;
+    ] .
+
+
+tb:OperationShape
+    a sh:NodeShape ;
+    sh:targetClass tb:Operation ;
+    sh:property [
+        sh:path tb:hasParameter ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path tb:nextStep ;
+        sh:minCount 0 ;
+        sh:or (
+            [ sh:class tb:Report ]
+            [ sh:class tb:Operation ]
+        ) ;
+    ] .
+
