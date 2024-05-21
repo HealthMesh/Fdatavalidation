@@ -74,12 +74,65 @@
             "tb:dependsOn": [
               {
                 "@id": "ab:Imp1CodeDep1",
+                "tb:name": "pandas",
                 "@type": "tb:Library"
               }
             ],
             "tb:returns": "pandas.DataFrame"
         }
       ]
+    },
+      {
+      "@id": "ab:countValuesOp",
+      "@type": "tb:Operation",
+      "tb:hasTranslation": [
+        {
+          "@id": "ab:Imp3",
+          "@type": "tb:Implementation",
+          "tb:hasCode": [
+            {
+              "@id": "ab:Imp3Code",
+              "@type": "tb:Code",
+              "tb:code": "data[p].count() // len(data) * 100"
+            }
+          ],
+          "tb:hasParameters": [
+              {
+                "@id": "ab:Imp3CodeParam1",
+                "@type": "tb:Parameter",
+                "tb:name": "p",
+                "tb:type": "str"
+              },
+              {
+                "@id": "ab:Imp3CodeParam2",
+                "@type": "tb:Parameter",
+                "tb:name": "data",
+                "tb:type": "pandas.DataFrame"
+              }
+          ],
+            "tb:dependsOn": [
+              {
+                "@id": "ab:Imp3CodeDep1",
+                "tb:name": "pandas",
+                "@type": "tb:Library"
+              }
+            ],
+            "tb:returns": "integer"
+        }
+      ]
+    },
+     {
+      "@id": "ab:Constraint",
+      "@type": "tb:Operation",
+      "tb:hasTranslation": [
+        {
+          "@id": "ab:Imp4",
+          "@type": "tb:Implementation"
+        }
+      ]
+      },
+    {
+      "@id": ""
     }
   ]
 }

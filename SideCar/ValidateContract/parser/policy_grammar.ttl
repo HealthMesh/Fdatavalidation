@@ -31,3 +31,4 @@ tb:ActionShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:hasValue odrl:Action ;
     ] .
+

@@ -25,9 +25,9 @@ ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
 
-ab:pc_p1 a tb:PolicyChecker ;
+ab:pc_p2 a tb:PolicyChecker ;
     tb:nextStep ab:LoadData ;
-    tb:validates ab:p1 .
+    tb:validates ab:p2 .
 
 ab:Age_at_scan_years a tb:Attribute ;
     tb:attribute "Age_at_scan_years" .
@@ -42,6 +42,12 @@ ab:CompleteDuty a odrl:Duty ;
 
 ab:Completeness a dqv:Dimension .
 
+ab:Constraint a tb:Operation ;
+    tb:Operator ">=" ;
+    tb:hasLeftOperand ab:qM ;
+    tb:hasRightOperand 99.0 ;
+    tb:nextStep ab:Report .
+
 ab:GTR_over90percent a tb:Attribute ;
     tb:attribute "GTR_over90percent" .
 
@@ -53,7 +59,7 @@ ab:KPS a tb:Attribute ;
 
 ab:LoadData a tb:InitOperation ;
     tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:nextStep ab:anonymize .
+    tb:nextStep ab:countValuesOp .
 
 ab:MGMT a tb:Attribute ;
     tb:attribute "MGMT" .
@@ -84,11 +90,11 @@ ab:Tabular a tb:DatasetTypeTemplate ;
 ab:Time_since_baseline_preop a tb:Attribute ;
     tb:attribute "Time_since_baseline_preop" .
 
-ab:anonymize a tb:Operation ;
-    tb:hasParameter ab:ID ;
-    tb:nextStep ab:Report .
-
 ab:countValues a prov:SoftwareAgent .
+
+ab:countValuesOp a tb:Operation ;
+    tb:hasParameter ab:Gender ;
+    tb:nextStep ab:Constraint .
 
 ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
     tb:hasMapping ab:map1 ;
@@ -99,16 +105,11 @@ ab:map1 a tb:SchemaMapping ;
     tb:mfrom ab:ID ;
     tb:mto ab:Subject .
 
-ab:p2 a dqv:QualityPolicy ;
-    odrl:duty ab:CompleteDuty .
+ab:p1 a odrl:Privacy ;
+    odrl:duty ab:AnonDuty .
 
 ab:percentatgeFromTotal a dqv:Metric ;
     dqv:inDimension ab:Completeness .
-
-ab:qM a dqv:QualityMeasurement ;
-    dqv:isMeasurementOf ab:percentatgeFromTotal ;
-    dqv:value "" ;
-    prov:wasAssociatedWith ab:countValues .
 
 odrl:anonymize a odrl:Action .
 
@@ -117,11 +118,16 @@ odrl:c1 a odrl:Constraint ;
     odrl:operator "odrl:gteq" ;
     odrl:rightOperand 99.0 .
 
+ab:p2 a dqv:QualityPolicy ;
+    odrl:duty ab:CompleteDuty .
+
+ab:qM a dqv:QualityMeasurement ;
+    dqv:isMeasurementOf ab:percentatgeFromTotal ;
+    dqv:value "" ;
+    prov:wasAssociatedWith ab:countValues .
+
 ab:Gender a tb:Attribute ;
     tb:attribute "Gender" .
-
-ab:p1 a odrl:Privacy ;
-    odrl:duty ab:AnonDuty .
 
 ab:ID a tb:Attribute ;
     tb:attribute "ID" .

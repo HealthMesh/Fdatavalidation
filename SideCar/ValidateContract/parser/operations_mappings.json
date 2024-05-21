@@ -6,7 +6,9 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "odrl": "http://www.w3.org/ns/odrl/2/",
     "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
-    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#"
+    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@graph": [
     {
@@ -28,8 +30,16 @@
             "@type": "tb:initOperation"
         }
       ]
+    },
+    {
+      "@id": "ab:countValues",
+      "@type": "prov:SoftwareAgent",
+      "tb:hasOP": [
+        {
+          "@id": "ab:countValuesOp",
+           "@type": "tb:Operation"
+        }
+      ]
     }
   ]
-
-
 }
