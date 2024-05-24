@@ -10,24 +10,20 @@
   },
   "@graph": [
     {
-      "@id": "ab:anonymize",
-      "@type": "tb:Operation",
-      "tb:hasTranslation": [
+      "@id": "ab:Imp2",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
         {
-          "@id": "ab:Imp2",
-          "@type": "tb:Implementation",
-          "tb:hasCode": [
-            {
-              "@id": "ab:Imp2Code",
-              "@type": "tb:Code",
-              "tb:code": "data[p].isna().all()"
-            }
-          ],
-          "tb:hasParameters": [
+          "@id": "ab:Imp2Code",
+          "@type": "tb:Code",
+          "tb:code": "data[attr].isna().all()"
+        }
+      ],
+      "tb:hasParameters": [
             {
               "@id": "ab:Imp2CodeParam1",
               "@type": "tb:Parameter",
-              "tb:name": "p",
+              "tb:name": "attr",
               "tb:type": "str"
             },
             {
@@ -45,66 +41,169 @@
               "tb:version": "1.0.0"
             }
           ],
-          "tb:returns": "boolean"
-        }
-      ]
-    },
-    {
-      "@id": "ab:LoadData",
-      "@type": "tb:Operation", 
-      "tb:hasTranslation": [
-        {
-          "@id": "ab:Imp1",
-          "@type": "tb:Implementation",
-          "tb:hasCode": [
+          "tb:forOp": [
             {
-              "@id": "ab:Imp1Code",
-              "@type": "tb:Code",
-              "tb:code": "pandas.read_csv(p)"
+              "@id": "ab:anonymize",
+              "@type": "tb:Operation"
             }
           ],
-          "tb:hasParameters": [
-              {
-                "@id": "ab:Imp1CodeParam1",
-                "@type": "tb:Parameter",
-                "tb:name": "p",
-                "tb:type": "str"
-              }
+          "tb:forType": [
+            {
+              "@id": "ab:Tabular",
+              "@type": "tb:DatasetTypeTemplate"
+            }
           ],
-            "tb:dependsOn": [
-              {
-                "@id": "ab:Imp1CodeDep1",
-                "tb:name": "pandas",
-                "@type": "tb:Library"
-              }
-            ],
-            "tb:returns": "pandas.DataFrame"
+          "tb:returns": "boolean"
         }
-      ]
+    ,
+    {
+      "@id": "ab:Imp6",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:Imp6Code",
+          "@type": "tb:Code",
+          "tb:code": "getattr(data, attr,None) == None"
+        }
+      ],
+      "tb:hasParameters": [
+            {
+              "@id": "ab:Imp6CodeParam1",
+              "@type": "tb:Parameter",
+              "tb:name": "attr",
+              "tb:type": "str"
+            },
+            {
+              "@id": "ab:Imp6CodeParam2",
+              "@type": "tb:Parameter",
+              "tb:name": "data",
+              "tb:type": "pydicom.dataset.FileDataset"
+            }
+          ],
+          "tb:dependsOn": [
+            {
+              "@id": "ab:Imp6CodeDep1",
+              "@type": "tb:Library",
+              "tb:name": "pydicom",
+              "tb:version": "1.0.0"
+            }
+          ],
+          "tb:forOp": [
+            {
+              "@id": "ab:anonymize",
+              "@type": "tb:Operation"
+            }
+          ],
+          "tb:forType": [
+            {
+              "@id": "ab:Image",
+              "@type": "tb:DatasetTypeTemplate"
+            }
+          ],
+          "tb:returns": "boolean"
+        }
+    ,
+    {
+      "@id": "ab:Imp1",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:Imp1Code",
+          "@type": "tb:Code",
+          "tb:code": "pandas.read_csv(p)"
+        }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp1CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "p",
+            "tb:type": "str"
+          }
+      ],
+        "tb:dependsOn": [
+          {
+            "@id": "ab:Imp1CodeDep1",
+            "tb:name": "pandas",
+            "@type": "tb:Library"
+          }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "ab:LoadData",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:Tabular",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ],
+      "tb:returns": "pandas.DataFrame"
+    },
+    {
+      "@id": "ab:Imp9",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:Imp9Code",
+          "@type": "tb:Code",
+          "tb:code": "pydicom.dcmread(p)"
+        }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp9CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "p",
+            "tb:type": "str"
+          }
+      ],
+        "tb:dependsOn": [
+          {
+            "@id": "ab:Imp9CodeDep1",
+            "tb:name": "pydicom",
+            "@type": "tb:Library"
+          }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "ab:LoadData",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:Image",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ],
+      "tb:returns": "pydicom.dataset.FileDataset"
     },
       {
       "@id": "ab:countValuesOp",
       "@type": "tb:Operation",
       "tb:hasTranslation": [
         {
-          "@id": "ab:Imp3",
+          "@id": "ab:Imp10",
           "@type": "tb:Implementation",
           "tb:hasCode": [
             {
-              "@id": "ab:Imp3Code",
+              "@id": "ab:Imp10Code",
               "@type": "tb:Code",
               "tb:code": "data[p].count() // len(data) * 100"
             }
           ],
           "tb:hasParameters": [
               {
-                "@id": "ab:Imp3CodeParam1",
+                "@id": "ab:Imp10CodeParam1",
                 "@type": "tb:Parameter",
                 "tb:name": "p",
                 "tb:type": "str"
               },
               {
-                "@id": "ab:Imp3CodeParam2",
+                "@id": "ab:Imp10CodeParam2",
                 "@type": "tb:Parameter",
                 "tb:name": "data",
                 "tb:type": "pandas.DataFrame"
@@ -112,7 +211,7 @@
           ],
             "tb:dependsOn": [
               {
-                "@id": "ab:Imp3CodeDep1",
+                "@id": "ab:Imp10CodeDep1",
                 "tb:name": "pandas",
                 "@type": "tb:Library"
               }
@@ -122,17 +221,78 @@
       ]
     },
      {
-      "@id": "ab:Constraint",
-      "@type": "tb:Operation",
+      "@id": "ab:Op1",
+      "@type": "tb:Operator",
       "tb:hasTranslation": [
         {
           "@id": "ab:Imp4",
-          "@type": "tb:Implementation"
+          "@type": "tb:Implementation",
+          "tb:hasCode": [
+            {
+              "@id": "ab:Imp4Code",
+              "@type": "tb:Code",
+              "tb:code": "lo >= ro"
+            }
+          ],
+          "tb:hasParameters": [
+              {
+                "@id": "ab:Imp4CodeParam1",
+                "@type": "tb:Parameter",
+                "tb:name": "lo",
+                "tb:type": "str"
+              },
+              {
+                "@id": "ab:Imp4CodeParam2",
+                "@type": "tb:Parameter",
+                "tb:name": "ro",
+                "tb:type": "int"
+              },
+              {
+                "@id": "ab:Imp4CodeParam3",
+                "@type": "tb:Parameter",
+                "tb:name": "data",
+                "tb:type": "pandas.DataFrame"
+              }
+          ]
         }
       ]
       },
-    {
-      "@id": ""
-    }
+      {
+      "@id": "ab:Op2",
+      "@type": "tb:Operator",
+      "tb:hasTranslation": [
+        {
+          "@id": "ab:Imp5",
+          "@type": "tb:Implementation",
+          "tb:hasCode": [
+            {
+              "@id": "ab:Imp5Code",
+              "@type": "tb:Code",
+              "tb:code": "data[lo].dtype == ro"
+            }
+          ],
+          "tb:hasParameters": [
+            {
+              "@id": "ab:Imp5CodeParam1",
+              "@type": "tb:Parameter",
+              "tb:name": "lo",
+              "tb:type": "str"
+            },
+            {
+              "@id": "ab:Imp5CodeParam2",
+              "@type": "tb:Parameter",
+              "tb:name": "ro",
+              "tb:type": "int"
+            },
+            {
+              "@id": "ab:Imp5CodeParam3",
+              "@type": "tb:Parameter",
+              "tb:name": "data",
+              "tb:type": "pandas.DataFrame"
+            }
+          ]
+        }
+      ]
+      }
   ]
 }

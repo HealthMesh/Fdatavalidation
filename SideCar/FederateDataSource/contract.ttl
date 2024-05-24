@@ -32,6 +32,11 @@ ab:AnonDuty a odrl:Duty ;
     odrl:action odrl:anonymize ;
     odrl:target ab:ID .
 
+ab:AnonDutyC a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:constraint odrl:c2 ;
+    odrl:target ab:ID .
+
 ab:CompleteDuty a odrl:Duty ;
     odrl:constraint odrl:c1 ;
     odrl:target ab:Gender .
@@ -79,7 +84,8 @@ ab:countValues a prov:SoftwareAgent .
 ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
     tb:hasMapping ab:map1 ;
     tb:hasPolicy ab:p1,
-        ab:p2 .
+        ab:p2,
+        ab:p3 .
 
 ab:map1 a tb:SchemaMapping ;
     tb:mfrom ab:ID ;
@@ -91,6 +97,9 @@ ab:p1 a odrl:Privacy ;
 ab:p2 a dqv:QualityPolicy ;
     odrl:duty ab:CompleteDuty .
 
+ab:p3 a odrl:Privacy ;
+    odrl:duty ab:AnonDutyC .
+
 ab:percentatgeFromTotal a dqv:Metric ;
     dqv:inDimension ab:Completeness .
 
@@ -99,15 +108,20 @@ ab:qM a dqv:QualityMeasurement ;
     dqv:value "" ;
     prov:wasAssociatedWith ab:countValues .
 
-odrl:anonymize a odrl:Action .
-
 odrl:c1 a odrl:Constraint ;
     odrl:leftOperand ab:qM ;
     odrl:operator "odrl:gteq" ;
     odrl:rightOperand 99.0 .
 
+odrl:c2 a odrl:Constraint ;
+    odrl:leftOperand ab:ID ;
+    odrl:operator "odrl:isA" ;
+    odrl:rightOperand "xsd:string" .
+
 ab:Gender a tb:Attribute ;
     tb:attribute "Gender" .
+
+odrl:anonymize a odrl:Action .
 
 ab:ID a tb:Attribute ;
     tb:attribute "ID" .

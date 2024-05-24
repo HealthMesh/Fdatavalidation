@@ -17,7 +17,25 @@
       "tb:hasOP": [
       {
         "@id": "ab:anonymize",
-        "@type": "tb:Operation"
+        "@type": "tb:Operation",
+        "tb:hasAttribute": [
+          {
+            "@id": "ab:attribute",
+            "@type": "tb:Attribute"
+          }
+        ],
+        "tb:hasInput": [
+          {
+            "@id": "ab:data",
+            "@type": "tb:Dataset"
+          }
+        ],
+        "tb:hasOutput": [
+          {
+            "@id": "ab:boolean",
+            "@type": "tb:Value"
+          }
+        ]
       }
       ]
     },
@@ -27,7 +45,19 @@
         "tb:hasOP": [
         {
             "@id": "ab:LoadData",
-            "@type": "tb:initOperation"
+            "@type": "tb:initOperation",
+            "tb:hasOutput": [
+              {
+                "@id": "ab:data",
+                "@type": "tb:Dataset"
+              }
+            ],
+          "tb:hasParameter": [
+            {
+              "@id": "ab:path",
+              "@type": "tb:File"
+            }
+          ]
         }
       ]
     },

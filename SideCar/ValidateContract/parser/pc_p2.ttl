@@ -36,17 +36,16 @@ ab:AnonDuty a odrl:Duty ;
     odrl:action odrl:anonymize ;
     odrl:target ab:ID .
 
+ab:AnonDutyC a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:constraint odrl:c2 ;
+    odrl:target ab:ID .
+
 ab:CompleteDuty a odrl:Duty ;
     odrl:constraint odrl:c1 ;
     odrl:target ab:Gender .
 
 ab:Completeness a dqv:Dimension .
-
-ab:Constraint a tb:Operation ;
-    tb:Operator ">=" ;
-    tb:hasLeftOperand ab:qM ;
-    tb:hasRightOperand 99.0 ;
-    tb:nextStep ab:Report .
 
 ab:GTR_over90percent a tb:Attribute ;
     tb:attribute "GTR_over90percent" .
@@ -57,17 +56,15 @@ ab:IDH1 a tb:Attribute ;
 ab:KPS a tb:Attribute ;
     tb:attribute "KPS" .
 
-ab:LoadData a tb:InitOperation ;
-    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:nextStep ab:countValuesOp .
+ab:LoadData a tb:initOperation ;
+    tb:hasOutput ab:data ;
+    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
 ab:MGMT a tb:Attribute ;
     tb:attribute "MGMT" .
 
 ab:PsP_TP_score a tb:Attribute ;
     tb:attribute "PsP_TP_score" .
-
-ab:Report a tb:Report .
 
 ab:Static a tb:Acces ;
     tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
@@ -92,14 +89,11 @@ ab:Time_since_baseline_preop a tb:Attribute ;
 
 ab:countValues a prov:SoftwareAgent .
 
-ab:countValuesOp a tb:Operation ;
-    tb:hasParameter ab:Gender ;
-    tb:nextStep ab:Constraint .
-
 ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
     tb:hasMapping ab:map1 ;
     tb:hasPolicy ab:p1,
-        ab:p2 .
+        ab:p2,
+        ab:p3 .
 
 ab:map1 a tb:SchemaMapping ;
     tb:mfrom ab:ID ;
@@ -108,26 +102,34 @@ ab:map1 a tb:SchemaMapping ;
 ab:p1 a odrl:Privacy ;
     odrl:duty ab:AnonDuty .
 
+ab:p3 a odrl:Privacy ;
+    odrl:duty ab:AnonDutyC .
+
 ab:percentatgeFromTotal a dqv:Metric ;
     dqv:inDimension ab:Completeness .
-
-odrl:anonymize a odrl:Action .
-
-odrl:c1 a odrl:Constraint ;
-    odrl:leftOperand ab:qM ;
-    odrl:operator "odrl:gteq" ;
-    odrl:rightOperand 99.0 .
-
-ab:p2 a dqv:QualityPolicy ;
-    odrl:duty ab:CompleteDuty .
 
 ab:qM a dqv:QualityMeasurement ;
     dqv:isMeasurementOf ab:percentatgeFromTotal ;
     dqv:value "" ;
     prov:wasAssociatedWith ab:countValues .
 
+odrl:c1 a odrl:Constraint ;
+    odrl:leftOperand ab:qM ;
+    odrl:operator "odrl:gteq" ;
+    odrl:rightOperand 99.0 .
+
+odrl:c2 a odrl:Constraint ;
+    odrl:leftOperand ab:ID ;
+    odrl:operator "odrl:isA" ;
+    odrl:rightOperand "xsd:string" .
+
 ab:Gender a tb:Attribute ;
     tb:attribute "Gender" .
+
+ab:p2 a dqv:QualityPolicy ;
+    odrl:duty ab:CompleteDuty .
+
+odrl:anonymize a odrl:Action .
 
 ab:ID a tb:Attribute ;
     tb:attribute "ID" .
