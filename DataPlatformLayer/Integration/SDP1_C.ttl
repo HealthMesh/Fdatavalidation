@@ -1,10 +1,7 @@
 @prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
     dcterms:identifier "b4f5450e04e5c1669e36df0e37e5e172872e9cce5924c24955222d7f58004afc" ;
@@ -30,21 +27,13 @@ ab:Age_at_scan_years a tb:Attribute ;
 
 ab:AnonDuty a odrl:Duty ;
     odrl:action odrl:anonymize ;
-    odrl:target ab:ID .
-
-ab:AnonDutyC a odrl:Duty ;
-    odrl:action odrl:anonymize ;
-    odrl:constraint odrl:c2 ;
-    odrl:target ab:ID .
-
-ab:CompleteDuty a odrl:Duty ;
-    odrl:constraint odrl:c1 ;
-    odrl:target ab:Gender .
-
-ab:Completeness a dqv:Dimension .
+    odrl:target ab:Subject .
 
 ab:GTR_over90percent a tb:Attribute ;
     tb:attribute "GTR_over90percent" .
+
+ab:Gender a tb:Attribute ;
+    tb:attribute "Gender" .
 
 ab:IDH1 a tb:Attribute ;
     tb:attribute "IDH1" .
@@ -79,8 +68,6 @@ ab:Tabular a tb:DatasetTypeTemplate ;
 ab:Time_since_baseline_preop a tb:Attribute ;
     tb:attribute "Time_since_baseline_preop" .
 
-ab:countValues a prov:SoftwareAgent .
-
 ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
     tb:hasMapping ab:map1 ;
     tb:hasPolicy ab:p1,
@@ -93,33 +80,6 @@ ab:map1 a tb:SchemaMapping ;
 
 ab:p1 a odrl:Privacy ;
     odrl:duty ab:AnonDuty .
-
-ab:p2 a dqv:QualityPolicy ;
-    odrl:duty ab:CompleteDuty .
-
-ab:p3 a odrl:Privacy ;
-    odrl:duty ab:AnonDutyC .
-
-ab:percentatgeFromTotal a dqv:Metric ;
-    dqv:inDimension ab:Completeness .
-
-ab:qM a dqv:QualityMeasurement ;
-    dqv:isMeasurementOf ab:percentatgeFromTotal ;
-    dqv:value "" ;
-    prov:wasAssociatedWith ab:countValues .
-
-odrl:c1 a odrl:Constraint ;
-    odrl:leftOperand ab:qM ;
-    odrl:operator "odrl:gteq" ;
-    odrl:rightOperand 99.0 .
-
-odrl:c2 a odrl:Constraint ;
-    odrl:leftOperand ab:ID ;
-    odrl:operator "odrl:isA" ;
-    odrl:rightOperand "xsd:string" .
-
-ab:Gender a tb:Attribute ;
-    tb:attribute "Gender" .
 
 odrl:anonymize a odrl:Action .
 

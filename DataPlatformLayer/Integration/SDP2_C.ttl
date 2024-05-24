@@ -1,5 +1,6 @@
 @prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
 
 ab:dicomimage a <https://www.w3.org/ns/dcat#Dataset> ;
@@ -43,12 +44,17 @@ ab:dicomimage a <https://www.w3.org/ns/dcat#Dataset> ;
         ab:SOPClassUID,
         ab:SOPInstanceUID,
         ab:SamplesPerPixel ;
+    tb:hasDC ab:dc_dicomimage ;
     tb:hasDTT ab:Image ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
 
 ab:AccessionNumber a tb:Attribute ;
     tb:attribute "AccessionNumber" .
+
+ab:AnonDuty a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:target ab:Subject .
 
 ab:BitsAllocated a tb:Attribute ;
     tb:attribute "BitsAllocated" .
@@ -106,9 +112,6 @@ ab:NumberOfFrames a tb:Attribute ;
 
 ab:PatientBirthDate a tb:Attribute ;
     tb:attribute "PatientBirthDate" .
-
-ab:PatientID a tb:Attribute ;
-    tb:attribute "PatientID" .
 
 ab:PatientName a tb:Attribute ;
     tb:attribute "PatientName" .
@@ -168,8 +171,24 @@ ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
 ab:Static a tb:Acces ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataProduct/Data/Explotation/0002.DCM" .
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataProduct2/Data/0002.DCM" .
 
 ab:TA1 a tb:TechnologyAspects ;
     tb:typeAcces ab:Static .
+
+ab:dc_dicomimage a tb:DataContract ;
+    tb:hasMapping ab:map2 ;
+    tb:hasPolicy ab:p1 .
+
+ab:map2 a tb:SchemaMapping ;
+    tb:mfrom ab:PatientID ;
+    tb:mto ab:Subject .
+
+ab:p1 a odrl:Privacy ;
+    odrl:duty ab:AnonDuty .
+
+odrl:anonymize a odrl:Action .
+
+ab:PatientID a tb:Attribute ;
+    tb:attribute "PatientID" .
 
