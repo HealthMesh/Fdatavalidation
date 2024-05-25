@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@base": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dqv": "http://www.w3.org/ns/dqv#",
+    "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
+    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "ab:p2",
+      "@type": "dqv:QualityPolicy",
+      "odrl:duty": [
+        {
+          "@id": "ab:CompleteDuty",
+          "@type": "odrl:Duty",
+          "odrl:target": {
+            "@id": "ab:Gender"
+          },
+          "odrl:constraint": [
+            {
+              "@id": "odrl:c1",
+              "@type": "odrl:Constraint",
+              "odrl:operator": "odrl:gteq",
+              "odrl:rightOperand": {
+                "@value": "99",
+                "@type": "xsd:decimal"
+              },
+              "odrl:leftOperand": [
+                {
+                  "@id": "ab:qM",
+                  "@type": "dqv:QualityMeasurement"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "ab:qM",
+      "@type": "dqv:QualityMeasurement",
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "ab:countValues",
+          "@type": "prov:SoftwareAgent"
+        }
+      ],
+      "dqv:isMeasurementOf": [
+        {
+         "@id": "ab:percentatgeFromTotal",
+          "@type": "dqv:Metric",
+          "dqv:inDimension": [
+            {
+              "@id": "ab:Completeness",
+              "@type": "dqv:Dimension"
+            }
+          ]
+        }
+      ],
+      "dqv:value": [
+        {
+          "@value": "",
+          "@type": ""
+        }
+      ]
+    }
+  ]
+}
