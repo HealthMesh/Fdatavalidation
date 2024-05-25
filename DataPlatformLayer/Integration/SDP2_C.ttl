@@ -171,7 +171,7 @@ ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
 ab:Static a tb:Acces ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataProduct2/Data/0002.DCM" .
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 
 ab:TA1 a tb:TechnologyAspects ;
     tb:typeAcces ab:Static .

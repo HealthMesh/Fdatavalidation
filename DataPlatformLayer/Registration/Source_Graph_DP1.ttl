@@ -45,7 +45,7 @@ ab:PsP_TP_score a tb:Attribute ;
     tb:attribute "PsP_TP_score" .
 
 ab:Static a tb:Acces ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
 ab:Survival_Censor a tb:Attribute ;
     tb:attribute "Survival_Censor" .
