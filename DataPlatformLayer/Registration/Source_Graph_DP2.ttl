@@ -170,9 +170,9 @@ ab:SOPInstanceUID a tb:Attribute ;
 ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
-ab:TA2 tb:typeAcces ab:c0f5e755-9e87-48f9-8a87-f353e01b1a9c .
+ab:TA2 tb:typeAcces ab:de0792bf-6d19-453d-b7fd-a1a119401000 .
 
-ab:c0f5e755-9e87-48f9-8a87-f353e01b1a9c a tb:Acces ;
+ab:de0792bf-6d19-453d-b7fd-a1a119401000 a tb:Acces ;
     rdfs:label ab:Static ;
     tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 
