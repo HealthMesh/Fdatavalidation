@@ -1,6 +1,9 @@
 @prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
+
+ab:TA1 a tb:TechnologyAspects .
 
 ab:dicomimage a <https://www.w3.org/ns/dcat#Dataset> ;
     dcterms:identifier "35f214530372f7ab83043b98c268f58a4c042c35ccb8ed7d45e7b1911b21a659" ;
@@ -44,7 +47,7 @@ ab:dicomimage a <https://www.w3.org/ns/dcat#Dataset> ;
         ab:SOPInstanceUID,
         ab:SamplesPerPixel ;
     tb:hasDTT ab:Image ;
-    tb:hasTA ab:TA1 ;
+    tb:hasTA ab:TA2 ;
     tb:owner "UPENN" .
 
 ab:AccessionNumber a tb:Attribute ;
@@ -167,9 +170,9 @@ ab:SOPInstanceUID a tb:Attribute ;
 ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
-ab:Static a tb:Acces ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
+ab:TA2 tb:typeAcces ab:c0f5e755-9e87-48f9-8a87-f353e01b1a9c .
 
-ab:TA1 a tb:TechnologyAspects ;
-    tb:typeAcces ab:Static .
+ab:c0f5e755-9e87-48f9-8a87-f353e01b1a9c a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 

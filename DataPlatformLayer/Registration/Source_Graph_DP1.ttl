@@ -1,5 +1,6 @@
 @prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
 
 ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
@@ -19,6 +20,10 @@ ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
     tb:hasDTT ab:Tabular ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
+
+ab:18db2f65-2c79-4ecb-9fdc-703a2c2123ba a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
 ab:Age_at_scan_years a tb:Attribute ;
     tb:attribute "Age_at_scan_years" .
@@ -44,9 +49,6 @@ ab:MGMT a tb:Attribute ;
 ab:PsP_TP_score a tb:Attribute ;
     tb:attribute "PsP_TP_score" .
 
-ab:Static a tb:Acces ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
-
 ab:Survival_Censor a tb:Attribute ;
     tb:attribute "Survival_Censor" .
 
@@ -57,7 +59,7 @@ ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
     tb:attribute "Survival_from_surgery_days_UPDATED" .
 
 ab:TA1 a tb:TechnologyAspects ;
-    tb:typeAcces ab:Static .
+    tb:typeAcces ab:18db2f65-2c79-4ecb-9fdc-703a2c2123ba .
 
 ab:Tabular a tb:DatasetTypeTemplate ;
     dcterms:format "application/csv" .
