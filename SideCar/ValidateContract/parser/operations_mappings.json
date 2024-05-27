@@ -67,7 +67,19 @@
       "tb:hasOP": [
         {
           "@id": "ab:countValuesOp",
-           "@type": "tb:Operation"
+           "@type": "tb:Operation",
+            "tb:hasOutput": [
+                {
+                  "@id": "ab:data",
+                  "@type": "tb:Dataset"
+                }
+              ],
+            "tb:hasAttribute": [
+            {
+              "@id": "ab:attribute",
+              "@type": "tb:Attribute"
+            }
+          ]
         }
       ]
     }

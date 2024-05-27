@@ -17,13 +17,11 @@
   "tb:hasFeature": [
     {
       "@id": "ab:Subject",
-      "@type": "tb:Feature",
-      "tb:feature": [
-        {
-          "@id": "ab:Subject",
-          "@type": "tb:Feature"
-        }
-      ]
+      "@type": "tb:Feature"
+    },
+    {
+      "@id": "ab:Age",
+      "@type": "tb:Feature"
     }
   ]
 }

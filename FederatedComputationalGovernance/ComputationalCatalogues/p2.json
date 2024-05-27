@@ -20,7 +20,7 @@
           "@id": "ab:CompleteDuty",
           "@type": "odrl:Duty",
           "odrl:target": {
-            "@id": "ab:Gender"
+            "@id": "ab:Age"
           },
           "odrl:constraint": [
             {
