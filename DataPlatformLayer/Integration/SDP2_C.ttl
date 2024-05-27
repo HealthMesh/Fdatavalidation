@@ -173,15 +173,15 @@ ab:SOPInstanceUID a tb:Attribute ;
 ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
-ab:TA2 tb:typeAcces ab:de0792bf-6d19-453d-b7fd-a1a119401000 .
+ab:TA2 tb:typeAcces ab:bf7108eb-b508-4b63-8604-b20f9df7577c .
+
+ab:bf7108eb-b508-4b63-8604-b20f9df7577c a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 
 ab:dc_dicomimage a tb:DataContract ;
     tb:hasMapping ab:map2 ;
     tb:hasPolicy ab:p1 .
-
-ab:de0792bf-6d19-453d-b7fd-a1a119401000 a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 
 ab:map2 a tb:SchemaMapping ;
     tb:mfrom ab:PatientID ;

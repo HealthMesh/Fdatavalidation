@@ -55,7 +55,7 @@ ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
     tb:attribute "Survival_from_surgery_days_UPDATED" .
 
 ab:TA1 a tb:TechnologyAspects ;
-    tb:typeAcces ab:f180f488-9d61-4ae4-8b79-f10ff41ce324 .
+    tb:typeAcces ab:f53b983f-d904-4be1-827f-d90fbd4de2ae .
 
 ab:Tabular a tb:DatasetTypeTemplate ;
     dcterms:format "application/csv" .
@@ -63,7 +63,7 @@ ab:Tabular a tb:DatasetTypeTemplate ;
 ab:Time_since_baseline_preop a tb:Attribute ;
     tb:attribute "Time_since_baseline_preop" .
 
-ab:f180f488-9d61-4ae4-8b79-f10ff41ce324 a tb:Acces ;
+ab:f53b983f-d904-4be1-827f-d90fbd4de2ae a tb:Acces ;
     rdfs:label ab:Static ;
     tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
