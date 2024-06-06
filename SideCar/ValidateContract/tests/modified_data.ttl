@@ -1,0 +1,13 @@
+@prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
+
+tb:p1 ab:hasOP odrl:anonymize .
+
+tb:Subject a ab:Attribute .
+
+odrl:anonymize a ab:Operation ;
+    ab:hasAttribute tb:Subject ;
+    ab:hasInput tb:Dataset ;
+    ab:hasOutput tb:Dataset .
+

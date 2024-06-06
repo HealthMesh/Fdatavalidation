@@ -12,11 +12,14 @@ tb:PrivacyShape a sh:NodeShape ;
     ] .
 
 tb:DutyShape a sh:NodeShape ;
-    sh:targetClass odrl:Duty ;
     sh:property [
         sh:path odrl:target ;
         sh:nodeKind sh:IRI ;
         sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue odrl:Duty ;
     ] ;
     sh:property [
         sh:path odrl:action ;
@@ -26,9 +29,7 @@ tb:DutyShape a sh:NodeShape ;
 
 # todo: restrict to anonymize/aggregate
 tb:ActionShape a sh:NodeShape ;
-    sh:targetClass odrl:anonymize ;
     sh:property [
         sh:path rdf:type ;
         sh:hasValue odrl:Action ;
     ] .
-
