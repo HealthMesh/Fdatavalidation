@@ -1,0 +1,28 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
+PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+
+CONSTRUCT {
+    <{op_uri}> a tb:Operation ;
+               tb:hasAttribute ?attribute ;
+               tb:hasAbstract ?operation;
+               tb:hasInput ab:data ;
+               tb:hasOutput ab:data .
+    <{last_op}> tb:nextStep <{op_uri}>.
+}
+WHERE {
+    <{dp}> tb:hasDC ?dc .
+    ?dc tb:hasPolicy ?policy .
+    FILTER (?policy = <{policy_uri}>)
+    ?policy a dqv:QualityPolicy ;
+            odrl:duty ?duty .
+    ?duty odrl:target ?target .
+    ?duty odrl:constraint ?constraint .
+    ?constraint odrl:leftOperand ?lop ;
+                odrl:rightOperand ?rop ;
+                odrl:operator ?op .
+    BIND( ?lop AS ?operation)
+    BIND( ?target AS ?attribute)
+}

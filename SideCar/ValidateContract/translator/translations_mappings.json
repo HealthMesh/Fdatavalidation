@@ -43,7 +43,7 @@
           ],
           "tb:forOp": [
             {
-              "@id": "ab:anonymize",
+              "@id": "odrl:anonymize",
               "@type": "tb:Operation"
             }
           ],
@@ -90,7 +90,7 @@
           ],
           "tb:forOp": [
             {
-              "@id": "ab:anonymize",
+              "@id": "odrl:anonymize",
               "@type": "tb:Operation"
             }
           ],
@@ -214,7 +214,7 @@
         ],
         "tb:forOp": [
           {
-            "@id": "ab:countValuesOp",
+            "@id": "ab:qM",
             "@type": "tb:Operation"
           }
         ],
