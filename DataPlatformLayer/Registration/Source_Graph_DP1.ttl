@@ -21,7 +21,7 @@ ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
 
-ab:9d22d272-2e35-4ecb-86ce-700fbb289de4 a tb:Acces ;
+ab:0999e62a-9bd0-4ccc-b43f-509f7298edd5 a tb:Acces ;
     rdfs:label ab:Static ;
     tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
@@ -59,7 +59,7 @@ ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
     tb:attribute "Survival_from_surgery_days_UPDATED" .
 
 ab:TA1 a tb:TechnologyAspects ;
-    tb:typeAcces ab:9d22d272-2e35-4ecb-86ce-700fbb289de4 .
+    tb:typeAcces ab:0999e62a-9bd0-4ccc-b43f-509f7298edd5 .
 
 ab:Tabular a tb:DatasetTypeTemplate ;
     dcterms:format "application/csv" .

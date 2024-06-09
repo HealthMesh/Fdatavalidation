@@ -15,7 +15,7 @@ CONSTRUCT {
                 tb:lo ab:data ;
                 tb:hasAbstract odrl:Constraint;
                 tb:op ?operator ;
-                tb:ro ?value ;
+                tb:ro ?value ;a
                 tb:hasOutput ab:data .
     <{op_uri}> tb:nextStep ?new_op_uri.
 }

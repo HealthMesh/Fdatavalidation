@@ -50,6 +50,10 @@ ab:dicomimage a <https://www.w3.org/ns/dcat#Dataset> ;
     tb:hasTA ab:TA2 ;
     tb:owner "UPENN" .
 
+ab:8577b88d-440f-42c2-ba0e-9f07a8929983 a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
+
 ab:AccessionNumber a tb:Attribute ;
     tb:attribute "AccessionNumber" .
 
@@ -170,9 +174,5 @@ ab:SOPInstanceUID a tb:Attribute ;
 ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
-ab:TA2 tb:typeAcces ab:a2b6d2b4-6b58-4d01-aeb0-64946e35cc6f .
-
-ab:a2b6d2b4-6b58-4d01-aeb0-64946e35cc6f a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
+ab:TA2 tb:typeAcces ab:8577b88d-440f-42c2-ba0e-9f07a8929983 .
 

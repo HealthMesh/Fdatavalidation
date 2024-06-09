@@ -17,16 +17,6 @@ dcterms:identifier a owl:DatatypeProperty ;
     rdfs:domain odrl:Asset ;
     rdfs:range xsd:string .
 
-ab:609c912f-da91-47e6-a101-b3c0af7c8404 a tb:PolicyChecker ;
-    tb:hasType ab:Tabular ;
-    tb:nextStep ab:35110de7-b43c-47ff-b8af-0d4f185441db ;
-    tb:validates ab:p2 .
-
-ab:664c3439-4405-44a2-9252-faf82c5a78dd a tb:PolicyChecker ;
-    tb:hasType ab:Image ;
-    tb:nextStep ab:d776b21c-35e2-4b2b-9ad4-482362b72f71 ;
-    tb:validates ab:p1 .
-
 ab:Patient_Data a tb:DataProduct ;
     dcterms:identifier "123456" ;
     tb:hasFeature ab:Age,
@@ -51,11 +41,6 @@ ab:UPENN-GBM_clinical_info_v2 a dcat1:Dataset ;
     tb:hasDTT ab:Tabular ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
-
-ab:c9748d64-ff97-404a-be7b-666f69a743f7 a tb:PolicyChecker ;
-    tb:hasType ab:Tabular ;
-    tb:nextStep ab:95398fce-b25c-4a2c-a358-976e90565865 ;
-    tb:validates ab:p1 .
 
 ab:dicomimage a dcat1:Dataset ;
     dcterms:identifier "35f214530372f7ab83043b98c268f58a4c042c35ccb8ed7d45e7b1911b21a659" ;
@@ -212,45 +197,13 @@ odrl:permission a owl:ObjectProperty ;
     rdfs:domain odrl:Privacy ;
     rdfs:range odrl:Permission .
 
-ab:0a9225be-1e4f-44f1-9788-6fdb44898808 a tb:Report ;
-    tb:result "True" .
-
-ab:33dd60b4-ab66-4141-9ac2-b279c26ed94b a tb:Operation ;
-    tb:hasAbstract odrl:anonymize ;
-    tb:hasAttribute ab:PatientID ;
-    tb:hasInput ab:data ;
-    tb:hasOutput ab:boolean ;
-    tb:hasTranslation ab:Imp6 ;
-    tb:nextStep ab:8d3cf5ac-bf23-47b6-b3f1-61f28a678f2e .
-
-ab:35110de7-b43c-47ff-b8af-0d4f185441db a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:ae4b87c9-20ea-47b7-89bc-b9d07fdb25a3 .
-
-ab:3ff57feb-d489-42ad-b30a-92ada5bb61d7 a tb:Operation ;
-    tb:hasAbstract odrl:anonymize ;
-    tb:hasAttribute ab:ID ;
-    tb:hasInput ab:data ;
-    tb:hasOutput ab:boolean ;
-    tb:hasTranslation ab:Imp2 ;
-    tb:nextStep ab:d0ced517-627c-455b-bf81-c896d8cd9871 .
-
-ab:8d3cf5ac-bf23-47b6-b3f1-61f28a678f2e a tb:Report ;
-    tb:result false .
-
-ab:95398fce-b25c-4a2c-a358-976e90565865 a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:3ff57feb-d489-42ad-b30a-92ada5bb61d7 .
-
-ab:9d22d272-2e35-4ecb-86ce-700fbb289de4 a tb:Acces ;
+ab:0999e62a-9bd0-4ccc-b43f-509f7298edd5 a tb:Acces ;
     rdfs:label ab:Static ;
     tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
+
+ab:8577b88d-440f-42c2-ba0e-9f07a8929983 a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 
 ab:AccessionNumber a tb:Attribute ;
     tb:attribute "AccessionNumber" .
@@ -258,6 +211,11 @@ ab:AccessionNumber a tb:Attribute ;
 ab:AnonDuty a odrl:Duty ;
     odrl:action odrl:anonymize ;
     odrl:target ab:Subject .
+
+ab:AnonDutyC a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:constraint odrl:c2 ;
+    odrl:target ab:ID .
 
 ab:BitsAllocated a tb:Attribute ;
     tb:attribute "BitsAllocated" .
@@ -295,127 +253,11 @@ ab:HighBit a tb:Attribute ;
 ab:IDH1 a tb:Attribute ;
     tb:attribute "IDH1" .
 
+ab:Image a tb:DatasetTypeTemplate ;
+    dcterms:format "dicom" .
+
 ab:ImageType a tb:Attribute ;
     tb:attribute "ImageType" .
-
-ab:Imp10 a tb:Implementation ;
-    tb:dependsOn ab:Imp10CodeDep1 ;
-    tb:forOp ab:qM ;
-    tb:forType ab:Tabular ;
-    tb:hasCode ab:Imp10Code ;
-    tb:hasParameters ab:Imp10CodeParam1,
-        ab:Imp10CodeParam2 ;
-    tb:returns "integer" .
-
-ab:Imp10Code a tb:Code ;
-    tb:code "(data[attr].count().sum() / len(data)) * 100" .
-
-ab:Imp10CodeDep1 a tb:Library ;
-    tb:name "pandas" .
-
-ab:Imp10CodeParam1 a tb:Parameter ;
-    tb:name "attr" ;
-    tb:type "str" .
-
-ab:Imp10CodeParam2 a tb:Parameter ;
-    tb:name "data" ;
-    tb:type "pandas.DataFrame" .
-
-ab:Imp1Code a tb:Code ;
-    tb:code "pandas.read_csv(p)" .
-
-ab:Imp1CodeParam1 a tb:Parameter ;
-    tb:name "p" ;
-    tb:type "str" .
-
-ab:Imp1CodeParam2 a tb:Parameter ;
-    tb:name "data" ;
-    tb:type "pandas.DataFrame" .
-
-ab:Imp2 a tb:Implementation ;
-    tb:dependsOn ab:Imp1CodeDep1 ;
-    tb:forOp odrl:anonymize ;
-    tb:forType ab:Tabular ;
-    tb:hasCode ab:Imp2Code ;
-    tb:hasParameters ab:Imp1CodeParam2,
-        ab:Imp2CodeParam1 ;
-    tb:returns "boolean" .
-
-ab:Imp2Code a tb:Code ;
-    tb:code "data[attr].isna().all()" .
-
-ab:Imp2CodeParam1 a tb:Parameter ;
-    tb:name "attr" ;
-    tb:type "str" .
-
-ab:Imp4 a tb:Implementation ;
-    tb:dependsOn ab:Imp4CodeDep1 ;
-    tb:forOp odrl:Constraint ;
-    tb:forType ab:Tabular ;
-    tb:hasCode ab:Imp4Code ;
-    tb:hasParameters ab:Imp4CodeParam1,
-        ab:Imp4CodeParam2,
-        ab:Imp4CodeParam3 .
-
-ab:Imp4Code a tb:Code ;
-    tb:code "data >= ro" .
-
-ab:Imp4CodeDep1 a tb:Library ;
-    tb:name "pandas" .
-
-ab:Imp4CodeParam1 a tb:Parameter ;
-    tb:name "lo" ;
-    tb:type "str" .
-
-ab:Imp4CodeParam2 a tb:Parameter ;
-    tb:name "ro" ;
-    tb:type "int" .
-
-ab:Imp4CodeParam3 a tb:Parameter ;
-    tb:name "data" ;
-    tb:type "pandas.DataFrame" .
-
-ab:Imp6 a tb:Implementation ;
-    tb:dependsOn ab:Imp6CodeDep1 ;
-    tb:forOp odrl:anonymize ;
-    tb:forType ab:Image ;
-    tb:hasCode ab:Imp6Code ;
-    tb:hasParameters ab:Imp6CodeParam1,
-        ab:Imp6CodeParam2 ;
-    tb:returns "boolean" .
-
-ab:Imp6Code a tb:Code ;
-    tb:code "getattr(data, attr,None) == None" .
-
-ab:Imp6CodeDep1 a tb:Library ;
-    tb:name "pydicom" ;
-    tb:version "1.0.0" .
-
-ab:Imp6CodeParam1 a tb:Parameter ;
-    tb:name "attr" ;
-    tb:type "str" .
-
-ab:Imp6CodeParam2 a tb:Parameter ;
-    tb:name "data" ;
-    tb:type "pydicom.dataset.FileDataset" .
-
-ab:Imp9 a tb:Implementation ;
-    tb:dependsOn ab:Imp9CodeDep1 ;
-    tb:forOp ab:LoadData ;
-    tb:forType ab:Image ;
-    tb:hasCode ab:Imp9Code ;
-    tb:hasParameters ab:Imp9CodeParam1 ;
-    tb:returns "pydicom.dataset.FileDataset" .
-
-ab:Imp9Code a tb:Code ;
-    tb:code "pydicom.dcmread(p)" .
-
-ab:Imp9CodeDep1 a tb:Library ;
-    tb:name "pydicom" .
-
-ab:Imp9CodeParam1 a tb:Parameter ;
-    tb:name "p" ;
-    tb:type "str" .
 
 ab:InstanceNumber a tb:Attribute ;
     tb:attribute "InstanceNumber" .
@@ -523,51 +365,24 @@ ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
     tb:attribute "Survival_from_surgery_days_UPDATED" .
 
 ab:TA1 a tb:TechnologyAspects ;
-    tb:typeAcces ab:9d22d272-2e35-4ecb-86ce-700fbb289de4 .
+    tb:typeAcces ab:0999e62a-9bd0-4ccc-b43f-509f7298edd5 .
 
-ab:TA2 tb:typeAcces ab:a2b6d2b4-6b58-4d01-aeb0-64946e35cc6f .
+ab:TA2 tb:typeAcces ab:8577b88d-440f-42c2-ba0e-9f07a8929983 .
+
+ab:Tabular a tb:DatasetTypeTemplate ;
+    dcterms:format "application/csv" .
 
 ab:Time_since_baseline_preop a tb:Attribute ;
     tb:attribute "Time_since_baseline_preop" .
 
-ab:a2b6d2b4-6b58-4d01-aeb0-64946e35cc6f a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
-
-ab:ae4b87c9-20ea-47b7-89bc-b9d07fdb25a3 a tb:Operation ;
-    tb:hasAbstract ab:qM ;
-    tb:hasAttribute ab:Age_at_scan_years ;
-    tb:hasInput ab:data ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp10 ;
-    tb:nextStep ab:b8d16d88-844d-438f-8162-db06643cbf94 .
-
-ab:b8d16d88-844d-438f-8162-db06643cbf94 a tb:Operator ;
-    tb:hasAbstract odrl:Constraint ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp4 ;
-    tb:lo ab:data ;
-    tb:nextStep ab:0a9225be-1e4f-44f1-9788-6fdb44898808 ;
-    tb:op "odrl:gteq" ;
-    tb:ro 99.0 .
-
 ab:countValues a prov:SoftwareAgent .
-
-ab:d0ced517-627c-455b-bf81-c896d8cd9871 a tb:Report ;
-    tb:result "False" .
-
-ab:d776b21c-35e2-4b2b-9ad4-482362b72f71 a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" ;
-    tb:hasTranslation ab:Imp9 ;
-    tb:nextStep ab:33dd60b4-ab66-4141-9ac2-b279c26ed94b .
 
 ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
     tb:hasMapping ab:map1,
         ab:map3 ;
     tb:hasPolicy ab:p1,
-        ab:p2 .
+        ab:p2,
+        ab:p3 .
 
 ab:dc_dicomimage a tb:DataContract ;
     tb:hasMapping ab:map2 ;
@@ -585,28 +400,40 @@ ab:map3 a tb:SchemaMapping ;
     tb:mfrom ab:Age_at_scan_years ;
     tb:mto ab:Age .
 
+ab:p2 a ns1:QualityPolicy ;
+    odrl:duty ab:CompleteDuty .
+
+ab:p3 a odrl:Privacy ;
+    odrl:duty ab:AnonDutyC .
+
 ab:percentatgeFromTotal a ns1:Metric ;
     ns1:inDimension ab:Completeness .
+
+ab:qM a ns1:QualityMeasurement ;
+    ns1:isMeasurementOf ab:percentatgeFromTotal ;
+    ns1:value "" ;
+    prov:wasAssociatedWith ab:countValues .
 
 odrl:c1 a odrl:Constraint ;
     odrl:leftOperand ab:qM ;
     odrl:operator "odrl:gteq" ;
     odrl:rightOperand 99.0 .
 
-ab:Imp1 a tb:Implementation ;
-    tb:dependsOn ab:Imp1CodeDep1 ;
-    tb:forOp ab:LoadData ;
-    tb:forType ab:Tabular ;
-    tb:hasCode ab:Imp1Code ;
-    tb:hasParameters ab:Imp1CodeParam1 ;
-    tb:returns "pandas.DataFrame" .
+odrl:c2 a odrl:Constraint ;
+    odrl:leftOperand ab:ID ;
+    odrl:operator "odrl:isA" ;
+    odrl:rightOperand "xsd:string" .
 
-ab:Imp1CodeDep1 a tb:Library ;
-    tb:name "pandas" ;
-    tb:version "1.0.0" .
+ab:Age_at_scan_years a tb:Attribute ;
+    tb:attribute "Age_at_scan_years" .
 
-ab:p2 a ns1:QualityPolicy ;
-    odrl:duty ab:CompleteDuty .
+ab:PatientID a tb:Attribute ;
+    tb:attribute "PatientID" .
+
+ab:p1 a odrl:Privacy ;
+    odrl:duty ab:AnonDuty .
+
+tb:Code a owl:Class .
 
 tb:DataProduct a owl:Class ;
     rdfs:label "DataProduct"@en ;
@@ -621,71 +448,43 @@ odrl:Permission a owl:Class ;
 
 odrl:Policy a owl:Class .
 
-odrl:Privacy a owl:Class ;
-    rdfs:subClassOf odrl:Policy .
-
 odrl:Rule a owl:Class .
+
+odrl:anonymize a odrl:Action .
 
 ab:Age a tb:Feature .
 
-ab:Age_at_scan_years a tb:Attribute ;
-    tb:attribute "Age_at_scan_years" .
+tb:Implementation a owl:Class .
 
-ab:ID a tb:Attribute ;
-    tb:attribute "ID" .
+tb:Library a owl:Class .
 
-ab:PatientID a tb:Attribute ;
-    tb:attribute "PatientID" .
-
-ab:qM a tb:Operation,
-        ns1:QualityMeasurement ;
-    ns1:isMeasurementOf ab:percentatgeFromTotal ;
-    ns1:value "" ;
-    prov:wasAssociatedWith ab:countValues .
+tb:PolicyChecker a owl:Class .
 
 odrl:Action a owl:Class .
 
-odrl:Constraint a tb:Operation .
+odrl:Privacy a owl:Class ;
+    rdfs:subClassOf odrl:Policy .
 
 dcat1:Dataset a owl:Class ;
     rdfs:subClassOf odrl:Asset .
 
-ab:Image a tb:DatasetTypeTemplate ;
-    dcterms:format "dicom" .
+ab:ID a tb:Attribute ;
+    tb:attribute "ID" .
 
 ab:Subject a tb:Feature .
-
-ab:p1 a odrl:Privacy ;
-    odrl:duty ab:AnonDuty .
 
 tb:DataContract a owl:Class .
 
 tb:Feature a owl:Class .
 
-odrl:Duty a owl:Class ;
-    rdfs:subClassOf odrl:Rule .
-
-ab:LoadData a tb:Operation .
+tb:Operation a owl:Class .
 
 tb:DatasetTypeTemplate a owl:Class .
 
-odrl:anonymize a tb:Operation,
-        odrl:Action .
-
-tb:PolicyChecker a owl:Class .
-
-ab:Tabular a tb:DatasetTypeTemplate ;
-    dcterms:format "application/csv" .
+odrl:Duty a owl:Class ;
+    rdfs:subClassOf odrl:Rule .
 
 odrl:Asset a owl:Class .
-
-tb:Code a owl:Class .
-
-tb:Library a owl:Class .
-
-tb:Implementation a owl:Class .
-
-tb:Operation a owl:Class .
 
 tb:Attribute a owl:Class .
 
