@@ -17,29 +17,16 @@ dcterms:identifier a owl:DatatypeProperty ;
     rdfs:domain odrl:Asset ;
     rdfs:range xsd:string .
 
-<<<<<<< HEAD
-ab:44d489c0-0326-478f-839a-28c69c684dad a tb:PolicyChecker ;
-    tb:hasType ab:Tabular ;
-    tb:nextStep ab:d3f02b78-60c0-4fe2-bb38-29eb5624225f ;
-    tb:validates ab:p1 .
-
-ab:5ac7b50d-9d1e-457f-b173-16b89b9ab28b a tb:PolicyChecker ;
+ab:031d7ed6-1fdb-467c-aae6-b4f5a6420cd0 a tb:PolicyChecker ;
     tb:hasType ab:Image ;
-    tb:nextStep ab:dfee2341-6c71-4595-adb4-0c82692c18d7 ;
+    tb:nextStep ab:209057ce-3147-4b65-a351-49693d368e52 ;
     tb:validates ab:p1 .
 
-ab:7eb75932-b035-44ca-8804-5ece35b0da4f a tb:PolicyChecker ;
+ab:4deb89fd-8d3f-444a-bf30-c550921aea33 a tb:PolicyChecker ;
     tb:hasType ab:Tabular ;
-    tb:nextStep ab:6c453a0c-2fa0-4235-9733-af824bf593b9 ;
+    tb:nextStep ab:08d00a1f-a783-4213-baa1-355f386171cf ;
     tb:validates ab:p2 .
 
-=======
-ab:0aa9cc92-7aa8-4543-a6bd-ef2f8aa5cca9 a tb:PolicyChecker ;
-    tb:hasType ab:Image ;
-    tb:nextStep ab:c5728b0e-6b25-4480-bc5b-c51a7e67b01e ;
-    tb:validates ab:p1 .
-
->>>>>>> rewr
 ab:Patient_Data a tb:DataProduct ;
     dcterms:identifier "123456" ;
     tb:hasFeature ab:Age,
@@ -65,19 +52,6 @@ ab:UPENN-GBM_clinical_info_v2 a dcat1:Dataset ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
 
-<<<<<<< HEAD
-=======
-ab:d84092c5-d445-4b17-b6ca-3a524e04e09a a tb:PolicyChecker ;
-    tb:hasType ab:Tabular ;
-    tb:nextStep ab:8476ff3c-4a73-4050-9d40-7764bffdf977 ;
-    tb:validates ab:p2 .
-
-ab:de62e834-2cc2-4153-9879-5401fde0858c a tb:PolicyChecker ;
-    tb:hasType ab:Tabular ;
-    tb:nextStep ab:5c994fdd-a922-446a-b4ca-74403db2abf7 ;
-    tb:validates ab:p1 .
-
->>>>>>> rewr
 ab:dicomimage a dcat1:Dataset ;
     dcterms:identifier "35f214530372f7ab83043b98c268f58a4c042c35ccb8ed7d45e7b1911b21a659" ;
     tb:hasAttribute ab:AccessionNumber,
@@ -123,6 +97,11 @@ ab:dicomimage a dcat1:Dataset ;
     tb:hasDTT ab:Image ;
     tb:hasTA ab:TA2 ;
     tb:owner "UPENN" .
+
+ab:f02753f2-4129-479a-87bf-1e7de70a4bb3 a tb:PolicyChecker ;
+    tb:hasType ab:Tabular ;
+    tb:nextStep ab:6180d5a6-3c2c-48a6-91a9-029e6357d05d ;
+    tb:validates ab:p1 .
 
 ab:p3 a odrl:Privacy ;
     odrl:duty ab:AnonDutyC .
@@ -236,98 +215,44 @@ odrl:permission a owl:ObjectProperty ;
     rdfs:domain odrl:Privacy ;
     rdfs:range odrl:Permission .
 
-<<<<<<< HEAD
-ab:038c5d9b-197c-4391-96a6-8e7eb89a7018 a tb:Operation ;
-    tb:hasAbstract ab:anonymize ;
-=======
-ab:0836807e-ee16-43e4-ace9-55636e3005af a tb:Operator ;
-    tb:hasAbstract odrl:Constraint ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp4 ;
-    tb:lo ab:data ;
-    tb:nextStep ab:a230d406-369c-4406-972b-b201d8b63da2 ;
-    tb:op "odrl:gteq" ;
-    tb:ro 99.0 .
-
-ab:1668ca79-d9e7-4afd-b662-c2b58e67a562 a tb:Acces ;
+ab:0592f80b-4514-4d25-aa51-8175c9cf4ba2 a tb:Acces ;
     rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
+    tb:path "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer/Registration\\../../DataProductLayer/DataProduct2/Data/0002.DCM" .
 
-ab:2e754dc2-93bd-4864-a57e-76ca6c998ac6 a tb:Report ;
-    tb:result false .
-
-ab:3b900875-7a54-4bc9-9ea0-e988a6531ed4 a tb:Operation ;
-    tb:hasAbstract odrl:anonymize ;
->>>>>>> rewr
-    tb:hasAttribute ab:ID ;
-    tb:hasInput ab:data ;
-    tb:hasOutput ab:boolean ;
-    tb:hasTranslation ab:Imp2 ;
-<<<<<<< HEAD
-    tb:nextStep ab:1b5e1095-7a7f-4186-ba19-527f9a38d537 .
-
-ab:1254e01b-82bc-4adb-8db8-17c3f480a92e a tb:Report ;
-    tb:result 1e+02 .
-
-ab:1b5e1095-7a7f-4186-ba19-527f9a38d537 a tb:Report ;
-    tb:result "False" .
-
-ab:3cb6e762-d0b1-4790-a1ee-3c3ead6548c9 a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
-
-ab:3ed84904-d541-423f-b73d-47daf1a84091 a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct2/Data/0002.DCM" .
-
-ab:4a4bae18-a43a-4be6-a237-f1235b9dcfeb a tb:Report ;
-    tb:result false .
-
-ab:6c453a0c-2fa0-4235-9733-af824bf593b9 a tb:initOperation ;
-=======
-    tb:nextStep ab:880553aa-e2a5-4ec8-bfec-f9c726adbb55 .
-
-ab:5c994fdd-a922-446a-b4ca-74403db2abf7 a tb:initOperation ;
->>>>>>> rewr
+ab:08d00a1f-a783-4213-baa1-355f386171cf a tb:initOperation ;
     tb:hasAbstract ab:LoadData ;
     tb:hasOutput ab:data ;
-    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer/Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
     tb:hasTranslation ab:Imp1 ;
-<<<<<<< HEAD
-    tb:nextStep ab:c837ca26-f281-4014-9d0d-a5054770bf20 .
+    tb:nextStep ab:9e1eb5f2-3b07-4ec1-befc-e4894816bb79 .
 
-ab:8e5dfabe-b6e5-4cbb-b10a-934a6b49a48b a tb:Operation ;
-    tb:hasAbstract ab:anonymize ;
-    tb:hasAttribute ab:PatientID ;
-    tb:hasInput ab:data ;
-    tb:hasOutput ab:boolean ;
-    tb:hasTranslation ab:Imp6 ;
-    tb:nextStep ab:4a4bae18-a43a-4be6-a237-f1235b9dcfeb .
-=======
-    tb:nextStep ab:3b900875-7a54-4bc9-9ea0-e988a6531ed4 .
+ab:209057ce-3147-4b65-a351-49693d368e52 a tb:initOperation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasOutput ab:data ;
+    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer/Registration\\../../DataProductLayer/DataProduct2/Data/0002.DCM" ;
+    tb:hasTranslation ab:Imp9 ;
+    tb:nextStep ab:da737522-c757-4157-ac3c-ce42e2b61342 .
 
-ab:67fc84ae-798c-4c1c-9fe2-64d73980fbce a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
+ab:2a5a551f-35f7-44a2-b6b0-f17ddf7c980d a tb:Report ;
+    tb:result false .
 
-ab:81d92bd7-75e3-476f-990e-0050c1236aeb a tb:Operation ;
+ab:37dee00b-4526-4f6a-8a34-e943608de920 a tb:Report ;
+    tb:result "False" .
+
+ab:6180d5a6-3c2c-48a6-91a9-029e6357d05d a tb:initOperation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasOutput ab:data ;
+    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer/Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasTranslation ab:Imp1 ;
+    tb:nextStep ab:ec409d0e-5d2c-41d1-9d8f-fc59af802751 .
+
+ab:9e1eb5f2-3b07-4ec1-befc-e4894816bb79 a tb:Operation ;
     tb:hasAbstract ab:qM ;
     tb:hasAttribute ab:Age_at_scan_years ;
     tb:hasInput ab:data ;
     tb:hasOutput ab:data ;
     tb:hasTranslation ab:Imp10 ;
-    tb:nextStep ab:0836807e-ee16-43e4-ace9-55636e3005af .
-
-ab:8476ff3c-4a73-4050-9d40-7764bffdf977 a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:81d92bd7-75e3-476f-990e-0050c1236aeb .
-
-ab:880553aa-e2a5-4ec8-bfec-f9c726adbb55 a tb:Report ;
-    tb:result "False" .
->>>>>>> rewr
+    tb:nextStep ab:c81fd10d-bff5-4c46-89dc-ab801112eeb0 .
 
 ab:AccessionNumber a tb:Attribute ;
     tb:attribute "AccessionNumber" .
@@ -605,54 +530,35 @@ ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
     tb:attribute "Survival_from_surgery_days_UPDATED" .
 
 ab:TA1 a tb:TechnologyAspects ;
-<<<<<<< HEAD
-    tb:typeAcces ab:3cb6e762-d0b1-4790-a1ee-3c3ead6548c9 .
+    tb:typeAcces ab:db182904-d3dc-4c7a-94dd-f122954e8e7f .
 
-ab:TA2 tb:typeAcces ab:3ed84904-d541-423f-b73d-47daf1a84091 .
-=======
-    tb:typeAcces ab:67fc84ae-798c-4c1c-9fe2-64d73980fbce .
-
-ab:TA2 tb:typeAcces ab:1668ca79-d9e7-4afd-b662-c2b58e67a562 .
->>>>>>> rewr
+ab:TA2 tb:typeAcces ab:0592f80b-4514-4d25-aa51-8175c9cf4ba2 .
 
 ab:Time_since_baseline_preop a tb:Attribute ;
     tb:attribute "Time_since_baseline_preop" .
 
-<<<<<<< HEAD
-ab:c837ca26-f281-4014-9d0d-a5054770bf20 a tb:Operation ;
-    tb:hasAbstract ab:countValuesOp ;
-    tb:hasAttribute ab:Age_at_scan_years ;
+ab:c81fd10d-bff5-4c46-89dc-ab801112eeb0 a tb:Operator ;
+    tb:hasAbstract odrl:Constraint ;
     tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp10 ;
-    tb:nextStep ab:1254e01b-82bc-4adb-8db8-17c3f480a92e .
-=======
-ab:a230d406-369c-4406-972b-b201d8b63da2 a tb:Report ;
-    tb:result "True" .
+    tb:hasTranslation ab:Imp4 ;
+    tb:lo ab:data ;
+    tb:nextStep ab:e0f419bf-3173-4314-8f79-87d5ffc06aed ;
+    tb:op "odrl:gteq" ;
+    tb:ro 99.0 .
 
-ab:a7945e38-2b86-450e-abed-925d069ee94d a tb:Operation ;
+ab:countValues a prov:SoftwareAgent .
+
+ab:da737522-c757-4157-ac3c-ce42e2b61342 a tb:Operation ;
     tb:hasAbstract odrl:anonymize ;
     tb:hasAttribute ab:PatientID ;
     tb:hasInput ab:data ;
     tb:hasOutput ab:boolean ;
     tb:hasTranslation ab:Imp6 ;
-    tb:nextStep ab:2e754dc2-93bd-4864-a57e-76ca6c998ac6 .
+    tb:nextStep ab:2a5a551f-35f7-44a2-b6b0-f17ddf7c980d .
 
-ab:c5728b0e-6b25-4480-bc5b-c51a7e67b01e a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" ;
-    tb:hasTranslation ab:Imp9 ;
-    tb:nextStep ab:a7945e38-2b86-450e-abed-925d069ee94d .
->>>>>>> rewr
-
-ab:countValues a prov:SoftwareAgent .
-
-ab:d3f02b78-60c0-4fe2-bb38-29eb5624225f a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:038c5d9b-197c-4391-96a6-8e7eb89a7018 .
+ab:db182904-d3dc-4c7a-94dd-f122954e8e7f a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer/Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
 ab:dc_UPENN-GBM_clinical_info_v2 a tb:DataContract ;
     tb:hasMapping ab:map1,
@@ -664,16 +570,17 @@ ab:dc_dicomimage a tb:DataContract ;
     tb:hasMapping ab:map2 ;
     tb:hasPolicy ab:p1 .
 
-<<<<<<< HEAD
-ab:dfee2341-6c71-4595-adb4-0c82692c18d7 a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct2/Data/0002.DCM" ;
-    tb:hasTranslation ab:Imp9 ;
-    tb:nextStep ab:8e5dfabe-b6e5-4cbb-b10a-934a6b49a48b .
+ab:e0f419bf-3173-4314-8f79-87d5ffc06aed a tb:Report ;
+    tb:result "True" .
 
-=======
->>>>>>> rewr
+ab:ec409d0e-5d2c-41d1-9d8f-fc59af802751 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasAttribute ab:ID ;
+    tb:hasInput ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:hasTranslation ab:Imp2 ;
+    tb:nextStep ab:37dee00b-4526-4f6a-8a34-e943608de920 .
+
 ab:map1 a tb:SchemaMapping ;
     tb:mfrom ab:ID ;
     tb:mto ab:Subject .
