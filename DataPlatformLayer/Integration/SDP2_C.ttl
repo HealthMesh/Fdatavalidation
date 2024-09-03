@@ -52,9 +52,15 @@ ab:dicomimage a <https://www.w3.org/ns/dcat#Dataset> ;
     tb:hasTA ab:TA2 ;
     tb:owner "UPENN" .
 
+<<<<<<< HEAD
 ab:3ed84904-d541-423f-b73d-47daf1a84091 a tb:Acces ;
     rdfs:label ab:Static ;
     tb:path "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct2/Data/0002.DCM" .
+=======
+ab:1668ca79-d9e7-4afd-b662-c2b58e67a562 a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/tfm/Fdatavalidation/DataPlatformLayer/Registration/../../DataProductLayer/DataProduct2/Data/0002.DCM" .
+>>>>>>> rewr
 
 ab:AccessionNumber a tb:Attribute ;
     tb:attribute "AccessionNumber" .
@@ -177,7 +183,11 @@ ab:SOPInstanceUID a tb:Attribute ;
 ab:SamplesPerPixel a tb:Attribute ;
     tb:attribute "SamplesPerPixel" .
 
+<<<<<<< HEAD
 ab:TA2 tb:typeAcces ab:3ed84904-d541-423f-b73d-47daf1a84091 .
+=======
+ab:TA2 tb:typeAcces ab:1668ca79-d9e7-4afd-b662-c2b58e67a562 .
+>>>>>>> rewr
 
 ab:dc_dicomimage a tb:DataContract ;
     tb:hasMapping ab:map2 ;

@@ -43,7 +43,7 @@
           ],
           "tb:forOp": [
             {
-              "@id": "ab:anonymize",
+              "@id": "odrl:anonymize",
               "@type": "tb:Operation"
             }
           ],
@@ -90,7 +90,7 @@
           ],
           "tb:forOp": [
             {
-              "@id": "ab:anonymize",
+              "@id": "odrl:anonymize",
               "@type": "tb:Operation"
             }
           ],
@@ -214,7 +214,7 @@
         ],
         "tb:forOp": [
           {
-            "@id": "ab:countValuesOp",
+            "@id": "ab:qM",
             "@type": "tb:Operation"
           }
         ],
@@ -227,78 +227,54 @@
         "tb:returns": "integer"
     },
      {
-      "@id": "ab:Op1",
-      "@type": "tb:Operator",
-      "tb:hasTranslation": [
+      "@id": "ab:Imp4",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
         {
-          "@id": "ab:Imp4",
-          "@type": "tb:Implementation",
-          "tb:hasCode": [
-            {
-              "@id": "ab:Imp4Code",
-              "@type": "tb:Code",
-              "tb:code": "lo >= ro"
-            }
-          ],
-          "tb:hasParameters": [
-              {
-                "@id": "ab:Imp4CodeParam1",
-                "@type": "tb:Parameter",
-                "tb:name": "lo",
-                "tb:type": "str"
-              },
-              {
-                "@id": "ab:Imp4CodeParam2",
-                "@type": "tb:Parameter",
-                "tb:name": "ro",
-                "tb:type": "int"
-              },
-              {
-                "@id": "ab:Imp4CodeParam3",
-                "@type": "tb:Parameter",
-                "tb:name": "data",
-                "tb:type": "pandas.DataFrame"
-              }
-          ]
+          "@id": "ab:Imp4Code",
+          "@type": "tb:Code",
+          "tb:code": "data >= ro"
         }
-      ]
-      },
-      {
-      "@id": "ab:Op2",
-      "@type": "tb:Operator",
-      "tb:hasTranslation": [
-        {
-          "@id": "ab:Imp5",
-          "@type": "tb:Implementation",
-          "tb:hasCode": [
-            {
-              "@id": "ab:Imp5Code",
-              "@type": "tb:Code",
-              "tb:code": "data[lo].dtype == ro"
-            }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp4CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "lo",
+            "tb:type": "str"
+          },
+          {
+            "@id": "ab:Imp4CodeParam2",
+            "@type": "tb:Parameter",
+            "tb:name": "ro",
+            "tb:type": "int"
+          },
+          {
+            "@id": "ab:Imp4CodeParam3",
+            "@type": "tb:Parameter",
+            "tb:name": "data",
+            "tb:type": "pandas.DataFrame"
+          }
           ],
-          "tb:hasParameters": [
+      "tb:dependsOn": [
             {
-              "@id": "ab:Imp5CodeParam1",
-              "@type": "tb:Parameter",
-              "tb:name": "lo",
-              "tb:type": "str"
-            },
-            {
-              "@id": "ab:Imp5CodeParam2",
-              "@type": "tb:Parameter",
-              "tb:name": "ro",
-              "tb:type": "int"
-            },
-            {
-              "@id": "ab:Imp5CodeParam3",
-              "@type": "tb:Parameter",
-              "tb:name": "data",
-              "tb:type": "pandas.DataFrame"
+                "@id": "ab:Imp4CodeDep1",
+                "tb:name": "pandas",
+                "@type": "tb:Library"
             }
-          ]
-        }
-      ]
-      }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "odrl:Constraint",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:Tabular",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ]
+     }
   ]
 }

@@ -1,0 +1,20 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
+PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+    <{op_uri}> a tb:initOperation;
+        tb:hasAbstract ab:LoadData;
+        tb:hasOutput ab:data;
+        tb:hasParameter ?param.
+    <{pc}> tb:nextStep <{op_uri}>.
+}
+WHERE {
+    <{dp}> tb:hasTA ?ta .
+    ?ta tb:typeAcces ?access .
+    ?access rdfs:label ?label ;
+    tb:path ?path .
+    FILTER(?label = ab:Static)
+    BIND(?path AS ?param)
+}

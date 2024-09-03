@@ -21,7 +21,11 @@ ab:UPENN-GBM_clinical_info_v2 a <https://www.w3.org/ns/dcat#Dataset> ;
     tb:hasTA ab:TA1 ;
     tb:owner "UPENN" .
 
+<<<<<<< HEAD
 ab:3cb6e762-d0b1-4790-a1ee-3c3ead6548c9 a tb:Acces ;
+=======
+ab:67fc84ae-798c-4c1c-9fe2-64d73980fbce a tb:Acces ;
+>>>>>>> rewr
     rdfs:label ab:Static ;
     tb:path "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataPlatformLayer\\Registration\\../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
 
@@ -59,7 +63,11 @@ ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
     tb:attribute "Survival_from_surgery_days_UPDATED" .
 
 ab:TA1 a tb:TechnologyAspects ;
+<<<<<<< HEAD
     tb:typeAcces ab:3cb6e762-d0b1-4790-a1ee-3c3ead6548c9 .
+=======
+    tb:typeAcces ab:67fc84ae-798c-4c1c-9fe2-64d73980fbce .
+>>>>>>> rewr
 
 ab:Tabular a tb:DatasetTypeTemplate ;
     dcterms:format "application/csv" .
