@@ -1,0 +1,7 @@
+{
+  "name": "0002DCM",
+  "mappings": {
+    "PatientID": "Subject"
+  },
+  "policies": ["p1"]
+}
