@@ -1,13 +1,13 @@
 @prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
 @prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
 
-ab:17bfa842-99d9-484a-919f-cdc5d6ec545a a tb:PolicyChecker ;
-    tb:hasType ab:Tabular ;
-    tb:nextStep ab:b47e6570-1165-43f2-b830-fe9b126f46d9 ;
-    tb:validates ab:p2 .
+ab:d07c7d28-aac5-4e06-b685-24b9a4974148 a tb:PolicyChecker ;
+    tb:hasType ab:Image ;
+    tb:nextStep ab:d3636cd1-746b-4ffa-85c0-d8b2292ddfe9 ;
+    tb:validates ab:p1 .
 
-ab:b47e6570-1165-43f2-b830-fe9b126f46d9 a tb:initOperation ;
+ab:d3636cd1-746b-4ffa-85c0-d8b2292ddfe9 a tb:initOperation ;
     tb:hasAbstract ab:LoadData ;
     tb:hasOutput ab:data ;
-    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataProductLayer\\DataProduct\\Data\\Explotation\\UPENN-GBM_clinical_info_v2.1.csv" .
+    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataProductLayer\\DataProduct2\\Data\\0002.DCM" .
 

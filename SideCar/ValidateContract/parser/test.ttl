@@ -1,9 +1,0 @@
-@prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
-@prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
-
-ab:initOP a tb:initOperation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasOutput ab:data ;
-    tb:hasParameter "C:\\Users\\Usuario\\PycharmProjects\\Fdatavalidation\\DataProductLayer\\DataProduct\\Data\\Explotation\\UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:nextStep ab:Operation .
-
