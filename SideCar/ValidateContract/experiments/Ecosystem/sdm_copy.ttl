@@ -1,0 +1,230 @@
+@prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
+@prefix dcat1: <https://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://www.w3.org/ns/dqv#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:format a owl:DatatypeProperty ;
+    rdfs:domain tb:DatasetTypeTemplate ;
+    rdfs:range xsd:string .
+
+dcterms:identifier a owl:DatatypeProperty ;
+    rdfs:domain odrl:Asset ;
+    rdfs:range xsd:string .
+
+ab:Patient_Data a tb:DataProduct ;
+    dcterms:identifier "123456" ;
+    tb:hasFeature ab:Age,
+        ab:Subject ;
+    tb:owner "FederatedTeam" .
+
+ab:p1 a odrl:Privacy ;
+    odrl:duty ab:AnonDuty .
+
+ab:p2 a ns1:QualityPolicy ;
+    odrl:duty ab:CompleteDuty .
+
+ab:p3 a odrl:Privacy ;
+    odrl:duty ab:AnonDutyC .
+
+<http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox> a owl:Ontology ;
+    rdfs:label "HealthMesh Ontology"@en ;
+    rdfs:isDefinedBy """Aniol Bisquert (UPC)
+Achraf Hmimou (UPC)"""@en ;
+    owl:versionIRI <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/0.1> .
+
+tb:attribute a owl:DatatypeProperty ;
+    rdfs:domain tb:Attribute ;
+    rdfs:range xsd:string .
+
+tb:code a owl:DatatypeProperty ;
+    rdfs:domain tb:Code ;
+    rdfs:range xsd:string .
+
+tb:feature a owl:DatatypeProperty ;
+    rdfs:domain tb:Feature ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+tb:hasAttribute a owl:ObjectProperty ;
+    rdfs:domain dcat1:Dataset ;
+    rdfs:range tb:Attribute .
+
+tb:hasDC a owl:ObjectProperty ;
+    rdfs:domain odrl:Asset ;
+    rdfs:range tb:DataContract .
+
+tb:hasDTT a owl:ObjectProperty ;
+    rdfs:domain odrl:Asset ;
+    rdfs:range tb:DatasetTypeTemplate .
+
+tb:hasFeature a owl:ObjectProperty ;
+    rdfs:domain tb:DataProduct ;
+    rdfs:range tb:Feature ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+tb:hasImplementation a owl:ObjectProperty ;
+    rdfs:domain tb:Operation ;
+    rdfs:range tb:Implementation ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+tb:hasLibrary a owl:ObjectProperty ;
+    rdfs:domain tb:Implementation ;
+    rdfs:range tb:Library ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+tb:hasMethod a owl:ObjectProperty ;
+    rdfs:domain tb:Implementation ;
+    rdfs:range tb:Code .
+
+tb:hasPolicy a owl:ObjectProperty ;
+    rdfs:domain tb:DataContract ;
+    rdfs:range odrl:Policy .
+
+tb:hasStep a owl:ObjectProperty ;
+    rdfs:domain tb:Operation,
+        tb:PolicyChecker ;
+    rdfs:range tb:Operation ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+tb:hasTA a owl:ObjectProperty ;
+    rdfs:domain odrl:Asset ;
+    rdfs:range tb:TechnologyAspects .
+
+tb:hasTemplate a owl:ObjectProperty ;
+    rdfs:domain tb:PolicyChecker ;
+    rdfs:range tb:Template ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+tb:implements a owl:ObjectProperty ;
+    rdfs:domain tb:PolicyChecker ;
+    rdfs:range odrl:Action .
+
+tb:name a owl:DatatypeProperty ;
+    rdfs:domain tb:Library ;
+    rdfs:range xsd:string .
+
+tb:operation a owl:DatatypeProperty ;
+    rdfs:domain tb:Operation ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+tb:owner a owl:DatatypeProperty ;
+    rdfs:domain odrl:Asset ;
+    rdfs:range xsd:string .
+
+tb:supports a owl:ObjectProperty ;
+    rdfs:domain tb:Library ;
+    rdfs:range tb:DatasetTypeTemplate ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+tb:template a owl:DatatypeProperty ;
+    rdfs:domain tb:Template ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+odrl:action a owl:ObjectProperty ;
+    rdfs:domain odrl:Duty ;
+    rdfs:range odrl:Action .
+
+odrl:duty a owl:ObjectProperty ;
+    rdfs:domain odrl:Permission ;
+    rdfs:range odrl:Duty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+odrl:permission a owl:ObjectProperty ;
+    rdfs:domain odrl:Privacy ;
+    rdfs:range odrl:Permission .
+
+ab:AnonDuty a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:target ab:Subject .
+
+ab:AnonDutyC a odrl:Duty ;
+    odrl:action odrl:anonymize ;
+    odrl:constraint odrl:c2 ;
+    odrl:target ab:ID .
+
+ab:CompleteDuty a odrl:Duty ;
+    odrl:constraint odrl:c1 ;
+    odrl:target ab:Age .
+
+ab:Completeness a ns1:Dimension .
+
+ab:countValues a prov:SoftwareAgent .
+
+ab:percentatgeFromTotal a ns1:Metric ;
+    ns1:inDimension ab:Completeness .
+
+ab:qM a ns1:QualityMeasurement ;
+    ns1:isMeasurementOf ab:percentatgeFromTotal ;
+    ns1:value "" ;
+    prov:wasAssociatedWith ab:countValues .
+
+tb:TechnologyAspects a owl:Class .
+
+odrl:c1 a odrl:Constraint ;
+    odrl:leftOperand ab:qM ;
+    odrl:operator "odrl:gteq" ;
+    odrl:rightOperand 99.0 .
+
+odrl:c2 a odrl:Constraint ;
+    odrl:leftOperand ab:ID ;
+    odrl:operator "odrl:isA" ;
+    odrl:rightOperand "xsd:string" .
+
+dcat1:Dataset a owl:Class ;
+    rdfs:subClassOf odrl:Asset .
+
+ab:Age a tb:Feature .
+
+ab:Subject a tb:Feature .
+
+tb:Attribute a owl:Class .
+
+tb:Code a owl:Class .
+
+tb:DataContract a owl:Class .
+
+tb:DataProduct a owl:Class ;
+    rdfs:label "DataProduct"@en ;
+    rdfs:subClassOf odrl:Asset .
+
+tb:Template a owl:Class .
+
+odrl:Permission a owl:Class ;
+    rdfs:subClassOf odrl:Rule .
+
+odrl:Policy a owl:Class .
+
+odrl:Rule a owl:Class .
+
+odrl:anonymize a odrl:Action .
+
+tb:DatasetTypeTemplate a owl:Class .
+
+tb:Implementation a owl:Class .
+
+tb:Library a owl:Class .
+
+tb:PolicyChecker a owl:Class .
+
+odrl:Action a owl:Class .
+
+odrl:Privacy a owl:Class ;
+    rdfs:subClassOf odrl:Policy .
+
+tb:Feature a owl:Class .
+
+tb:Operation a owl:Class .
+
+odrl:Duty a owl:Class ;
+    rdfs:subClassOf odrl:Rule .
+
+odrl:Asset a owl:Class .
+
