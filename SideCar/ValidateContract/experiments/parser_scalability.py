@@ -1,186 +1,279 @@
 from rdflib import *
-import os, sys
+from owlrl import *
+import os
+import json
+import uuid
+import argparse
 import time
 import matplotlib.pyplot as plt
-import numpy as np
+from pyshacl import validate
 
-# Add the parent directory of SideCar to the Python path
-base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append(base_dir)
 
-from ValidateContract.parser.parser import DCParser
-from ValidateContract.translator.translator import *
+# basedir
+base_dir = os.path.dirname(os.path.realpath(__file__))
 
-# Namespaces
+# RDF Namespaces
 tbox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#')
 abox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
 dcat = Namespace('https://www.w3.org/ns/dcat#')
 dcterms = Namespace('http://purl.org/dc/terms/')
 tb = Namespace("http://www.semanticweb.org/acraf/ontologies/2021/0/SDM#")
 odrl = Namespace("http://www.w3.org/ns/odrl/2/")
-
-#%
-base_dir = os.path.dirname(os.path.realpath(__file__))
-sdm = Graph().parse(os.path.join(base_dir, '../../../FederatedComputationalGovernance/SemanticDataModel/sdm.ttl'), format='turtle')
-print(base_dir)
-
-def get_CMD():
-    query = '''
-    PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
-    PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
-    PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
-
-    SELECT ?dp
-    WHERE {
-        ?dp a tb:DataProduct .
-    }
-    '''
-    q_res = sdm.query(query)
-    CMD = [row.dp.split("#")[1] for row in q_res]
-    return CMD
-
-def get_datasets_associated(dp):
-    query = f'''
-    PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
-    PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
-    PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
-
-    SELECT ?dataset
-    WHERE {{
-        ?dataset tb:hasDC ?dcc .
-        ?dcc tb:hasPolicy ?p .
-        ?p odrl:duty ?d .
-        ?d odrl:target ?t .
-        ?dp tb:hasFeature ?t .
-        FILTER (?dp = ab:{dp})
-    }}
-    '''
-    qres = sdm.query(query)
-    datasets = [row.dataset.split("#")[1] for row in qres]
-    datasets = set(datasets)
-    return datasets
-
-def queryPC(ds):
-    query = f'''
-    PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
-    PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
-    PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
-
-    SELECT ?pc ?ds
-    WHERE {{
-        ?pc a tb:PolicyChecker .
-        ?pc tb:validates ?p .
-        ?pc tb:hasType ?t .
-        ?ds tb:hasDTT ?t
-        FILTER (?ds = ab:{ds})
-    }}
-    '''
-    q_res = sdm.query(query)
-    pcs = [row.pc for row in q_res]
-    return pcs
+prov = Namespace("http://www.w3.org/ns/prov#")
+dqv = Namespace("http://www.w3.org/ns/dqv#")
 
 
-def get_policy(policies_map, pc):
-    query = f'''
-    PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
-    PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
-    PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+# Utility functions
+def generate_unique_uri(base_uri):
+    """Generate a unique URI based on the base URI."""
+    unique_identifier = str(uuid.uuid4())
+    return URIRef(f"{base_uri}{unique_identifier}")
 
-    SELECT ?p 
-    WHERE {{
-        ab:{pc} tb:validates ?p .
-    }}
-    LIMIT 1
-    '''
-    q_res = sdm.query(query)
-    p = [row.p for row in q_res]
+def load_jsonld_data(file_path):
+    """Load and parse JSON-LD data from a file."""
+    with open(file_path, 'r') as f:
+        return json.loads(f.read())
 
-    policy = p[0].split("#")[1]
-    if policy not in policies_map:
-        policies_map[policy] = []
-    policies_map[policy].append(pc)
-    return policy
+
+# Decorator to measure the time taken by a function and store policy names
+def timeit(func):
+    """Decorator to measure time taken by a function."""
+    def wrapper(self, policy, *args, **kwargs):
+        start_time = time.time()
+        result = func(self, policy, *args, **kwargs)
+        elapsed_time = time.time() - start_time
+        wrapper.times.append(elapsed_time)
+        wrapper.policy_names.append(str(policy))
+        return result
+    wrapper.times = []
+    wrapper.policy_names = []
+    return wrapper
 
 
 
-def plot_overhead(policy_times, policies_map):
-    avg_parser_times = []
-    avg_translation_times = []
-    policies = list(policies_map.keys())
 
-    for policy in policies:
-        parser_times = []
-        translation_times = []
-        for pc in policies_map[policy]:
-            if pc in policy_times:
-                parser_times.extend(policy_times[pc]['parser_times'])
-                translation_times.extend(policy_times[pc]['translation_times'])
+# Policy Checker Class
 
-        if parser_times:
-            avg_parser_times.append(np.mean(parser_times) * 1000)  # Convert to milliseconds
-        else:
-            avg_parser_times.append(0)  # Replace NaN with 0
+class PolicyChecker(Graph):
+    """Class representing the policy checker that validates policies."""
 
-        if translation_times:
-            avg_translation_times.append(np.mean(translation_times) * 1000)  # Convert to milliseconds
-        else:
-            avg_translation_times.append(0)  # Replace NaN with 0
+    def __init__(self, p, p_type, data_format, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.p = p
+        self.p_type = p_type.split("/")[-1]
+        self.bind("ab", "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#")
+        self.bind("tb", "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#")
+        self.URI = generate_unique_uri(abox)
+        self.add((self.URI, RDF.type, tbox.PolicyChecker))
+        self.add((self.URI, tbox.validates, p))
+        self.add((self.URI, tbox.hasType, data_format))
 
-    x = np.arange(len(policies))
-    width = 0.35
+    def get_URI(self):
+        return self.URI
 
-    fig, ax1 = plt.subplots(figsize=(10, 6))
+    def get_policy_type(self):
+        return self.p_type
 
-    # Plot parser times
-    ax1.bar(x - width / 2, avg_parser_times, width, label='Parser Time (ms)', color='orange')
-    ax1.set_xlabel('Policies')
-    ax1.set_ylabel('Parser Time (ms)')
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(policies, rotation=45)
+    def get_policy(self):
+        return self.p
 
-    # Create a second y-axis for translation times
-    ax2 = ax1.twinx()
-    ax2.bar(x + width / 2, avg_translation_times, width, label='Translation Time (ms)', color='green')
-    ax2.set_ylabel('Translation Time (ms)')
 
-    fig.tight_layout()
-    fig.legend(loc="upper right")
-    plt.title('Average Parsing and Translation Time for Each Policy')
-    plt.savefig('policy_times.png')
+# Policy Parsing Class
 
+class DCParser:
+    """
+    Parse Policies of Data Contracts to Policy Checkers
+    """
+
+    def __init__(self, dp, graph):
+        self.dp = dp
+        self.g = graph
+        self.attr_mappings = None
+
+    def validate_graph(self) -> bool:
+        """
+        Validate the policies grammar is compliant with the grammar defined
+        :return: conformance/non-conformance
+        """
+        shapes = Graph().parse(os.path.join(base_dir, 'policy_grammar.json'), format="turtle")
+        conforms, report_graph, report_text = validate(self.g, shacl_graph=shapes)
+        return conforms
+
+    def read_contracts(self):
+        """
+        Get the policies associated with a data product
+        :return: list of policies and mappings
+        """
+        contracts = self.g.objects(subject=abox[self.dp], predicate=tbox.hasDC)
+        policies_list, mappings_dict = [], {}
+
+        for contract in contracts:
+            # Handle policies
+            policies = self.g.objects(subject=contract, predicate=tbox.hasPolicy)
+            policies_list.extend(policies)
+
+            # Handle attribute mappings
+            mappings = self.g.objects(subject=contract, predicate=tbox.hasMapping)
+            for mapping in mappings:
+                mfrom = self.g.value(subject=mapping, predicate=tbox.mfrom)
+                mto = self.g.value(subject=mapping, predicate=tbox.mto)
+                mappings_dict[mto] = mfrom
+
+        self.attr_mappings = mappings_dict
+        return policies_list, mappings_dict
+
+    def execute_rule(self, rule_path, pc, mappings, nrules=1):
+        """Execute SPARQL rules for policy validation, simulating a larger number of rules."""
+        rule_files = os.listdir(rule_path)[:nrules]  # Limit the number of rules to simulate scalability
+
+        for sparqlrule in rule_files:
+            with open(os.path.join(rule_path, sparqlrule), 'r') as file:
+                rule = file.read()
+                for key, value in mappings.items():
+                    rule = rule.replace(f"<{{{key}}}>", f"<{value}>")
+                try:
+                    results = self.g.query(rule)
+                    result_graph = Graph()
+                    for triple in results:
+                        result_graph.add(triple)
+                    pc += result_graph
+                except Exception as e:
+                    print("Parsing Error: ", e)
+        return pc
+
+    def get_last_op(self, pc):
+        """Retrieve the last operation of a policy checker."""
+        last_op = pc.value(subject=pc.get_URI(), predicate=tbox.nextStep)
+        while pc.value(subject=last_op, predicate=tbox.nextStep):
+            last_op = pc.value(subject=last_op, predicate=tbox.nextStep)
+        return last_op
+
+    def init_op(self, policy, pc):
+        """Initialize operations for a policy."""
+        initOPrules = os.path.join(base_dir, "../parser/rules/initOP")
+        mappings = {
+            "dp": abox[self.dp],
+            "pc": pc.get_URI(),
+            "op_uri": generate_unique_uri(abox),
+        }
+        pc = self.execute_rule(initOPrules, pc, mappings)
+        return self.get_last_op(pc), pc
+
+    def handle_attributes(self, pc):
+        """Update attributes in the policy checker according to mappings."""
+        operation = pc.get_URI()
+        while operation:
+            attribute = pc.value(subject=operation, predicate=tbox.hasAttribute)
+            if attribute and attribute in self.attr_mappings:
+                pc.remove((operation, tbox.hasAttribute, None))
+                pc.add((operation, tbox.hasAttribute, self.attr_mappings[attribute]))
+            operation = pc.value(subject=operation, predicate=tbox.nextStep)
+        return pc
+
+    def handle_duties(self, pc, init_op):
+        """Handle duties in a policy checker."""
+        ops_rules_path = os.path.join(base_dir, "../parser/rules/OPS")
+        mappings = {
+            "dp": abox[self.dp],
+            "pc": pc.get_URI(),
+            "op_uri": generate_unique_uri(abox),
+            "last_op": init_op,
+            "policy_uri": pc.get_policy(),
+        }
+        pc = self.execute_rule(ops_rules_path, pc, mappings)
+        return self.get_last_op(pc), pc
+
+    def plot_times(self, filename='policy_times.png'):
+        """Plot the time taken to parse each policy."""
+        plt.bar(self.parse_policy.policy_names, self.parse_policy.times)
+        plt.title('Time taken to parse each policy')
+        plt.xlabel('Policy')
+        plt.ylabel('Time (seconds)')
+        plt.xticks(rotation=90)  # Rotate policy names for better readability
+        plt.tight_layout()  # Adjust layout to make room for labels
+        plt.savefig(filename)
+        plt.close()
+
+    @timeit
+    def parse_policy(self, policy):
+        """Parse an individual policy into an intermediate representation."""
+        p_type = self.g.value(subject=policy, predicate=RDF.type)
+        data_format = self.g.value(subject=abox[self.dp], predicate=tbox.hasDTT)
+        pc = PolicyChecker(policy, p_type, data_format)
+
+        # Add initial operations and handle duties
+        last_op, pc = self.init_op(policy, pc)
+        last_op, pc = self.handle_duties(pc, last_op)
+        pc = self.handle_attributes(pc)
+
+        # Add final report
+        report_uid = generate_unique_uri(abox)
+        pc.add((last_op, tbox.nextStep, report_uid))
+        pc.add((report_uid, RDF.type, tbox.Report))
+
+        return pc
+
+    def parse_contracts(self):
+        """Parse all policies associated with a data product."""
+        policies, mappings = self.read_contracts()
+
+        for policy in policies:
+            print("Parsing Policy... ", policy)
+            pc = self.parse_policy(policy)
+            self.g += pc
+
+        output_path = os.path.join(base_dir, "../../../FederatedComputationalGovernance/SemanticDataModel/sdm.ttl")
+        self.g.serialize(destination=output_path, format="turtle")
+
+        return self.g
+
+
+def simulate_scalability(dc_parser, rule_path, start=1, end=50, step=1):
+    """Simulate scalability by averaging execution time over multiple iterations."""
+    times = []
+    rules_range = list(range(start, end + 1, step))
+    num_iterations = 0
+    for nrules in rules_range:
+        print(f"Executing with {nrules} rules...")
+
+        cumulative_time = 0
+        for _ in range(num_iterations):
+            start_time = time.time()  # Start timer for current number of rules
+            for policy in dc_parser.read_contracts()[0]:  # Retrieve policies
+                mappings = dc_parser.read_contracts()[1]  # Retrieve attribute mappings
+                pc = dc_parser.parse_policy(policy)  # Parse the policy
+                dc_parser.execute_rule(rule_path, pc, mappings, nrules=1)  # Execute rules
+            elapsed_time = time.time() - start_time  # Calculate elapsed time for this run
+            cumulative_time += elapsed_time  # Add time to cumulative total
+
+        times.append(cumulative_time)  # Store the averaged time for plotting
+        num_iterations+=1
+
+    # Plot the results
+    plt.plot(rules_range, times, marker='o')
+    plt.title('Average Time Taken for Execution vs Number of Rules')
+    plt.xlabel('Number of Rules Executed')
+    plt.ylabel('Average Time (seconds)')
+    plt.grid(True)
+    plt.savefig('scalability.png')  # Save the plot
 
 
 if __name__ == "__main__":
-    CMD = get_CMD()
-    policy_times = {}
-    policies_map = {}
 
-    for dp in CMD:
-        print(f".Working on CDM {dp}")
-        datasets = get_datasets_associated(dp)
-        for dataset in datasets:
-            print(f"..Parsing data product {dataset}")
-            start_time_parser = time.time()
-            DCParser(dataset, sdm).parse_contracts()
-            end_time_parser = time.time()
-            parser_time = end_time_parser - start_time_parser
-            print(f"Parser time for dataset {dataset}: {parser_time} seconds")
+    parser = argparse.ArgumentParser(description="Parse Data Contracts for Data Product")
+    parser.add_argument("dp", type=str, help="Data Product identifier")
+    parser.add_argument("--plot", action="store_true", help="Flag to plot the times for each policy")
+    args = parser.parse_args()
 
-            pcs = queryPC(dataset)
-            for pc in pcs:
-                if pc not in policy_times:
-                    policy_times[pc.split("#")[1]] = {'parser_times': [], 'translation_times': []}
+    print("Parsing Data Contracts for Data Product: ", args.dp)
+    contract_graph = Graph().parse(os.path.join(base_dir, "../../../FederatedComputationalGovernance/SemanticDataModel/sdm.ttl"))
+    dc_parser = DCParser(args.dp, contract_graph)
 
-                policy_times[pc.split("#")[1]]['parser_times'].append(parser_time)
+    rule_path = os.path.join(base_dir, "../parser/rules/OPS")
+    simulate_scalability(dc_parser, rule_path, start=1, end=50, step=1)
 
-                print(f"...Translating Policy Checker: {pc}")
-                start_time_translation = time.time()
-                PCTranslator(pc, sdm).translate()
-                end_time_translation = time.time()
-                translation_time = end_time_translation - start_time_translation
-                policy_times[pc.split("#")[1]]['translation_times'].append(translation_time)
-                print(f"Translation time for policy checker {pc}: {translation_time} seconds")
 
-                get_policy(policies_map, pc.split("#")[1])
+    if args.plot:
+        dc_parser.plot_times('policy_times.png')
 
-    plot_overhead(policy_times, policies_map)
+    print("Done")
