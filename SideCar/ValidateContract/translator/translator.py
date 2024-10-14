@@ -142,31 +142,7 @@ class Implementation(type):
         cls.translation = imp
         cls._add_triples_recursively(imp)
 
-    def annotate_execution_times_and_results(cls):
-        """
-        Decorator to annotate execution times and results in the execution graph.
 
-        Returns:
-            function: The decorated function.
-        """
-
-        def decorator(func):
-            def wrapper(*args, **kwargs):
-                start_time = time.time()
-                result = func(*args, **kwargs)
-                end_time = time.time()
-                EX = Namespace("http://example.org/ns#")
-                execution_time = end_time - start_time
-                execution_node = URIRef(f"http://example.org/execution/{cls.translation.split('#')[-1]}")
-
-                cls.ex.add((execution_node, RDF.type, EX.Execution))
-                cls.ex.add((execution_node, EX.executionTime, Literal(execution_time, datatype=XSD.decimal)))
-                cls.ex.add((execution_node, EX.intermediateResult, Literal(result)))
-                return result
-
-            return wrapper
-
-        return decorator
 
     def _translate_and_compile(cls, operation, template_str, context):
         """
@@ -378,6 +354,49 @@ class PCTranslator:
         self.g = graph
         self.pc = abox[pc]
         self.format = self.g.value(subject=self.pc, predicate=tbox.hasType)
+        self.execution_times = []
+        self._operation_to_code = self._time_execution(self._operation_to_code)
+        self.traverse_and_generate = self._time_execution(self.traverse_and_generate)
+
+    def _time_execution(self, func):
+        """
+        Decorator to measure the execution time of a function.
+
+        Args:
+            func (function): The function to be measured.
+
+        Returns:
+            function: The wrapped function with execution time measurement.
+        """
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            end_time = time.time()
+            execution_time = end_time - start_time
+            self.execution_times.append((func.__name__, execution_time))
+            return result
+
+        return wrapper
+
+    def plot_execution_times(self):
+        """
+        Plots the execution times for each operation.
+        """
+        operations = [name for name, _ in self.execution_times]
+        times = [time for _, time in self.execution_times]
+
+        plt.figure(figsize=(10, 5))
+        plt.bar(operations, times, color='blue')
+        plt.xlabel('Operations')
+        plt.ylabel('Execution Time (seconds)')
+        plt.title('Execution Time for Each Operation')
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.savefig("execution_times.png")
+
+
 
     def _validate_graph(self) -> bool:
         """
@@ -475,6 +494,7 @@ class PCTranslator:
         self.g.add((operation, tbox.hasTranslation, implementation))
         return implementation
 
+
     def _operation_to_code(self, operation) -> types.FunctionType:
         """
         Translates an operation to a Python function.
@@ -512,6 +532,7 @@ class PCTranslator:
             }
             decorated_imp = self._create_function_as_decorator(after_func=imp.get_func(), after_args=kwargs)
             return decorated_imp
+
 
     def traverse_and_generate(self) -> types.FunctionType:
         """
@@ -567,5 +588,9 @@ if __name__ == "__main__":
         initOP = sdm.value(subject=abox[args.pc], predicate=tbox.nextStep)
         path = sdm.value(subject=initOP, predicate=tbox.hasParameter)
         function(path)
+
+    if args.plot:
+        print("Plotting Execution Times")
+        PCTranslator(args.pc, sdm).plot_execution_times()
 
     print("Done")

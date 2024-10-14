@@ -1,0 +1,11 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#> .
+@prefix tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#> .
+
+ab:NonNullShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf tb:ID ;
+    sh:property [
+        sh:path tb:ID ;
+        sh:minCount 1 ;
+    ] .

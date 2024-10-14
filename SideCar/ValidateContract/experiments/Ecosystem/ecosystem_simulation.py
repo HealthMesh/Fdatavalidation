@@ -237,6 +237,21 @@ def queryPC(ds, sdm):
     pcs = [row.pc for row in q_res]
     return pcs
 
+def queryOPS(sdm):
+    query = '''
+    PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
+    PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
+
+    SELECT (COUNT(?node) AS ?totalCount)
+    WHERE {
+        ?node a ?type .
+        FILTER (?type IN (tb:initOperation, tb:Operation, tb:Operator))
+    }
+    '''
+    q_res = sdm.query(query)
+    total_count = q_res.bindings[0]['totalCount'] if q_res.bindings else 0
+    return total_count
+
 
 if __name__ == "__main__":
 
@@ -245,20 +260,21 @@ if __name__ == "__main__":
     # Image data asset
     file_path_image = os.path.join(base_dir, '../../../../DataProductLayer/DataProduct2/Data/0002.DCM')
 
-    ecosystem = Graph().parse(os.path.join(base_dir, 'sdm_copy.ttl'), format='turtle')
+
 
     # Numero de Data Products
-    NDP = 50
+    NDP = 15
 
     execution_times = []
     pcs_counts = []
     ndp_list = list(range(1, NDP + 1))  # List of NDP counts
 
-    SDM = get_CMD(ecosystem)
 
+    ecosystem = Graph()
 
     for i in range(NDP):
-
+        ecosystem = ecosystem.parse(os.path.join(base_dir, 'sdm_copy.ttl'), format='turtle')
+        SDM = get_CMD(ecosystem)
         start_time = time.time()  # Start timer
 
         chosen_file_path = random.choice([file_path_tabular, file_path_image])
@@ -292,22 +308,20 @@ if __name__ == "__main__":
 
         # Parsing the current DPs
         dps = get_datasets_associated(SDM[0], ecosystem)
-        pcs = 0
         for dp in dps:
             pc = DCParser(dp, ecosystem).parse_contracts()
             ecosystem += pc
-            pcs += len(queryPC(dp, ecosystem))
 
         end_time = time.time()  # End timer
         execution_times.append(end_time - start_time)
-        pcs_counts.append(pcs)
+        pcs_counts.append(int(queryOPS(ecosystem)))
+
+        ecosystem.serialize(destination='ecosystem.ttl', format='turtle')
 
 
 
 
 
-
-    ecosystem.serialize(destination='ecosystem.ttl', format='turtle')
 
 
 
@@ -315,6 +329,7 @@ if __name__ == "__main__":
     x = ndp_list  # Number of NDPs
     y = execution_times  # Number of PCs
     z = pcs_counts  # Execution time for each NDP
+
 
     # Create 3D figure
     fig = plt.figure()
@@ -326,6 +341,6 @@ if __name__ == "__main__":
     # Labels
     ax.set_xlabel('#Data Products')
     ax.set_ylabel('Time (seconds)')
-    ax.set_zlabel('#Policy Checkers')
+    ax.set_zlabel('#OPS')
 
     plt.savefig("ecosystem.png")
