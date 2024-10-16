@@ -6,16 +6,16 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 
 CONSTRUCT {
     <{op_uri}> a tb:Operation ;
-               tb:hasAttribute ?attribute ;
+               tb:hasInput ?attribute ;
                tb:hasAbstract ?operation;
                tb:hasInput ab:data ;
                tb:hasOutput ab:data .
     <{last_op}> tb:nextStep <{op_uri}>.
-    ?new_op_uri a tb:Operator ;
-                tb:lo ab:data ;
+    ?new_op_uri a tb:Operation ;
+                tb:hasInput ab:data ;
                 tb:hasAbstract odrl:Constraint;
-                tb:op ?operator ;
-                tb:ro ?value ;
+                tb:hasInput ?operator ;
+                tb:hasInput ?value ;
                 tb:hasOutput ab:data .
     <{op_uri}> tb:nextStep ?new_op_uri.
 }

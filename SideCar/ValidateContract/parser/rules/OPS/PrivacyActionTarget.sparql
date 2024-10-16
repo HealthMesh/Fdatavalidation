@@ -5,7 +5,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 CONSTRUCT {
     <{op_uri}> a tb:Operation ;
-               tb:hasAttribute ?attribute ;
+               tb:hasInput ?attribute ;
                tb:hasAbstract ?operation;
                tb:hasInput ab:data ;
                tb:hasOutput ab:boolean .

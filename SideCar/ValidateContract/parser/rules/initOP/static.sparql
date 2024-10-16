@@ -4,10 +4,10 @@ PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 CONSTRUCT {
-    <{op_uri}> a tb:initOperation;
+    <{op_uri}> a tb:Operation;
         tb:hasAbstract ab:LoadData;
         tb:hasOutput ab:data;
-        tb:hasParameter ?param.
+        tb:hasInput ?param.
     <{pc}> tb:nextStep <{op_uri}>.
 }
 WHERE {
