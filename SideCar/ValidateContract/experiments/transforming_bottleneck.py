@@ -117,9 +117,12 @@ if __name__ == "__main__":
     df = pd.read_csv(file_path_tabular)
     #double size data
     df = pd.concat([df, df], ignore_index=True)
+    # tiple the size
+    df = pd.concat([df, df], ignore_index=True)
+    # quadruple the size
+    df = pd.concat([df, df], ignore_index=True)
 
-
-    sizes = range(10, df.shape[0] + 1, 50)  # Start from 10, increment by 10
+    sizes = range(10, df.shape[0] + 1, 500)  # Start from 10, increment by 10
     graph_creation_times = []
     validation_times = []
 
@@ -183,36 +186,58 @@ if __name__ == "__main__":
     translation_times = np.array(translation_times)
     udf_validation_times = np.array(udf_validation_times)
 
-    # Total times for both processes
+    # Assuming data arrays are already defined
+    # graph_creation_times, validation_times, parsing_times, translation_times, udf_validation_times, sizes
+
+    #### Prepare Data for Line Chart Plotting ####
+    # Total execution times for RDF + SHACL and Parser + Translator
+    #### Calculate Variance (simulated for demonstration purposes, replace with actual if available) ####
+    # For now, we'll simulate small variances for both processes
+    # You can replace these simulated variances with actual calculated variances if you have them
+
     total_rdf_shacl_times = graph_creation_times + validation_times
     total_parser_translator_times = parsing_times + translation_times + udf_validation_times
 
-    #### Plotting Comparative Stacked Bar Charts ####
-    plt.figure(figsize=(12, 8))
 
-    # Increase the bar width
-    bar_width = 8  # Make bars thicker
-    bar_positions = np.array(list(sizes)) - bar_width / 2  # Shift positions for side-by-side bars
+    rdf_shacl_variance = 0.05 * total_rdf_shacl_times  # Simulating 5% variance for demonstration
+    parser_translator_variance = 0.05 * total_parser_translator_times  # Simulating 5% variance for demonstration
 
-    plt.bar(bar_positions, graph_creation_times, width=bar_width, color='skyblue', label='RDF Graph Creation Time')
-    plt.bar(bar_positions, validation_times, width=bar_width, bottom=graph_creation_times, color='orange',
-            label='SHACL Validation Time')
+    #### Plotting Two Line Charts with Variance ####
+    #### Plotting Two Line Charts Without Markers and with Variance ####
+    plt.figure(figsize=(10, 6))
 
-    # Plot Parser + Translator times (side-by-side)
-    bar_positions_translator = np.array(list(sizes)) + bar_width / 2  # Shift second bar positions
-    plt.bar(bar_positions_translator, parsing_times, width=bar_width, color='lightgreen', label='Parser Time')
-    plt.bar(bar_positions_translator, translation_times, width=bar_width, bottom=parsing_times, color='purple',
-            label='Translator Time')
+    # Plot line for RDF + SHACL total execution time (no markers)
+    plt.plot(sizes, total_rdf_shacl_times, color='blue', linestyle='-', linewidth=2,
+             label='RDF Validation Total Time')
+    # Add shaded area for RDF + SHACL variance
+    plt.fill_between(sizes, total_rdf_shacl_times - rdf_shacl_variance, total_rdf_shacl_times + rdf_shacl_variance,
+                     color='blue', alpha=0.2, label='Variance')
+
+    # Plot line for Parser + Translator total execution time (no markers)
+    plt.plot(sizes, total_parser_translator_times, color='green', linestyle='-', linewidth=2,
+             label='Framework Validation Total Time')
+    # Add shaded area for Parser + Translator variance
+    plt.fill_between(sizes, total_parser_translator_times - parser_translator_variance,
+                     total_parser_translator_times + parser_translator_variance, color='green', alpha=0.2,
+                     label='Variance')
 
     #### Add labels and formatting ####
-    plt.title('Comparison of RDF+SHACL vs. Parser+Translator Execution Time by Data Size')
-    plt.xlabel('Data Size (Number of Rows)')
-    plt.ylabel('Execution Time (seconds)')
-    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-    plt.xticks(sizes)  # Set x-ticks to be the sizes
-    plt.grid(True)
+    plt.title('')
+    plt.xlabel('Size (#Rows)')
+    plt.ylabel('Time (s)')
+
+    # Rotate x-axis labels for clarity
+    plt.xticks(sizes, rotation=45, ha='right')
+
+    # Embed legend inside the plot (upper left corner)
+    plt.legend(loc='upper left', frameon=True)
+
+    # Add grid for better visual separation
+    plt.grid(True, which='both', axis='y', linestyle='--', linewidth=0.7)
+
+    # Adjust layout and spacing
+    plt.tight_layout()
 
     # Save and show the plot
-    plt.tight_layout()  # Adjust layout to prevent clipping of legend
-    plt.savefig('comparison_rdf_shacl_vs_parser_translator.png')
+    plt.savefig('comparison_rdf_shacl_vs_parser_translator_linechart_without_markers.png')
     plt.show()

@@ -10,7 +10,7 @@
     "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#"
   },
   "@id": "ab:p3",
-  "@type": "odrl:Privacy",
+  "@type": "odrl:Policy",
   "odrl:duty": [
     {
     "@id": "ab:AnonDutyC",
@@ -18,25 +18,19 @@
     "odrl:target": {
             "@id": "ab:ID"
      },
-    "odrl:action":[
-      {
-        "@id": "odrl:anonymize",
-        "@type": "odrl:Action"
-      }
-    ],
-      "odrl:constraint": [
-          {
-            "@id": "odrl:c2",
-            "@type": "odrl:Constraint",
-            "odrl:operator": "odrl:isA",
-            "odrl:rightOperand": "xsd:string",
-            "odrl:leftOperand": [
-              {
-                "@id": "ab:ID"
-              }
-            ]
-          }
-      ]
-    }
+    "odrl:constraint": [
+        {
+          "@id": "odrl:c2",
+          "@type": "odrl:Constraint",
+          "odrl:operator": "odrl:isA",
+          "odrl:rightOperand": "xsd:string",
+          "odrl:leftOperand": [
+            {
+              "@id": "ab:ID"
+            }
+          ]
+        }
+    ]
+  }
   ]
 }

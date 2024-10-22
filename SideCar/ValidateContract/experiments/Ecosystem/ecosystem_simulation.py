@@ -263,7 +263,7 @@ if __name__ == "__main__":
 
 
     # Numero de Data Products
-    NDP = 15
+    NDP = 20
 
     execution_times = []
     pcs_counts = []
@@ -277,32 +277,21 @@ if __name__ == "__main__":
         SDM = get_CMD(ecosystem)
         start_time = time.time()  # Start timer
 
-        chosen_file_path = random.choice([file_path_tabular, file_path_image])
+        chosen_file_path = file_path_tabular
         profiler = Profiler(chosen_file_path)
 
         graph = profiler.get_source_graph()
         dataset_name = profiler.get_dataname()
         ecosystem += graph
 
-        if chosen_file_path == file_path_tabular:
-            federate = Federator(dataset_name, ecosystem)
-            dp_meta_path = os.path.join(base_dir, '../../../../DataPlatformLayer/Integration/dp1.json')
-            dp_meta = json.load(open(dp_meta_path))
-            mappings = dp_meta['mappings']
-            policies = dp_meta['policies']
-            integration_graph = federate.add_mappings(mappings)
-            integration_graph = federate.add_policies(policies)
+        federate = Federator(dataset_name, ecosystem)
+        dp_meta_path = os.path.join(base_dir, '../../../../DataPlatformLayer/Integration/dp1.json')
+        dp_meta = json.load(open(dp_meta_path))
+        mappings = dp_meta['mappings']
+        policies = dp_meta['policies'][:1]
 
-        elif chosen_file_path == file_path_image:
-            federate = Federator(dataset_name, ecosystem)
-            dp_meta_path = os.path.join(base_dir, '../../../../DataPlatformLayer/Integration/dp2.json')
-            dp_meta = json.load(open(dp_meta_path))
-            mappings = dp_meta['mappings']
-            policies = dp_meta['policies']
-            integration_graph = federate.add_mappings(mappings)
-            integration_graph = federate.add_policies(policies)
-
-
+        integration_graph = federate.add_mappings(mappings)
+        integration_graph += federate.add_policies(policies)
 
         ecosystem += integration_graph
 
@@ -317,12 +306,6 @@ if __name__ == "__main__":
         pcs_counts.append(int(queryOPS(ecosystem)))
 
         ecosystem.serialize(destination='ecosystem.ttl', format='turtle')
-
-
-
-
-
-
 
 
     # Data for plotting

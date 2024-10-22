@@ -102,6 +102,9 @@ def get_policy(policies_map, pc):
     return policy
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def plot_overhead(policy_times, policies_map):
     avg_parser_times = []
@@ -119,35 +122,60 @@ def plot_overhead(policy_times, policies_map):
         if parser_times:
             avg_parser_times.append(np.mean(parser_times) * 1000)  # Convert to milliseconds
         else:
-            avg_parser_times.append(0)  # Replace NaN with 0
+            avg_parser_times.append(0)
 
         if translation_times:
             avg_translation_times.append(np.mean(translation_times) * 1000)  # Convert to milliseconds
         else:
-            avg_translation_times.append(0)  # Replace NaN with 0
+            avg_translation_times.append(0)
 
     x = np.arange(len(policies))
     width = 0.35
 
-    fig, ax1 = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Plot parser times
-    ax1.bar(x - width / 2, avg_parser_times, width, label='Parser Time (ms)', color='orange')
-    ax1.set_xlabel('Policies')
-    ax1.set_ylabel('Parser Time (ms)')
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(policies, rotation=45)
+    # Plot parser times with hatch patterns
+    parser_bars = ax.bar(x - width / 2, avg_parser_times, width, label='Parser Time (ms)', color='orange', hatch='//')
+    # Plot translation times with a different hatch pattern
+    translation_bars = ax.bar(x + width / 2, avg_translation_times, width, label='Translation Time (ms)', color='green',
+                              hatch='xx')
 
-    # Create a second y-axis for translation times
-    ax2 = ax1.twinx()
-    ax2.bar(x + width / 2, avg_translation_times, width, label='Translation Time (ms)', color='green')
-    ax2.set_ylabel('Translation Time (ms)')
+    ax.set_xlabel('Policies')
+    ax.set_ylabel('Time (ms)')
+    ax.set_xticks(x)
+    ax.set_xticklabels(policies, rotation=45)
+    ax.set_yscale('log')
 
-    fig.tight_layout()
-    fig.legend(loc="upper right")
-    plt.title('Average Parsing and Translation Time for Each Policy')
-    plt.savefig('policy_times.png')
+    # Annotating values on the bars
+    for bar in parser_bars:
+        height = bar.get_height()
+        ax.annotate(f'{height:.2f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3),  # 3 points vertical offset
+                    textcoords="offset points",
+                    ha='center', va='bottom')
 
+    for bar in translation_bars:
+        height = bar.get_height()
+        ax.annotate(f'{height:.2f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3),
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
+    # Adjust title placement and fontsize
+    plt.title('')
+
+    # Adjust layout for title and plot space
+    plt.subplots_adjust(top=0.9)
+
+    # Move legend outside the plot
+    ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
+
+    fig.tight_layout(rect=[0, 0, 0.85, 1])  # Shrink the plot to fit legend
+
+    plt.savefig('policy_times_fixed.png', bbox_inches='tight')
+    plt.show()
 
 
 if __name__ == "__main__":
