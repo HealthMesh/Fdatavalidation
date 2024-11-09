@@ -91,7 +91,7 @@ class Implementation(type):
         tg = Graph()
         tg.bind("tb", "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#")
         tg.bind("ab", "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#")
-        tg = add_jsonld_instances(tg, os.path.join(base_dir, 'translations_mappings.json'))
+        tg = add_jsonld_instances(tg, os.path.join(base_dir, 'code_metadata.json'))
         return tg
 
     def find_implementation(cls, operation, type):
