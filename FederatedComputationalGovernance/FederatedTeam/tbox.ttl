@@ -19,6 +19,12 @@ Achraf Hmimou (UPC)"""@en ;
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#accordingTo
+tb:accordingTo rdf:type owl:ObjectProperty ;
+               rdfs:domain tb:PolicyChecker ;
+               rdfs:range odrl:Policy .
+
+
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#hasAttribute
 tb:hasAttribute rdf:type owl:ObjectProperty ;
                 rdfs:domain dcat:Dataset ;
@@ -40,7 +46,7 @@ tb:hasDTT rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#hasFeature
 tb:hasFeature rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
-              rdfs:domain tb:DataProduct ;
+              rdfs:domain tb:CommonDataModel ;
               rdfs:range tb:Feature .
 
 
@@ -70,14 +76,6 @@ tb:hasPolicy rdf:type owl:ObjectProperty ;
              rdfs:range odrl:Policy .
 
 
-###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#hasStep
-tb:hasStep rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty ;
-           rdfs:domain tb:Operation ,
-                       tb:PolicyChecker ;
-           rdfs:range tb:Operation .
-
-
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#hasTA
 tb:hasTA rdf:type owl:ObjectProperty ;
          rdfs:domain odrl:Asset ;
@@ -87,14 +85,19 @@ tb:hasTA rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#hasTemplate
 tb:hasTemplate rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
-               rdfs:domain tb:PolicyChecker ;
-               rdfs:range tb:Template .
+               rdfs:domain tb:PolicyChecker .
 
 
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#implements
 tb:implements rdf:type owl:ObjectProperty ;
-              rdfs:domain tb:PolicyChecker ;
-              rdfs:range odrl:Action .
+              rdfs:domain tb:PolicyChecker .
+
+
+###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#nextStep
+tb:nextStep rdf:type owl:ObjectProperty ;
+            rdfs:domain tb:Operation ,
+                        tb:PolicyChecker ;
+            rdfs:range tb:Operation .
 
 
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#supports
@@ -104,23 +107,11 @@ tb:supports rdf:type owl:ObjectProperty ;
             rdfs:range tb:DatasetTypeTemplate .
 
 
-###  http://www.w3.org/ns/odrl/2/action
-odrl:action rdf:type owl:ObjectProperty ;
-            rdfs:domain odrl:Duty ;
-            rdfs:range odrl:Action .
-
-
-###  http://www.w3.org/ns/odrl/2/duty
-odrl:duty rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf owl:topObjectProperty ;
-          rdfs:domain odrl:Permission ;
-          rdfs:range odrl:Duty .
-
-
-###  http://www.w3.org/ns/odrl/2/permission
-odrl:permission rdf:type owl:ObjectProperty ;
-                rdfs:domain odrl:Privacy ;
-                rdfs:range odrl:Permission .
+###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#validates
+tb:validates rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain tb:PolicyChecker ;
+             rdfs:range tb:DataProduct .
 
 
 #################################################################
@@ -180,7 +171,6 @@ tb:owner rdf:type owl:DatatypeProperty ;
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#template
 tb:template rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
-            rdfs:domain tb:Template ;
             rdfs:range xsd:string .
 
 
@@ -194,6 +184,10 @@ tb:Attribute rdf:type owl:Class .
 
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#Code
 tb:Code rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#CommonDataModel
+tb:CommonDataModel rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#DataContract
@@ -234,26 +228,16 @@ tb:PolicyChecker rdf:type owl:Class .
 tb:TechnologyAspects rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#Template
-tb:Template rdf:type owl:Class .
-
-
-###  http://www.w3.org/ns/odrl/2/Action
-odrl:Action rdf:type owl:Class .
-
-
 ###  http://www.w3.org/ns/odrl/2/Asset
 odrl:Asset rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/odrl/2/Duty
-odrl:Duty rdf:type owl:Class ;
-          rdfs:subClassOf odrl:Rule .
+odrl:Duty rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/odrl/2/Permission
-odrl:Permission rdf:type owl:Class ;
-                rdfs:subClassOf odrl:Rule .
+odrl:Permission rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/odrl/2/Policy
@@ -265,13 +249,14 @@ odrl:Privacy rdf:type owl:Class ;
              rdfs:subClassOf odrl:Policy .
 
 
-###  http://www.w3.org/ns/odrl/2/Rule
-odrl:Rule rdf:type owl:Class .
+###  https://www.w3.org/TR/vocab-dqv/#dqv:QualityPolicy
+<https://www.w3.org/TR/vocab-dqv/#dqv:QualityPolicy> rdf:type owl:Class ;
+                                                     rdfs:subClassOf odrl:Policy .
 
 
 ###  https://www.w3.org/ns/dcat#Dataset
 dcat:Dataset rdf:type owl:Class ;
-             rdfs:subClassOf odrl:Asset .
+             rdfs:subClassOf tb:DataProduct .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
