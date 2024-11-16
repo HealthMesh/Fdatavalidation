@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from rdflib import *
 from pyvis.network import Network
 
+from Connector.ValidationFramework.translator.translator import base_dir
+
 app = Flask(__name__)
 
-SDM = Graph().parse('/home/acraf/psr/tfm/Fdatavalidation/FederatedComputationalGovernance/SemanticDataModel/sdm.ttl', format='turtle')
+
+SDM = Graph().parse('../SemanticDataModel/sdm.ttl', format='turtle')
 
 @app.route('/')
 def index():
