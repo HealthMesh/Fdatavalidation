@@ -20,7 +20,6 @@ from Connector.ValidationFramework.parser.parser import DCParser
 from Connector.ValidationFramework.translator.translator import PCTranslator
 
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
@@ -144,19 +143,25 @@ class ValidationFramework:
         return instances.identifier
 
 
-# Initialize validation framework
 validation_framework = ValidationFramework()
 
 
-@app.route('/health', methods=['GET'])
-def health_check():
-    """Health check endpoint"""
-    return jsonify({'status': 'healthy'})
+
+
+@app.route('/test', methods=['GET'])
+def test():
+
+
+    validation_result = True
+
+    if validation_result:
+        return jsonify({'status': 'true'})
+    else:
+        return jsonify({'status': 'false'})
 
 
 @app.route('/data-products', methods=['GET'])
 def get_data_products():
-    """Get all data products endpoint"""
     try:
         products = validation_framework.get_data_products()
         return jsonify({
@@ -170,7 +175,6 @@ def get_data_products():
 
 @app.route('/policies', methods=['PUT'])
 def add_policy():
-    """Add a new policy to the semantic data model"""
     try:
         policy_data = request.get_json()
 
@@ -189,7 +193,6 @@ def add_policy():
 
 @app.route('/policy-checkers/<dp_id>', methods=['GET'])
 def get_policy_checkers(dp_id: str):
-    """Get policy checkers for a specific data product"""
     try:
         checkers = validation_framework.query_policy_checkers(dp_id)
         return jsonify({
@@ -204,7 +207,6 @@ def get_policy_checkers(dp_id: str):
 
 @app.route('/validation-reports', methods=['GET'])
 def get_validation_reports():
-    """Get all validation reports endpoint"""
     try:
         reports = validation_framework.get_validation_reports()
         return jsonify({
@@ -218,7 +220,6 @@ def get_validation_reports():
 
 @app.route('/parse-contracts/<dp_id>', methods=['GET'])
 def parse_contracts(dp_id: str):
-    """Parse contracts for a specific data product"""
     try:
         Checkers = ValidationFramework().parse_contracts(dp_id)
         return jsonify({
@@ -232,9 +233,7 @@ def parse_contracts(dp_id: str):
 
 @app.route('/translate/<pc_id>', methods=['GET'])
 def translate_policy_checker(pc_id: str):
-    """Translate a policy checker"""
     try:
-        # Here you would implement the translation logic
         udf = ValidationFramework().translate_policy_checker(pc_id)
         return jsonify({
             'message': f'Policy checker {pc_id} translated successfully',

@@ -23,7 +23,7 @@ WHERE {
     <{dp}> tb:hasDC ?dc .
     ?dc tb:hasPolicy ?policy .
     FILTER (?policy = <{policy_uri}>)
-    ?policy a dqv:QualityPolicy ;
+    ?policy a dqv:Policy ;
             odrl:duty ?duty .
     ?duty odrl:target ?target .
     ?duty odrl:constraint ?constraint .

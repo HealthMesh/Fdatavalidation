@@ -63,7 +63,7 @@
         {
           "@id": "ab:Imp6Code",
           "@type": "tb:Code",
-          "tb:code": "getattr(data, attr,None) == None"
+            "tb:code": "getattr(data, attr,None) == None"
         }
       ],
       "tb:hasParameters": [
