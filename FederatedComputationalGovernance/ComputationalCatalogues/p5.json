@@ -9,15 +9,16 @@
     "dqv": "http://www.w3.org/ns/dqv#",
     "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
     "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#",
-    "prov": "http://www.w3.org/ns/prov#"
+    "prov": "http://www.w3.org/ns/prov#",
+    "fmo":  "https://purl.org/twc/fmo#"
   },
   "@graph": [
     {
-      "@id": "ab:p2",
-      "@type": "dqv:QualityPolicy",
+      "@id": "ab:p5",
+      "@type": "odrl:Policy",
       "odrl:duty": [
         {
-          "@id": "ab:CompleteDuty",
+          "@id": "ab:FairnessDuty",
           "@type": "odrl:Duty",
           "odrl:target": {
             "@id": "ab:Age"
@@ -33,40 +34,12 @@
               },
               "odrl:leftOperand": [
                 {
-                  "@id": "ab:qM",
-                  "@type": "dqv:QualityMeasurement"
+                  "@id": "ab:FairnessDegree",
+                  "@type": "fmo:FairnessMetric"
                 }
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "@id": "ab:qM",
-      "@type": "dqv:QualityMeasurement",
-      "prov:wasAssociatedWith": [
-        {
-          "@id": "ab:countValues",
-          "@type": "prov:SoftwareAgent"
-        }
-      ],
-      "dqv:isMeasurementOf": [
-        {
-         "@id": "ab:percentatgeFromTotal",
-          "@type": "dqv:Metric",
-          "dqv:inDimension": [
-            {
-              "@id": "ab:Completeness",
-              "@type": "dqv:Dimension"
-            }
-          ]
-        }
-      ],
-      "dqv:value": [
-        {
-          "@value": "",
-          "@type": ""
         }
       ]
     }

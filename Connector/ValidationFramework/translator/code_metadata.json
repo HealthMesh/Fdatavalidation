@@ -188,7 +188,7 @@
         {
           "@id": "ab:Imp10Code",
           "@type": "tb:Code",
-          "tb:code": "(data[attr].count().sum() / len(data)) * 100"
+          "tb:code": "sum(sum(1 for _ in data[data[attr] == val]) for val in data[attr].unique()) / len(data) * 100"
         }
       ],
       "tb:hasParameters": [
@@ -275,6 +275,51 @@
             "@type": "tb:DatasetTypeTemplate"
           }
         ]
-     }
+     },
+       {
+      "@id": "ab:Imp11",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:Imp10Code",
+          "@type": "tb:Code",
+          "tb:code": "sum(sum(1 for _ in data[data[attr] == val]) for val in data[attr].unique()) / len(data) * 100"
+        }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp10CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "attr",
+            "tb:type": "str"
+          },
+          {
+            "@id": "ab:Imp10CodeParam2",
+            "@type": "tb:Parameter",
+            "tb:name": "data",
+            "tb:type": "pandas.DataFrame"
+          }
+      ],
+        "tb:dependsOn": [
+          {
+            "@id": "ab:Imp10CodeDep1",
+            "tb:name": "pandas",
+            "@type": "tb:Library"
+          }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "ab:FairnessDegree",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:Tabular",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ],
+        "tb:returns": "integer"
+    }
   ]
 }

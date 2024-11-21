@@ -15,8 +15,7 @@ from mpl_toolkits.mplot3d import Axes3D
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 sys.path.append(base_dir)
 
-from ValidateContract.parser.parser import DCParser
-
+from Connector.ValidationFramework.parser.parser import DCParser
 
 tbox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#')
 abox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
@@ -46,10 +45,6 @@ class Profiler:
         self.source_graph = self.extract_metadata()
 
     def create_graph(self):
-        """
-        This function returns a graph object with the necessary prefixes
-        :return: RDF Graph
-        """
         g = Graph()
         g.bind('tb', 'http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#')
         g.bind('ab', 'http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
@@ -64,7 +59,6 @@ class Profiler:
 
         #name = os.path.basename(self.file_path).replace('.', '')
         name = generate_unique_uri()
-        # Name Metadata
         self.source_graph.add((abox[name], RDF.type, dcat.Dataset))
         identifier = sha256(name.encode('utf-8')).hexdigest()
         self.source_graph.add((abox[name], dcterms.identifier, Literal(identifier)))
@@ -94,7 +88,6 @@ class Profiler:
         return URIRef(f"{base_uri}{unique_identifier}")
 
     def add_technology(self):
-        # triple
         self.source_graph.add((abox[self.datasetname + "_TA"], RDF.type, tbox.TechnologyAspects))
         self.source_graph.add((abox[self.datasetname], tbox.hasTA, abox[self.datasetname + "_TA"]))
 
@@ -102,7 +95,6 @@ class Profiler:
         self.source_graph.add((abox[self.datasetname + "_TA"], tbox.typeAcces, acces_uri))
         self.source_graph.add((acces_uri, RDF.type, tbox.Acces))
         self.source_graph.add((acces_uri, RDFS.label, abox.Static))
-        # PATH
         self.source_graph.add((acces_uri, tbox.path, Literal(self.file_path)))
 
     def extract_metadata(self):
@@ -137,9 +129,6 @@ class Profiler:
 
 
 class Federator:
-    """
-        Federator class is responsible for federating the data from different sources.
-    """
 
     def __init__(self, ds, SDM):
         self.ds = ds
@@ -156,26 +145,22 @@ class Federator:
 
     def add_mappings(self, mappings):
 
-        # create contract
         self.sdm.add((abox[f'dc_{self.ds}'], RDF.type, tbox.DataContract))
         self.sdm.add((abox[self.ds], tbox.hasDC, abox[f'dc_{self.ds}']))
 
-        # add mappings
-        for key, value in mappings.items():  # as key value pair dictionary
+        for key, value in mappings.items():
 
-            # Generate mapping UUID
             mapping_uuid = self.generate_uri_id()
             self.sdm.add((abox[mapping_uuid], RDF.type, tbox.SchemaMapping))
             self.sdm.add((abox[f'dc_{self.ds}'], tbox.hasMapping, abox[mapping_uuid]))
 
-            # Add Mapping
             self.sdm.add((abox[mapping_uuid], tbox.mfrom, abox[key]))
             self.sdm.add((abox[mapping_uuid], tbox.mto, abox[value]))
 
         return self.sdm
 
     def add_policies(self, policies):
-        # Add agreed policies
+
         for policy in policies:
             self.sdm.add((abox[f'dc_{self.ds}'], tbox.hasPolicy, abox[policy]))
 
@@ -268,11 +253,9 @@ def update_policy_uris(graph):
         old_uri = row.policy
         new_uri = generate_unique_uri(abox)
 
-        # Add new triples with the new URI
         for s, p, o in graph.triples((old_uri, None, None)):
             graph.add((new_uri, p, o))
 
-        # Remove old triples
         graph.remove((old_uri, None, None))
 
     return graph
@@ -294,10 +277,8 @@ def duplicate_policies(graph, original_policy_uri, data_contract_uri, n):
 
 if __name__ == "__main__":
 
-    # Tabular data asset
     file_path_tabular = os.path.join(base_dir, '../../../../DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv')
 
-    # Numero de Data Products
     NDataProducts = 1
     NDPolicies = 100
 
@@ -309,8 +290,6 @@ if __name__ == "__main__":
 
     ecosystem = Graph().parse(os.path.join(base_dir, 'sdm_copy.ttl'), format='turtle')
 
-
-    # Generate N Data Product
     for iteration in range(1,NDataProducts+1):
         SDM = get_CMD(ecosystem)
         chosen_file_path = file_path_tabular
@@ -331,15 +310,13 @@ if __name__ == "__main__":
     ecosystem.serialize(destination='ecosystem_policies.ttl', format='turtle')
 
 
-    # Genearate n Policies in each iteration
     for i in range(NDPolicies):
 
         ecosystem = Graph().parse(os.path.join(base_dir, 'ecosystem_policies.ttl'), format='turtle')
 
-        start_time = time.time()  # Start timer
+        start_time = time.time()
         SDM = get_CMD(ecosystem)
 
-        # Get a random Data Product
         dps = get_datasets_associated(SDM[0], ecosystem)
 
         for dp in dps:
@@ -358,47 +335,36 @@ if __name__ == "__main__":
         ecosystem.serialize(destination=f'ecosystem_policies_after.ttl', format='turtle')
 
 
-
-
-
-
-
-    # Data for plotting
-    x = ndp_list  # Number of NDPs
-    y = execution_times  # Number of PCs
-    z = pcs_counts  # Execution time for each NDP
+    x = ndp_list
+    y = execution_times
+    z = pcs_counts
 
     for ndp in ndp_list:
         print(f"NDP: {ndp} - Execution Time: {execution_times[ndp-1]} - OPS: {pcs_counts[ndp-1]}")
 
-    # Create 3D figure
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    # Plot the data
+
     ax.plot_trisurf(x, y, z, cmap='viridis')
 
-    # Labels
+
     ax.set_xlabel('#Policies')
     ax.set_ylabel('Time (seconds)')
     ax.set_zlabel('#OPS')
 
     plt.savefig("ecosystem_policies.png")
 
-    # Data for plotting
-    x = ndp_list  # Number of NDPs
-    y = execution_times  # Execution time for each NDP
+    x = ndp_list
+    y = execution_times
 
-    # Create 2D figure
     plt.figure()
     plt.plot(x, y, color='r', label='Execution Time')
 
-    # Labels and title
     plt.xlabel('Policies')
     plt.ylabel('Time (seconds)')
     plt.title('Execution Time vs Number of Data Products')
     plt.legend()
 
-    # Save the plot
     plt.savefig("ecosystem_policies_2d.png")
     plt.show()

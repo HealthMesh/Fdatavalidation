@@ -2,3 +2,6 @@ Prototype.drawio
 venv
 main.py
 .idea
+.idea/*
+.idea
+Connector/odrl-pap

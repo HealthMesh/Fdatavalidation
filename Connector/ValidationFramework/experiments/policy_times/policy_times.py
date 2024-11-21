@@ -4,14 +4,12 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Add the parent directory of SideCar to the Python path
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 sys.path.append(base_dir)
 
-from ValidateContract.parser.parser import DCParser
-from ValidateContract.translator.translator import *
+from Connector.ValidationFramework.parser.parser import DCParser
+from Connector.ValidationFramework.translator.translator import *
 
-# Namespaces
 tbox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#')
 abox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
 dcat = Namespace('https://www.w3.org/ns/dcat#')
@@ -21,7 +19,7 @@ odrl = Namespace("http://www.w3.org/ns/odrl/2/")
 
 #%
 base_dir = os.path.dirname(os.path.realpath(__file__))
-sdm = Graph().parse(os.path.join(base_dir, '../../../FederatedComputationalGovernance/SemanticDataModel/sdm.ttl'), format='turtle')
+sdm = Graph().parse(os.path.join(base_dir, '../../../../FederatedComputationalGovernance/SemanticDataModel/sdm.ttl'), format='turtle')
 print(base_dir)
 
 def get_CMD():
@@ -32,7 +30,7 @@ def get_CMD():
 
     SELECT ?dp
     WHERE {
-        ?dp a tb:DataProduct .
+        ?dp a tb:CommonDataModel .
     }
     '''
     q_res = sdm.query(query)
@@ -60,7 +58,7 @@ def get_datasets_associated(dp):
     datasets = set(datasets)
     return datasets
 
-def queryPC(ds):
+def queryPC(dp):
     query = f'''
     PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
     PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
@@ -69,15 +67,16 @@ def queryPC(ds):
     SELECT ?pc ?ds
     WHERE {{
         ?pc a tb:PolicyChecker .
-        ?pc tb:validates ?p .
-        ?pc tb:hasType ?t .
-        ?ds tb:hasDTT ?t
-        FILTER (?ds = ab:{ds})
+        ?pc tb:validates ?dp .
+        FILTER (?dp = ab:{dp})        
     }}
     '''
+
     q_res = sdm.query(query)
+
     pcs = [row.pc for row in q_res]
     return pcs
+
 
 
 def get_policy(policies_map, pc):
@@ -88,7 +87,7 @@ def get_policy(policies_map, pc):
 
     SELECT ?p 
     WHERE {{
-        ab:{pc} tb:validates ?p .
+        ab:{pc} tb:accordingTo ?p .
     }}
     LIMIT 1
     '''
@@ -134,9 +133,7 @@ def plot_overhead(policy_times, policies_map):
 
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Plot parser times with hatch patterns
     parser_bars = ax.bar(x - width / 2, avg_parser_times, width, label='Parser Time (ms)', color='orange', hatch='//')
-    # Plot translation times with a different hatch pattern
     translation_bars = ax.bar(x + width / 2, avg_translation_times, width, label='Translation Time (ms)', color='green',
                               hatch='xx')
 
@@ -146,7 +143,6 @@ def plot_overhead(policy_times, policies_map):
     ax.set_xticklabels(policies, rotation=45)
     ax.set_yscale('log')
 
-    # Annotating values on the bars
     for bar in parser_bars:
         height = bar.get_height()
         ax.annotate(f'{height:.2f}',
@@ -163,16 +159,11 @@ def plot_overhead(policy_times, policies_map):
                     textcoords="offset points",
                     ha='center', va='bottom')
 
-    # Adjust title placement and fontsize
     plt.title('')
-
-    # Adjust layout for title and plot space
     plt.subplots_adjust(top=0.9)
-
-    # Move legend outside the plot
     ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
 
-    fig.tight_layout(rect=[0, 0, 0.85, 1])  # Shrink the plot to fit legend
+    fig.tight_layout(rect=[0, 0, 0.85, 1])
 
     plt.savefig('policy_times_fixed.png', bbox_inches='tight')
     plt.show()

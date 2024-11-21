@@ -1,0 +1,48 @@
+2024-11-14 10:11:55,428 - INFO - 
+Starting SHACL benchmark iteration 1, size: 671
+2024-11-14 10:11:57,819 - INFO - 
+Starting SHACL benchmark iteration 2, size: 1342
+2024-11-14 10:12:01,321 - INFO - 
+Starting SHACL benchmark iteration 3, size: 2684
+2024-11-14 10:12:07,648 - INFO - 
+Starting SHACL benchmark iteration 4, size: 5368
+2024-11-14 13:05:26,926 - INFO - 
+Starting SHACL benchmark iteration 1, size: 671
+2024-11-14 13:05:31,753 - INFO - 
+Starting SHACL benchmark iteration 2, size: 1342
+2024-11-14 13:05:35,997 - INFO - 
+Starting SHACL benchmark iteration 3, size: 2684
+2024-11-14 13:05:42,632 - INFO - 
+Starting SHACL benchmark iteration 4, size: 5368
+2024-11-14 13:05:55,248 - INFO - 
+Starting SHACL benchmark iteration 5, size: 10736
+2024-11-14 13:06:19,491 - INFO - 
+Starting SHACL benchmark iteration 6, size: 21472
+2024-11-14 13:07:06,090 - INFO - 
+Starting SHACL benchmark iteration 7, size: 42944
+2024-11-14 13:08:40,000 - INFO - 
+Starting SHACL benchmark iteration 8, size: 85888
+2024-11-14 13:11:48,796 - INFO - 
+Starting SHACL benchmark iteration 9, size: 171776
+2024-11-14 13:18:09,286 - INFO - 
+Starting SHACL benchmark iteration 10, size: 343552
+2024-11-14 16:34:36,083 - INFO - 
+Starting SHACL benchmark iteration 1, size: 671
+2024-11-14 16:34:38,546 - INFO - 
+Starting SHACL benchmark iteration 2, size: 1342
+2024-11-14 16:34:42,018 - INFO - 
+Starting SHACL benchmark iteration 3, size: 2684
+2024-11-14 16:34:48,621 - INFO - 
+Starting SHACL benchmark iteration 4, size: 5368
+2024-11-14 16:35:00,433 - INFO - 
+Starting SHACL benchmark iteration 5, size: 10736
+2024-11-14 16:35:23,923 - INFO - 
+Starting SHACL benchmark iteration 6, size: 21472
+2024-11-14 16:36:10,698 - INFO - 
+Starting SHACL benchmark iteration 7, size: 42944
+2024-11-14 16:37:43,351 - INFO - 
+Starting SHACL benchmark iteration 8, size: 85888
+2024-11-14 16:40:49,894 - INFO - 
+Starting SHACL benchmark iteration 9, size: 171776
+2024-11-14 16:47:05,446 - INFO - 
+Starting SHACL benchmark iteration 10, size: 343552
