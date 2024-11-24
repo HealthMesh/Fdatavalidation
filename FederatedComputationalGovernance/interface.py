@@ -105,19 +105,19 @@ class SDMMetadataVisualizer:
         self.ab = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
         self.load_graph()
 
-        # Define color scheme matching the image
+
         self.color_scheme = {
-            'Policy': '#90EE90',  # Light green
-            'CommonDataModel': '#FFEFD5',  # Light yellow/beige
-            'DataProduct': '#FFB6C1',  # Light pink
-            'Attribute': '#FFB6C1',  # Light pink
-            'DTT': '#FFB6C1',  # Light pink
-            'DC': '#FFB6C1',  # Light pink
-            'TA': '#FFB6C1'  # Light pink
+            'Policy': '#90EE90',
+            'CommonDataModel': '#FFEFD5',
+            'DataProduct': '#FFB6C1',
+            'Attribute': '#FFB6C1',
+            'DTT': '#FFB6C1',
+            'DC': '#FFB6C1',
+            'TA': '#FFB6C1'
         }
 
     def load_graph(self):
-        """Load the semantic data model graph"""
+
         self.g = Graph()
         try:
             self.g.parse(os.path.join(self.base_dir, 'SemanticDataModel/sdm.ttl'), format='ttl')
@@ -126,19 +126,18 @@ class SDMMetadataVisualizer:
             self.g = Graph()
 
     def get_node_type(self, uri):
-        """Get the type of a node from the graph"""
+
         node_type = self.g.value(uri, RDF.type)
         if node_type:
             return node_type.split('#')[-1]
         return "Unknown"
 
     def visualize_metadata(self):
-        """Convert relevant parts of RDF graph to visualization format"""
+
         nodes = []
         edges = []
         added_nodes = set()
 
-        # Query to get relevant patterns
         query = """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
@@ -160,12 +159,10 @@ class SDMMetadataVisualizer:
 
         results = self.g.query(query)
 
-        # Process query results
         for s, p, o in results:
             source_id = s.split('#')[-1]
             predicate = p.split('#')[-1]
 
-            # Add source node if not already added
             if source_id not in added_nodes:
                 source_type = self.get_node_type(s)
                 nodes.append(Node(
@@ -176,7 +173,6 @@ class SDMMetadataVisualizer:
                 ))
                 added_nodes.add(source_id)
 
-            # Add target node and edge if target is a URI
             if isinstance(o, URIRef):
                 target_id = o.split('#')[-1]
                 if target_id not in added_nodes:
@@ -189,28 +185,26 @@ class SDMMetadataVisualizer:
                             color=self.color_scheme.get(target_type, '#808080')
                         ))
                         added_nodes.add(target_id)
-                        # Add edge
+
                         edges.append(Edge(source=source_id, target=target_id, label=predicate))
 
         return nodes, edges
 
 
-# Add this to your SDMManager class:
 
 def add_code_metadata(self, implementation_id, code, parameters, dependencies, operation, dataset_type, returns=None):
-    """Add new code metadata to the graph"""
+
     imp_uri = self.ab[implementation_id]
     code_uri = self.ab[f"{implementation_id}Code"]
 
-    # Add Implementation
     self.g.add((imp_uri, RDF.type, self.tb.Implementation))
 
-    # Add Code
+
     self.g.add((code_uri, RDF.type, self.tb.Code))
     self.g.add((code_uri, self.tb.code, Literal(code)))
     self.g.add((imp_uri, self.tb.hasCode, code_uri))
 
-    # Add Parameters
+
     for i, param in enumerate(parameters):
         param_uri = self.ab[f"{implementation_id}CodeParam{i + 1}"]
         self.g.add((param_uri, RDF.type, self.tb.Parameter))
@@ -218,31 +212,25 @@ def add_code_metadata(self, implementation_id, code, parameters, dependencies, o
         self.g.add((param_uri, self.tb.type, Literal(param['type'])))
         self.g.add((imp_uri, self.tb.hasParameters, param_uri))
 
-    # Add Dependencies
     for i, dep in enumerate(dependencies):
         dep_uri = self.ab[f"{implementation_id}CodeDep{i + 1}"]
         self.g.add((dep_uri, RDF.type, self.tb.Library))
         self.g.add((dep_uri, self.tb.name, Literal(dep)))
         self.g.add((imp_uri, self.tb.dependsOn, dep_uri))
 
-    # Add Operation
     op_uri = self.ab[operation]
     self.g.add((op_uri, RDF.type, self.tb.Operation))
     self.g.add((imp_uri, self.tb.forOp, op_uri))
 
-    # Add Dataset Type
     type_uri = self.ab[dataset_type]
     self.g.add((type_uri, RDF.type, self.tb.DatasetTypeTemplate))
     self.g.add((imp_uri, self.tb.forType, type_uri))
 
-    # Add Return Type if provided
     if returns:
         self.g.add((imp_uri, self.tb.returns, Literal(returns)))
 
     self.save_graph()
 
-
-# Add this to your main() function:
 
 
 def main():
@@ -253,12 +241,11 @@ def main():
 
     tabs = st.tabs(["SDM", "Common Data Models", "Policies", "Query", "Rewrite Rules", "Code Metadata"])
 
-    # Graph Visualization Tab
     with tabs[0]:
         st.header("Graph Visualization")
         visualizer = SDMMetadataVisualizer()
 
-        # Add legend
+
         st.sidebar.header("Legend")
         for node_type, color in visualizer.color_scheme.items():
             st.sidebar.markdown(
@@ -266,7 +253,6 @@ def main():
                 unsafe_allow_html=True
             )
 
-        # Main visualization
         nodes, edges = visualizer.visualize_metadata()
 
         config = Config(
@@ -284,7 +270,6 @@ def main():
 
         agraph(nodes=nodes, edges=edges, config=config)
 
-    # Common Data Models Tab
     with tabs[1]:
         st.header("Add Common Data Model")
 
@@ -299,7 +284,6 @@ def main():
             else:
                 st.error("Please fill in all fields")
 
-    # Policies Tab
     with tabs[2]:
         st.header("Add Policy")
 
@@ -314,7 +298,7 @@ def main():
             else:
                 st.error("Please fill in all fields")
 
-    # Query Tab
+
     with tabs[3]:
         st.header("SPARQL Query")
 
@@ -327,8 +311,8 @@ def main():
             except Exception as e:
                 st.error(f"Query error: {str(e)}")
 
-    # Code Metadata Tab
-    with tabs[4]:  # Add a new tab
+
+    with tabs[4]:
         st.header("Add Code Metadata")
 
         col1, col2 = st.columns(2)
@@ -383,7 +367,7 @@ def main():
             else:
                 st.error("Please fill in all required fields")
 
-        # Display existing code metadata
+
         st.subheader("Existing Code Metadata")
         query = """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

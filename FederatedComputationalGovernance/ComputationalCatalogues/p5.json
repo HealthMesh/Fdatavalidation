@@ -6,42 +6,44 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "odrl": "http://www.w3.org/ns/odrl/2/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "dqv": "http://www.w3.org/ns/dqv#",
     "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
-    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "fmo":  "https://purl.org/twc/fmo#"
+    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#"
   },
-  "@graph": [
+  "@id": "ab:p5",
+  "@type": "tb:DCPolicy",
+  "odrl:prohibition": [
     {
-      "@id": "ab:p5",
-      "@type": "odrl:Policy",
-      "odrl:duty": [
-        {
-          "@id": "ab:FairnessDuty",
-          "@type": "odrl:Duty",
-          "odrl:target": {
-            "@id": "ab:Age"
-          },
-          "odrl:constraint": [
-            {
-              "@id": "odrl:c1",
-              "@type": "odrl:Constraint",
-              "odrl:operator": "odrl:gteq",
-              "odrl:rightOperand": {
-                "@value": "99",
-                "@type": "xsd:decimal"
-              },
-              "odrl:leftOperand": [
-                {
-                  "@id": "ab:FairnessDegree",
-                  "@type": "fmo:FairnessMetric"
-                }
-              ]
-            }
-          ]
+      "@id": "ab:DConstraint",
+      "@type": "odrl:Prohibition",
+      "odrl:target": {
+        "@id": "ab:Age"
+      },
+       "odrl:constraint": [
+      {
+        "@type": "odrl:Constraint",
+        "@id": "ab:c4",
+        "odrl:leftOperand": {
+          "@id": "ab:Age"
+        },
+        "odrl:operator": "odrl:gteq",
+        "odrl:rightOperand": {
+          "@value": "25",
+          "@type": "xsd:integer"
         }
-      ]
+      },
+      {
+        "@type": "odrl:Constraint",
+        "@id": "ab:c5",
+        "odrl:leftOperand": {
+          "@id": "ab:Survival"
+        },
+        "odrl:operator": "odrl:gteq",
+        "odrl:rightOperand": {
+          "@value": "100",
+          "@type": "xsd:integer"
+        }
+      }
+    ]
     }
   ]
 }

@@ -1,0 +1,68 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
+PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+    ?op_uri_1 a tb:Operation ;
+            tb:hasInput ab:data ;
+            tb:hasInput ?attribute1 ;
+            tb:hasInput ?operator1 ;
+            tb:hasInput ?value1 ;
+            tb:hasAbstract odrl:LConstraint ;
+            tb:hasOutput ab:boolean .
+    <{last_op}> tb:nextStep ?op_uri_1 .
+    ?op_uri_2 a tb:Operation ;
+            tb:hasInput ab:data ;
+            tb:hasInput ab:boolean ;
+            tb:hasInput ?attribute2 ;
+            tb:hasInput ?operator2 ;
+            tb:hasInput ?value2 ;
+            tb:hasAbstract odrl:LConstraint ;
+            tb:hasOutput ab:boolean .
+    ?op_uri_1 tb:nextStep ?op_uri_2 .
+}
+WHERE {
+    <{dp}> tb:hasDC ?dc .
+    ?dc tb:hasPolicy ?policy .
+    FILTER (?policy = <{policy_uri}>)
+    ?policy a tb:DCPolicy ;
+            odrl:prohibition ?prohibition .
+
+    # Get constraints and order them by their IDs
+    {
+        SELECT ?constraint1 ?constraint2
+        WHERE {
+            ?prohibition odrl:constraint ?constraint1 .
+            ?prohibition odrl:constraint ?constraint2 .
+            FILTER(STR(?constraint1) < STR(?constraint2))
+        }
+        LIMIT 1
+    }
+
+    # Get details for first constraint
+    ?constraint1 a odrl:Constraint ;
+                odrl:leftOperand ?lop1 ;
+                odrl:rightOperand ?rop1 ;
+                odrl:operator ?op1 .
+
+    # Get details for second constraint
+    ?constraint2 a odrl:Constraint ;
+                odrl:leftOperand ?lop2 ;
+                odrl:rightOperand ?rop2 ;
+                odrl:operator ?op2 .
+
+    # Bindings for first constraint
+    BIND(?lop1 AS ?attribute1)
+    BIND(?op1 AS ?operator1)
+    BIND(?rop1 AS ?value1)
+
+    # Bindings for second constraint
+    BIND(?lop2 AS ?attribute2)
+    BIND(?op2 AS ?operator2)
+    BIND(?rop2 AS ?value2)
+
+    # Generate unique URIs for operations
+    BIND(IRI(CONCAT(STR(ab:), "op_", STRUUID())) AS ?op_uri_1)
+    BIND(IRI(CONCAT(STR(ab:), "op_", STRUUID())) AS ?op_uri_2)
+}

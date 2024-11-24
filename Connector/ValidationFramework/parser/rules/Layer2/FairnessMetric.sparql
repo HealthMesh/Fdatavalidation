@@ -7,13 +7,13 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 CONSTRUCT {
     <{op_uri}> a tb:Operation ;
                tb:hasInput ?attribute ;
-               tb:hasAbstract ?operation;
+               tb:hasAbstract ?lop ;
                tb:hasInput ab:data ;
                tb:hasOutput ab:data .
     <{last_op}> tb:nextStep <{op_uri}>.
     ?new_op_uri a tb:Operation ;
                 tb:hasInput ab:data ;
-                tb:hasAbstract odrl:Constraint;
+                tb:hasAbstract odrl:Constraint ;
                 tb:hasInput ?operator ;
                 tb:hasInput ?value ;
                 tb:hasOutput ab:data .
@@ -23,13 +23,14 @@ WHERE {
     <{dp}> tb:hasDC ?dc .
     ?dc tb:hasPolicy ?policy .
     FILTER (?policy = <{policy_uri}>)
-    ?policy a dqv:Policy ;
+    ?policy a tb:FairnessPolicy ;
             odrl:duty ?duty .
     ?duty odrl:target ?target .
     ?duty odrl:constraint ?constraint .
     ?constraint odrl:leftOperand ?lop ;
                 odrl:rightOperand ?rop ;
                 odrl:operator ?op .
+    # Only bind the leftOperand (FairnessDegree) as the operation
     BIND( ?lop AS ?operation)
     BIND( ?target AS ?attribute)
     BIND( ?op AS ?operator)
