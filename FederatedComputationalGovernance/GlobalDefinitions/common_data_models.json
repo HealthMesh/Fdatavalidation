@@ -22,6 +22,10 @@
     {
       "@id": "ab:Age",
       "@type": "tb:Feature"
+    },
+    {
+      "@id": "ab:Survival",
+      "@type": "tb:Feature"
     }
   ]
 }

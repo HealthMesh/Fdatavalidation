@@ -6,27 +6,42 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "odrl": "http://www.w3.org/ns/odrl/2/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
-    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#"
+    "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "fmo":  "https://purl.org/twc/fmo#"
   },
-  "@id": "ab:p4",
-  "@type": "odrl:Policy",
-  "odrl:prohibition": [
+  "@graph": [
     {
-      "@id": "ab:DConstraint",
-      "@type": "odrl:Prohibition",
-      "odrl:target": {
-        "@id": "ab:Age"
-      },
-      "odrl:constraint": {
-        "@type": "odrl:Constraint",
-        "odrl:leftOperand": "ab:Age",
-        "odrl:operator": "odrl:lt",
-        "odrl:rightOperand": {
-          "@value": 100,
-          "@type": "xsd:integer"
+      "@id": "ab:p4",
+      "@type": "tb:FairnessPolicy",
+      "odrl:duty": [
+        {
+          "@id": "ab:FairnessDuty",
+          "@type": "odrl:Duty",
+          "odrl:target": {
+            "@id": "ab:Survival"
+          },
+          "odrl:constraint": [
+            {
+              "@id": "odrl:c5",
+              "@type": "odrl:Constraint",
+              "odrl:operator": "odrl:gteq",
+              "odrl:rightOperand": {
+                "@value": "99",
+                "@type": "xsd:decimal"
+              },
+              "odrl:leftOperand": [
+                {
+                  "@id": "ab:FairnessDegree",
+                  "@type": "fmo:FairnessMetric"
+                }
+              ]
+            }
+          ]
         }
-      }
+      ]
     }
   ]
 }

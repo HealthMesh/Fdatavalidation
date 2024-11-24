@@ -29,7 +29,6 @@ def save_metrics(metrics: List[Dict], filename: str = 'shacl_benchmark_results.c
 
 
 def plot_results(metrics: List[Dict], output_file: str = 'shacl_benchmark_results.png'):
-    """Create visualization of SHACL benchmark results"""
     results = pd.DataFrame(metrics)
     plt.figure(figsize=(15, 10))
 
