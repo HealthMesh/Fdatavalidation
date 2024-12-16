@@ -46,3 +46,25 @@ Starting SHACL benchmark iteration 8, size: 85888
 Starting SHACL benchmark iteration 9, size: 171776
 2024-11-14 16:47:05,446 - INFO - 
 Starting SHACL benchmark iteration 10, size: 343552
+2024-11-25 13:22:30,022 - INFO - 
+Starting SHACL benchmark iteration 1, size: 671
+2024-11-25 13:22:32,562 - INFO - 
+Starting SHACL benchmark iteration 2, size: 1342
+2024-11-25 13:22:36,285 - INFO - 
+Starting SHACL benchmark iteration 3, size: 2684
+2024-11-25 13:22:42,660 - INFO - 
+Starting SHACL benchmark iteration 4, size: 5368
+2024-11-25 13:22:54,805 - INFO - 
+Starting SHACL benchmark iteration 5, size: 10736
+2024-11-25 13:23:18,876 - INFO - 
+Starting SHACL benchmark iteration 6, size: 21472
+2024-11-25 13:24:06,281 - INFO - 
+Starting SHACL benchmark iteration 7, size: 42944
+2024-11-25 13:25:41,489 - INFO - 
+Starting SHACL benchmark iteration 8, size: 85888
+2024-11-25 13:28:54,749 - INFO - 
+Starting SHACL benchmark iteration 9, size: 171776
+2024-11-25 13:35:20,825 - INFO - 
+Starting SHACL benchmark iteration 10, size: 343552
+2024-11-25 13:48:45,958 - INFO - 
+Starting SHACL benchmark iteration 11, size: 687104

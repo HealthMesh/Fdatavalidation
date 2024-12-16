@@ -1,0 +1,42 @@
+2024-12-13 16:50:39,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:50:39,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:50:39,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:50:39,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:50:39,586:INFO:Initializing load_model()
+2024-12-13 16:50:39,586:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:50:39,716:INFO:Initializing predict_model()
+2024-12-13 16:50:39,716:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7efc97f93110>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7efc97e0fc40>)
+2024-12-13 16:50:39,716:INFO:Checking exceptions
+2024-12-13 16:50:39,716:INFO:Preloading libraries
+2024-12-13 16:50:39,716:INFO:Set up data.
+2024-12-13 16:50:39,722:INFO:Set up index.

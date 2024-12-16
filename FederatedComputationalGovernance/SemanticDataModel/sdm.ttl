@@ -2,6 +2,7 @@
 @prefix dcat1: <https://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.w3.org/ns/dqv#> .
+@prefix ns2: <https://purl.org/twc/fmo#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -17,40 +18,158 @@ dcterms:identifier a owl:DatatypeProperty ;
     rdfs:domain odrl:Asset ;
     rdfs:range xsd:string .
 
-ab:0344f4df-2ab7-4848-bb63-100e4c8fbd16 a tb:PolicyChecker ;
-    tb:accordingTo ab:p1 ;
-    tb:nextStep ab:eb78920d-9b45-4e46-ae61-b9885c2e3917 ;
-    tb:validates ab:0002DCM .
-
-ab:3ccba773-8b25-408b-949d-2448fa66d626 a tb:PolicyChecker ;
-    tb:accordingTo ab:p4 ;
-    tb:nextStep ab:ddcdd7f4-d2fb-4896-bad1-3371c9bb696f ;
+ab:0d0f0b36-5369-4791-9cb0-b72e4304928c a tb:PolicyChecker ;
+    tb:accordingTo ab:p3 ;
+    tb:nextStep ab:917deb78-1064-4e07-9456-8bf0edde6a38 ;
     tb:validates ab:UPENN-GBM_clinical_info_v21csv .
 
-ab:3ea66814-5414-4382-9c94-0e8eb73e986d a tb:PolicyChecker ;
+ab:18c6be4b-0686-4cf4-80ec-538d42a055b5 a tb:PolicyChecker ;
     tb:accordingTo ab:p1 ;
-    tb:nextStep ab:a489069a-3ac4-4648-8008-5c54b4b5cfef ;
+    tb:nextStep ab:c3450b7a-23d4-4bfb-a438-877af1f7c89e ;
+    tb:validates ab:0002DCM .
+
+ab:1dd1ae97-0d62-4d95-a3e4-506ab13b5b52 a tb:PolicyChecker ;
+    tb:accordingTo ab:p5 ;
+    tb:nextStep ab:4256b6a7-b5c8-4458-8849-8f4d68bd2023 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:1e47e870-0a0c-4832-a71d-910721ecc45a a tb:PolicyChecker ;
+    tb:accordingTo ab:p2 ;
+    tb:nextStep ab:231dd175-f51e-4a5d-bd66-cd5c2bec55e7 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:2112ab84-df68-4efd-a502-fc30934ac082 a tb:PolicyChecker ;
+    tb:accordingTo ab:p1v2 ;
+    tb:nextStep ab:9c05c0d5-00f3-45e9-adc9-5b162f4ad009 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:291a0bea-270f-487b-badf-6d031ba5c96f a tb:PolicyChecker ;
+    tb:accordingTo ab:p3 ;
+    tb:nextStep ab:ee83cd99-1ff8-44f0-8df1-813fdf05b641 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:3f45da10-69ab-4b12-98fd-dd68be82d46a a tb:PolicyChecker ;
+    tb:accordingTo ab:p3 ;
+    tb:nextStep ab:991ad7fd-1acf-4a1f-b1e6-ab26307f50fa ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:49f382fd-c27f-4891-b737-691575528963 a tb:PolicyChecker ;
+    tb:accordingTo ab:p5 ;
+    tb:nextStep ab:a70e9f5e-6ac3-415a-baa2-6b34d303771e ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:49f69d0d-e825-443f-8333-e9fc088f0c55 a tb:PolicyChecker ;
+    tb:accordingTo ab:p2 ;
+    tb:nextStep ab:99143ba9-48eb-4af9-a9a8-150728c35276 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:4a7441b4-0fab-4fb2-b4f2-897e1644f15d a tb:PolicyChecker ;
+    tb:accordingTo ab:p2 ;
+    tb:nextStep ab:3600689f-1c1a-4824-b498-56a2b0575c94 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:5404db47-7de5-4a1a-84ec-d5a9f93ce8d0 a tb:PolicyChecker ;
+    tb:accordingTo ab:p1 ;
+    tb:nextStep ab:6ba13a91-258d-4cd3-9bdf-1d07a690f458 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:543bc167-8bb8-4e68-bc5b-9c825dc1de6d a tb:PolicyChecker ;
+    tb:accordingTo ab:p1v2 ;
+    tb:nextStep ab:c60b3049-f15c-492a-a3b3-5df36b6d544b ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:5f778ad3-ac5c-47f6-9705-1ed4c84e564b a tb:PolicyChecker ;
+    tb:accordingTo ab:p1 ;
+    tb:nextStep ab:74cf52c8-7359-496b-9ab0-73b75670ff7f ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:69ba9e04-0b2e-43a5-ba79-dc5b547a48bb a tb:PolicyChecker ;
+    tb:accordingTo ab:p1v2 ;
+    tb:nextStep ab:9a78061e-9007-4435-91e2-cfcb8fdfebec ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:6b18a1b6-0500-474a-bf73-5b3eb2dd8b13 a tb:PolicyChecker ;
+    tb:accordingTo ab:p1v2 ;
+    tb:nextStep ab:103e6108-50ee-4a68-9456-59f524ec50a7 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:80b63b9f-fa79-4c6b-9c60-dfa8d8deac41 a tb:PolicyChecker ;
+    tb:accordingTo ab:p3 ;
+    tb:nextStep ab:d5230bac-58e8-4c9a-82e2-4a41ff0761c8 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:88ffa76f-2152-4e59-a385-e43ab66fae93 a tb:PolicyChecker ;
+    tb:accordingTo ab:p5 ;
+    tb:nextStep ab:298ef2f7-0073-462b-9dcf-d0031f58bc4c ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:96a14798-59c9-49d4-99c5-e4c0fd6c773e a tb:PolicyChecker ;
+    tb:accordingTo ab:p1 ;
+    tb:nextStep ab:7c492c76-b830-4d9f-ac5d-11ddc22f1fd1 ;
     tb:validates ab:UPENN-GBM_clinical_info_v21csv .
 
 ab:Patient_Data a tb:CommonDataModel ;
     dcterms:identifier "123456" ;
     tb:hasFeature ab:Age,
+        ab:Sex,
         ab:Subject,
         ab:Survival ;
     tb:owner "FederatedTeam" .
 
-ab:b4fba6e2-473a-48d6-a1eb-e9ab011d19c2 a tb:PolicyChecker ;
+ab:a7e7ca1a-bcfe-42f6-b4f6-e5461b504d31 a tb:PolicyChecker ;
+    tb:accordingTo ab:p1v2 ;
+    tb:nextStep ab:e242d92d-747a-40f6-aeca-516bcea63862 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:c4071595-7513-4637-98cb-4caf85c332d5 a tb:PolicyChecker ;
+    tb:accordingTo ab:p1 ;
+    tb:nextStep ab:00b19a2d-551e-41c8-861e-3d2a545b5e0c ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:c83c378e-fabb-469f-a7b6-803408776b07 a tb:PolicyChecker ;
+    tb:accordingTo ab:p5 ;
+    tb:nextStep ab:b911d1f3-ffa3-4d29-8a3d-36b62fcc5058 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:cccfd5b1-dda5-42ed-974b-689cae37b5cf a tb:PolicyChecker ;
     tb:accordingTo ab:p3 ;
-    tb:nextStep ab:a3c4fdaf-6a84-497f-9a9e-8a9897070c4c ;
+    tb:nextStep ab:93fcd997-6b5a-4012-adaf-9be3c5b03f34 ;
     tb:validates ab:UPENN-GBM_clinical_info_v21csv .
 
-ab:ce77d01d-b1ba-4445-97f1-fc18431460ff a tb:PolicyChecker ;
+ab:d174d42a-16c2-4496-af32-c542b29e9843 a tb:PolicyChecker ;
     tb:accordingTo ab:p2 ;
-    tb:nextStep ab:27d83a5e-6cd1-4bf9-979e-b112fee238f4 ;
+    tb:nextStep ab:88217da7-6220-4526-9d3a-82e7170d4944 ;
     tb:validates ab:UPENN-GBM_clinical_info_v21csv .
 
-ab:p5 a tb:DCPolicy ;
-    odrl:prohibition ab:DConstraint .
+ab:d4c5677f-1339-415b-b711-3fa7ce61578e a tb:PolicyChecker ;
+    tb:accordingTo ab:p4 ;
+    tb:nextStep ab:788bbbd7-1e9b-4d45-bab1-a70aa90ecee1 ;
+    tb:validates ab:modelpkl .
+
+ab:db5a7e2a-3839-4098-b744-a53c58d2f428 a tb:PolicyChecker ;
+    tb:accordingTo ab:p1 ;
+    tb:nextStep ab:5e7685fb-aa11-4213-8e8d-3174247312b7 ;
+    tb:validates ab:0002DCM .
+
+ab:e0887eb6-71c7-49a1-a420-43ab2c4ee8ad a tb:PolicyChecker ;
+    tb:accordingTo ab:p2 ;
+    tb:nextStep ab:3d41b230-8180-4bb4-87ac-f7076dbd5e46 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:eeda8848-d474-4d59-8813-3893415a21be a tb:PolicyChecker ;
+    tb:accordingTo ab:p5 ;
+    tb:nextStep ab:226b6774-4001-499b-b577-e10798ee8e72 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:f86b757a-580e-43be-90c2-abc7d93c601f a tb:PolicyChecker ;
+    tb:accordingTo ab:p1 ;
+    tb:nextStep ab:c37d3a5e-0777-43c8-8041-8b9f3942e902 ;
+    tb:validates ab:UPENN-GBM_clinical_info_v21csv .
+
+ab:fdf95c15-2202-4dc9-930c-7b0deec2defe a tb:PolicyChecker ;
+    tb:accordingTo ab:p4 ;
+    tb:nextStep ab:dc6e7a71-a192-419d-ad36-167cef7d2974 ;
+    tb:validates ab:modelpkl .
 
 <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox> a owl:Ontology ;
     rdfs:label "HealthMesh Ontology"@en ;
@@ -158,118 +277,341 @@ odrl:Permission a owl:Class .
 <https://www.w3.org/TR/vocab-dqv/#dqv:QualityPolicy> a owl:Class ;
     rdfs:subClassOf odrl:Policy .
 
-ab:0002DCM a tb:DataProduct ;
-    dcterms:identifier "9dd5ec0077b9e3725105a52ab53bee9921f25820fef3561e5ef0c4c1823d28dd" ;
-    tb:hasAttribute ab:AccessionNumber,
-        ab:BitsAllocated,
-        ab:BitsStored,
-        ab:Columns,
-        ab:Exposure,
-        ab:FrameIncrementPointer,
-        ab:FrameTime,
-        ab:HighBit,
-        ab:ImageType,
-        ab:InstanceNumber,
-        ab:InstitutionAddress,
-        ab:InstitutionName,
-        ab:KVP,
-        ab:LossyImageCompressionRetired,
-        ab:Manufacturer,
-        ab:MaskSubtractionSequence,
-        ab:Modality,
-        ab:NumberOfFrames,
-        ab:PatientBirthDate,
-        ab:PatientID,
-        ab:PatientName,
-        ab:PatientOrientation,
-        ab:PatientSex,
-        ab:PerformingPhysicianName,
-        ab:PhotometricInterpretation,
-        ab:PixelData,
-        ab:PixelIntensityRelationship,
-        ab:PixelRepresentation,
-        ab:PositionerMotion,
-        ab:PositionerPrimaryAngle,
-        ab:PositionerSecondaryAngle,
-        ab:RWavePointer,
-        ab:RadiationSetting,
-        ab:RecommendedViewingMode,
-        ab:ReferringPhysicianName,
-        ab:Rows,
-        ab:SOPClassUID,
-        ab:SOPInstanceUID,
-        ab:SamplesPerPixel ;
-    tb:hasDC ab:dc_0002DCM ;
-    tb:hasDTT ab:Image ;
-    tb:hasTA ab:0002DCM_TA ;
-    tb:owner "Unknown" .
-
 ab:0002DCM_TA a tb:TechnologyAspects ;
-    tb:typeAcces ab:06d61aa5-a418-4574-8fae-c3b899c8acb1 .
+    tb:typeAcces ab:64980810-d83f-4544-b1b1-47fe3a75a4bc .
 
-ab:06d61aa5-a418-4574-8fae-c3b899c8acb1 a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct2/Data/0002.DCM" .
+ab:000728ff-792c-4689-947c-f0de44072929 a tb:Report .
 
-ab:0b631885-c709-467a-aa31-87e9f9b12b7a a tb:Report ;
-    tb:result "True" .
-
-ab:10bda59f-ea52-4646-98a3-0ec82a56f836 a tb:Report ;
-    tb:result "False" .
-
-ab:21c488ea-95f2-445a-8c67-ddc0e7974091 a tb:SchemaMapping ;
-    tb:mfrom ab:ID ;
-    tb:mto ab:Subject .
-
-ab:27d83a5e-6cd1-4bf9-979e-b112fee238f4 a tb:Operation ;
+ab:00b19a2d-551e-41c8-861e-3d2a545b5e0c a tb:Operation ;
     tb:hasAbstract ab:LoadData ;
     tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
     tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:3e5c0b78-6025-4fc2-9c3f-da3f0372e4ab .
+    tb:nextStep ab:f3ae4895-35c2-46e7-9803-d1ab6de394f8 .
 
-ab:2fb0b2ba-5229-4384-ab90-7df1598e727e a tb:Operation ;
-    tb:hasAbstract ab:FairnessDegree ;
-    tb:hasInput ab:Survival_from_surgery_days_UPDATED,
+ab:07d7c617-1e81-4095-bac9-31fedbfdeb80 a tb:Report .
+
+ab:0efa3dc6-7e73-4c7f-96a5-7a481db217a3 a tb:Operation ;
+    tb:hasAbstract ab:DemographicParity ;
+    tb:hasInput ab:Gender,
+        ab:data,
+        "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/test.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:e6613ddd-2fd7-4dc6-96af-0c2f7a14f68f .
+
+ab:0f60d05d-2d4a-410b-90fb-7b41817b8b40 a tb:Operation ;
+    tb:hasAbstract ab:MembershipInferenceAccuracy ;
+    tb:hasInput ab:Age_at_scan_years,
         ab:data ;
     tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp20 ;
-    tb:nextStep ab:b8589d18-8a92-4213-98ec-d928df0ef94d .
+    tb:hasTranslation ab:Imp30000 ;
+    tb:nextStep ab:ce65b3e9-2bb6-47c4-9fa4-2091d612ff2e .
 
-ab:3e5c0b78-6025-4fc2-9c3f-da3f0372e4ab a tb:Operation ;
+ab:103e6108-50ee-4a68-9456-59f524ec50a7 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:7373c53e-fc27-4451-a095-6c79da27658b .
+
+ab:1128499c-0ac7-4252-9ce8-bb88f3df1476 a tb:SchemaMapping ;
+    tb:mfrom ab:Survival_from_surgery_days_UPDATED ;
+    tb:mto ab:Survival .
+
+ab:146d0251-51ca-49d8-bc53-d124ca21c6db a tb:SchemaMapping ;
+    tb:mfrom ab:ID ;
+    tb:mto ab:Subject .
+
+ab:16f412c1-9be1-4b6d-a5ee-fb55ce0fff28 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:ID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:07d7c617-1e81-4095-bac9-31fedbfdeb80 .
+
+ab:17301dee-79f5-489f-871c-8eb497c6cc28 a tb:Report ;
+    tb:result "True" .
+
+ab:1a9f037e-3fa8-474e-9fe9-ee8905402b06 a tb:Operation ;
     tb:hasAbstract ab:qM ;
     tb:hasInput ab:Age_at_scan_years,
         ab:data ;
     tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp10 ;
-    tb:nextStep ab:71df25a2-c6fa-4767-975b-a7bbd789697c .
+    tb:nextStep ab:eece8591-5b0d-4209-a1f3-5fa8db17d5e7 .
 
-ab:4353c3ce-9b97-47b1-a958-869f38106d69 a tb:Report ;
-    tb:result false .
+ab:1f93a550-45cc-4774-ace4-d0a2ceac0410 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:ID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:000728ff-792c-4689-947c-f0de44072929 .
 
-ab:5e436f70-8fe7-4a3f-b649-f244575983a5 a tb:SchemaMapping ;
-    tb:mfrom ab:Age_at_scan_years ;
-    tb:mto ab:Age .
+ab:226b6774-4001-499b-b577-e10798ee8e72 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:op_c728feaf-d731-4b0e-b451-9e22340771d8 .
 
-ab:71df25a2-c6fa-4767-975b-a7bbd789697c a tb:Operation ;
+ab:231dd175-f51e-4a5d-bd66-cd5c2bec55e7 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:c831befb-8c53-4828-a3be-0326195379cd .
+
+ab:28d0d00f-a1cd-4e82-8903-47e6bb309520 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:ID,
+        ab:data,
+        "odrl:isA",
+        "xsd:string" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:eba2c85d-07d7-4bdd-8f5a-a0dba9c410c7 .
+
+ab:298ef2f7-0073-462b-9dcf-d0031f58bc4c a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:op_fee14fff-2323-4738-96bd-e8e08105d0fd .
+
+ab:2a1569cf-6b2b-473c-b6b5-4e1f1c8057ea a tb:Report .
+
+ab:3600689f-1c1a-4824-b498-56a2b0575c94 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:b50b9b70-37e0-4414-80c6-d7a0e98aa29b .
+
+ab:39551dc5-31fc-4d6f-abb2-83926b97543b a tb:Operation ;
     tb:hasAbstract odrl:Constraint ;
     tb:hasInput ab:data,
         99.0,
         "odrl:gteq" ;
     tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp4 ;
-    tb:nextStep ab:78f5b972-0ec9-4a6d-affc-334e03c0b92e .
+    tb:nextStep ab:e20a1505-18e5-4493-b8d0-68ddd6ef7de6 .
 
-ab:78f5b972-0ec9-4a6d-affc-334e03c0b92e a tb:Report ;
+ab:3ade6b35-18ff-4c84-9069-d0a81e6b05a8 a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/test.csv" .
+
+ab:3cea48d9-3a50-40f6-82c6-1b9c236081d7 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:ID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:55f4d1a2-1b3d-4256-8985-76ae895493d8 .
+
+ab:3d41b230-8180-4bb4-87ac-f7076dbd5e46 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:1a9f037e-3fa8-474e-9fe9-ee8905402b06 .
+
+ab:3efcee29-cf45-4473-baf6-d593894bf952 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:PatientID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:cd88301e-121a-485a-b048-e270bcb576de .
+
+ab:3f6f9203-3a6a-47bc-a74f-8e42aac53188 a tb:Operation ;
+    tb:hasAbstract ab:MembershipInferenceAccuracy ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:b6dcbc0b-e1e9-40c5-821c-54f0b6d2b3cc .
+
+ab:40de79b9-7453-4be8-9ab1-ea0ef322fd21 a tb:Report .
+
+ab:4256b6a7-b5c8-4458-8849-8f4d68bd2023 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp1 ;
+    tb:nextStep ab:op_5fcded91-0e22-4532-98ce-03ffdb483a1a .
+
+ab:453809fd-b4f1-4ba4-937d-5fe7e3553326 a tb:Report .
+
+ab:46d3c71b-2032-4f95-9001-d67fc5ba96e5 a tb:Report ;
     tb:result "True" .
 
-ab:7f68c264-e69c-4327-8221-83259a9b8ca7 a tb:Acces ;
-    rdfs:label ab:Static ;
-    tb:path "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
+ab:494fe9f8-642f-45fb-9405-f4f31f34b235 a tb:Operation ;
+    tb:hasAbstract ab:qM ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp10 ;
+    tb:nextStep ab:a11b8664-03e0-47a5-ac84-a794e04d855f .
 
-ab:83b95539-23ef-432a-b25a-26c6b720457d a tb:SchemaMapping ;
-    tb:mfrom ab:Survival_from_surgery_days_UPDATED ;
-    tb:mto ab:Survival .
+ab:4a0a13f6-8214-415b-9c1e-590c9bfa59a5 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        odrl:lt,
+        5e+01 ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:2a1569cf-6b2b-473c-b6b5-4e1f1c8057ea .
+
+ab:515111df-25c9-45c3-972a-3940215707a2 a tb:Report .
+
+ab:53f02509-d8a2-40ee-add7-b01f8fdbf3b1 a tb:Report .
+
+ab:55f4d1a2-1b3d-4256-8985-76ae895493d8 a tb:Report .
+
+ab:5813fe81-2798-4592-8dc0-6dcff69d8504 a tb:Report ;
+    tb:result false .
+
+ab:5af4dc25-27c9-4495-8026-9142f5d79fa1 a tb:Report .
+
+ab:5d8e5689-cdab-4a66-88b8-f033d93d02ec a tb:SchemaMapping ;
+    tb:mfrom ab:Gender ;
+    tb:mto ab:Sex .
+
+ab:5e7685fb-aa11-4213-8e8d-3174247312b7 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct2/Data/0002.DCM" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp9 ;
+    tb:nextStep ab:f2a66970-e263-4d98-81e2-75c3cac166c2 .
+
+ab:5fb1ed3c-e3d9-4b71-9da2-c54b6a66142f a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:ID,
+        ab:data,
+        "odrl:isA",
+        "xsd:string" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:40de79b9-7453-4be8-9ab1-ea0ef322fd21 .
+
+ab:62661dc1-9ef2-4207-be13-bcdb8e220253 a tb:Report .
+
+ab:64980810-d83f-4544-b1b1-47fe3a75a4bc a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct2/Data/0002.DCM" .
+
+ab:66788a07-3fba-440c-b930-9bddb45de4ad a tb:Report .
+
+ab:6ba13a91-258d-4cd3-9bdf-1d07a690f458 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:1f93a550-45cc-4774-ace4-d0a2ceac0410 .
+
+ab:708471bd-6257-4e9b-9ec0-c3b2d2da4262 a tb:Report .
+
+ab:716c55ad-533b-4f72-b34c-0d236e2982a4 a tb:Report .
+
+ab:7373c53e-fc27-4451-a095-6c79da27658b a tb:Operation ;
+    tb:hasAbstract ab:MembershipInferenceAccuracy ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:8237c057-f080-4fa1-8cd2-6228670b2eec .
+
+ab:74cf52c8-7359-496b-9ab0-73b75670ff7f a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:16f412c1-9be1-4b6d-a5ee-fb55ce0fff28 .
+
+ab:7524293f-940a-4d3a-a6ec-05ab61e1c4b3 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        99.0,
+        "odrl:gteq" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:53f02509-d8a2-40ee-add7-b01f8fdbf3b1 .
+
+ab:75488d35-5021-4310-9cea-53ba245dec14 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:ID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:hasTranslation ab:Imp2 ;
+    tb:nextStep ab:bf3b7a0f-ff3c-4371-af58-085884a60449 .
+
+ab:788bbbd7-1e9b-4d45-bab1-a70aa90ecee1 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model.pkl" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:0efa3dc6-7e73-4c7f-96a5-7a481db217a3 .
+
+ab:7c492c76-b830-4d9f-ac5d-11ddc22f1fd1 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp1 ;
+    tb:nextStep ab:75488d35-5021-4310-9cea-53ba245dec14 .
+
+ab:8237c057-f080-4fa1-8cd2-6228670b2eec a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        odrl:lt,
+        5e+01 ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:515111df-25c9-45c3-972a-3940215707a2 .
+
+ab:88217da7-6220-4526-9d3a-82e7170d4944 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:b858e32c-c040-460f-96ac-432e17c9f83e .
+
+ab:8c668758-67a0-4804-b32e-d3a20ff9bb67 a tb:SchemaMapping ;
+    tb:mfrom ab:Age_at_scan_years ;
+    tb:mto ab:Age .
+
+ab:917deb78-1064-4e07-9456-8bf0edde6a38 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:5fb1ed3c-e3d9-4b71-9da2-c54b6a66142f .
+
+ab:93fcd997-6b5a-4012-adaf-9be3c5b03f34 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp1 ;
+    tb:nextStep ab:fa49f6ce-22b7-4b6f-b2ed-ec2fc741d5bf .
+
+ab:99143ba9-48eb-4af9-a9a8-150728c35276 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp1 ;
+    tb:nextStep ab:494fe9f8-642f-45fb-9405-f4f31f34b235 .
+
+ab:991ad7fd-1acf-4a1f-b1e6-ab26307f50fa a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:28d0d00f-a1cd-4e82-8903-47e6bb309520 .
+
+ab:9a78061e-9007-4435-91e2-cfcb8fdfebec a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:9ae99ace-2226-4ad1-9f3a-cd0af738b73c .
+
+ab:9ae99ace-2226-4ad1-9f3a-cd0af738b73c a tb:Operation ;
+    tb:hasAbstract ab:MembershipInferenceAccuracy ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:b13c57b1-80eb-4bf3-9328-fe4c81013ece .
+
+ab:9c05c0d5-00f3-45e9-adc9-5b162f4ad009 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp1 ;
+    tb:nextStep ab:0f60d05d-2d4a-410b-90fb-7b41817b8b40 .
+
+ab:9c4fb96a-45be-4829-bbf3-72c43a78b772 a tb:Report ;
+    tb:result true .
+
+ab:9f048dfb-b052-4a90-a971-64d3a8dd1063 a tb:Operation ;
+    tb:hasAbstract ab:MembershipInferenceAccuracy ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:4a0a13f6-8214-415b-9c1e-590c9bfa59a5 .
 
 ab:AccessionNumber a tb:Attribute ;
     tb:attribute "AccessionNumber" .
@@ -281,6 +623,10 @@ ab:AnonDuty a odrl:Duty ;
 ab:AnonDutyC a odrl:Duty ;
     odrl:constraint odrl:c2 ;
     odrl:target ab:ID .
+
+ab:AnonDutyPrivacy a odrl:Duty ;
+    odrl:action odrl:anonymization ;
+    odrl:target ab:Age .
 
 ab:BitsAllocated a tb:Attribute ;
     tb:attribute "BitsAllocated" .
@@ -307,7 +653,11 @@ ab:Exposure a tb:Attribute ;
 
 ab:FairnessDuty a odrl:Duty ;
     odrl:constraint odrl:c5 ;
-    odrl:target ab:Survival .
+    odrl:target ab:Sex .
+
+ab:FairnessTest a ns2:MLModelEvaluation ;
+    ns2:hasinput ab:testcsv ;
+    ns2:hasoutput ab:DemographicParity .
 
 ab:FrameIncrementPointer a tb:Attribute ;
     tb:attribute "FrameIncrementPointer" .
@@ -315,17 +665,8 @@ ab:FrameIncrementPointer a tb:Attribute ;
 ab:FrameTime a tb:Attribute ;
     tb:attribute "FrameTime" .
 
-ab:GTR_over90percent a tb:Attribute ;
-    tb:attribute "GTR_over90percent" .
-
-ab:Gender a tb:Attribute ;
-    tb:attribute "Gender" .
-
 ab:HighBit a tb:Attribute ;
     tb:attribute "HighBit" .
-
-ab:IDH1 a tb:Attribute ;
-    tb:attribute "IDH1" .
 
 ab:ImageType a tb:Attribute ;
     tb:attribute "ImageType" .
@@ -338,6 +679,66 @@ ab:Imp10 a tb:Implementation ;
     tb:hasParameters ab:Imp10CodeParam1,
         ab:Imp10CodeParam2 ;
     tb:returns "integer" .
+
+ab:Imp10Code a tb:Code ;
+    tb:code "(data[attr].count()/len(data))*100" .
+
+ab:Imp10CodeDep1 a tb:Library ;
+    tb:name "pandas" .
+
+ab:Imp10CodeParam1 a tb:Parameter ;
+    tb:name "attr" ;
+    tb:type "str" .
+
+ab:Imp10CodeParam2 a tb:Parameter ;
+    tb:name "data" ;
+    tb:type "pandas.DataFrame" .
+
+ab:Imp1111 a tb:Implementation ;
+    tb:dependsOn ab:Imp11111CodeDep1 ;
+    tb:forOp ab:LoadData ;
+    tb:forType ab:ML ;
+    tb:hasCode ab:Imp23111Code ;
+    tb:hasParameters ab:Imp11111CodeParam1 ;
+    tb:returns "pandas.DataFrame" .
+
+ab:Imp11111CodeDep1 a tb:Library ;
+    tb:name "pycaret.classification" .
+
+ab:Imp11111CodeParam1 a tb:Parameter ;
+    tb:name "p" ;
+    tb:type "str" .
+
+ab:Imp12000CodeParam1 a tb:Parameter ;
+    tb:name "attr" ;
+    tb:type "str" .
+
+ab:Imp12220CodeDep1 a tb:Library ;
+    tb:name "pycaret" .
+
+ab:Imp12220CodeDep23 a tb:Library ;
+    tb:name "fairlearn.metrics" .
+
+ab:Imp12220CodeDep233 a tb:Library ;
+    tb:name "pandas" .
+
+ab:Imp12220CodeParam2 a tb:Parameter ;
+    tb:name "data" ;
+    tb:type "pandas.DataFrame" .
+
+ab:Imp122240CodeDep233 a tb:Library ;
+    tb:name "pandas" .
+
+ab:Imp123000CodeParam1 a tb:Parameter ;
+    tb:name "attr" ;
+    tb:type "str" .
+
+ab:Imp123220CodeParam2 a tb:Parameter ;
+    tb:name "data" ;
+    tb:type "pandas.DataFrame" .
+
+ab:Imp1323220CodeDep1 a tb:Library ;
+    tb:name "sklearn" .
 
 ab:Imp1Code a tb:Code ;
     tb:code "pandas.read_csv(p)" .
@@ -359,14 +760,19 @@ ab:Imp2 a tb:Implementation ;
         ab:Imp2CodeParam1 ;
     tb:returns "boolean" .
 
-ab:Imp20 a tb:Implementation ;
-    tb:dependsOn ab:Imp10CodeDep1 ;
-    tb:forOp ab:FairnessDegree ;
-    tb:forType ab:Tabular ;
-    tb:hasCode ab:Imp10Code ;
-    tb:hasParameters ab:Imp10CodeParam1,
-        ab:Imp10CodeParam2 ;
+ab:Imp20000 a tb:Implementation ;
+    tb:dependsOn ab:Imp12220CodeDep1,
+        ab:Imp12220CodeDep23,
+        ab:Imp12220CodeDep233 ;
+    tb:forOp ab:DemographicParity ;
+    tb:forType ab:ML ;
+    tb:hasCode ab:ImpImp20000Code ;
+    tb:hasParameters ab:Imp12000CodeParam1,
+        ab:Imp12220CodeParam2 ;
     tb:returns "integer" .
+
+ab:Imp23111Code a tb:Code ;
+    tb:code "pycaret.classification.load_model(p.split('.')[0])" .
 
 ab:Imp2Code a tb:Code ;
     tb:code "data[attr].isna().all()" .
@@ -375,11 +781,27 @@ ab:Imp2CodeParam1 a tb:Parameter ;
     tb:name "attr" ;
     tb:type "str" .
 
-ab:Imp4Code a tb:Code ;
-    tb:code "data >= ro" .
+ab:Imp30000 a tb:Implementation ;
+    tb:dependsOn ab:Imp122240CodeDep233,
+        ab:Imp1323220CodeDep1 ;
+    tb:forOp ab:MembershipInferenceAccuracy ;
+    tb:forType ab:Tabular ;
+    tb:hasCode ab:ImpImp2330000Code ;
+    tb:hasParameters ab:Imp123000CodeParam1,
+        ab:Imp123220CodeParam2 ;
+    tb:returns "integer" .
 
-ab:Imp4CodeDep1 a tb:Library ;
-    tb:name "pandas" .
+ab:Imp343CodeParam2 a tb:Parameter ;
+    tb:name "attr" ;
+    tb:type "str" .
+
+ab:Imp423CodeParam1 a tb:Parameter ;
+    tb:name "data" ;
+    tb:type "pandas.DataFrame" .
+
+ab:Imp4433CodeParam3 a tb:Parameter ;
+    tb:name "ro" ;
+    tb:type "int" .
 
 ab:Imp4CodeParam1 a tb:Parameter ;
     tb:name "lo" ;
@@ -435,6 +857,13 @@ ab:Imp9CodeParam1 a tb:Parameter ;
     tb:name "p" ;
     tb:type "str" .
 
+ab:ImpImp20000Code a tb:Code ;
+    tb:code """pycaret.classification.predict_model(data, data=pandas.read_csv(attr))
+fairlearn.metrics.demographic_parity_difference(data['target'],data['prediction_label'],sensitive_features=data['Gender'])""" .
+
+ab:ImpImp2330000Code a tb:Code ;
+    tb:code "(lambda splits: 1 - RandomForestClassifier(n_estimators=10).fit(splits[0], splits[2]).score(splits[1], splits[3]))(train_test_split(pandas.get_dummies(data.drop(columns=attr).fillna(0)), data[attr] > data[attr].median())) * 100" .
+
 ab:InstanceNumber a tb:Attribute ;
     tb:attribute "InstanceNumber" .
 
@@ -444,23 +873,22 @@ ab:InstitutionAddress a tb:Attribute ;
 ab:InstitutionName a tb:Attribute ;
     tb:attribute "InstitutionName" .
 
-ab:KPS a tb:Attribute ;
-    tb:attribute "KPS" .
-
 ab:KVP a tb:Attribute ;
     tb:attribute "KVP" .
 
 ab:LossyImageCompressionRetired a tb:Attribute ;
     tb:attribute "LossyImageCompressionRetired" .
 
-ab:MGMT a tb:Attribute ;
-    tb:attribute "MGMT" .
-
 ab:Manufacturer a tb:Attribute ;
     tb:attribute "Manufacturer" .
 
 ab:MaskSubtractionSequence a tb:Attribute ;
     tb:attribute "MaskSubtractionSequence" .
+
+ab:MembershipInferenceAccuracyRefinement a odrl:Refinement ;
+    odrl:leftOperand ab:MembershipInferenceAccuracy ;
+    odrl:operator odrl:lt ;
+    odrl:rightOperand 5e+01 .
 
 ab:Modality a tb:Attribute ;
     tb:attribute "Modality" .
@@ -541,30 +969,108 @@ ab:Time_since_baseline_preop a tb:Attribute ;
     tb:attribute "Time_since_baseline_preop" .
 
 ab:UPENN-GBM_clinical_info_v21csv_TA a tb:TechnologyAspects ;
-    tb:typeAcces ab:7f68c264-e69c-4327-8221-83259a9b8ca7 .
+    tb:typeAcces ab:a9b196a9-edf4-4d7f-bf4d-17f9085f09c1 .
 
-ab:a3c4fdaf-6a84-497f-9a9e-8a9897070c4c a tb:Operation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:cc71840b-ad69-40e7-852a-2068bf071d2e .
-
-ab:a489069a-3ac4-4648-8008-5c54b4b5cfef a tb:Operation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:fe06cd56-878c-4113-8a58-d56cef5f3d4a .
-
-ab:b8589d18-8a92-4213-98ec-d928df0ef94d a tb:Operation ;
+ab:a11b8664-03e0-47a5-ac84-a794e04d855f a tb:Operation ;
     tb:hasAbstract odrl:Constraint ;
     tb:hasInput ab:data,
         99.0,
         "odrl:gteq" ;
     tb:hasOutput ab:data ;
     tb:hasTranslation ab:Imp4 ;
-    tb:nextStep ab:0b631885-c709-467a-aa31-87e9f9b12b7a .
+    tb:nextStep ab:17301dee-79f5-489f-871c-8eb497c6cc28 .
+
+ab:a70e9f5e-6ac3-415a-baa2-6b34d303771e a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:op_5646ce3f-13fb-4375-911a-c2d7a319a763 .
+
+ab:a9b196a9-edf4-4d7f-bf4d-17f9085f09c1 a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" .
+
+ab:af0ff8b1-a3d5-41f0-b363-5e4f41083b25 a tb:Report .
+
+ab:b13c57b1-80eb-4bf3-9328-fe4c81013ece a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        odrl:lt,
+        5e+01 ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:5af4dc25-27c9-4495-8026-9142f5d79fa1 .
+
+ab:b50b9b70-37e0-4414-80c6-d7a0e98aa29b a tb:Operation ;
+    tb:hasAbstract ab:qM ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:7524293f-940a-4d3a-a6ec-05ab61e1c4b3 .
+
+ab:b6dcbc0b-e1e9-40c5-821c-54f0b6d2b3cc a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        odrl:lt,
+        5e+01 ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:bbb624fc-c00a-4ea0-94b5-31a03310ea36 .
+
+ab:b6f1e018-1f2b-4b83-89b8-0b85e99acb58 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:ID,
+        ab:data,
+        "odrl:isA",
+        "xsd:string" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:453809fd-b4f1-4ba4-937d-5fe7e3553326 .
+
+ab:b858e32c-c040-460f-96ac-432e17c9f83e a tb:Operation ;
+    tb:hasAbstract ab:qM ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:ba57a9d7-b201-41ad-8e50-26e0c2b24a51 .
+
+ab:b911d1f3-ffa3-4d29-8a3d-36b62fcc5058 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:op_a5537190-8a94-4619-8e7d-3d87f846dafa .
+
+ab:ba57a9d7-b201-41ad-8e50-26e0c2b24a51 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        99.0,
+        "odrl:gteq" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:c36c5c62-bd38-43ac-8ea8-3782a10f5109 .
+
+ab:bb168c68-596b-4833-986a-baf188563c14 a tb:SchemaMapping ;
+    tb:mfrom ab:PatientID ;
+    tb:mto ab:Subject .
+
+ab:bbb624fc-c00a-4ea0-94b5-31a03310ea36 a tb:Report .
+
+ab:bf3b7a0f-ff3c-4371-af58-085884a60449 a tb:Report ;
+    tb:result "False" .
+
+ab:bf70f0a7-b54f-4f26-90f9-b4e01cde57c6 a tb:Acces ;
+    rdfs:label ab:Static ;
+    tb:path "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model.pkl" .
+
+ab:c3450b7a-23d4-4bfb-a438-877af1f7c89e a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct2/Data/0002.DCM" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:3efcee29-cf45-4473-baf6-d593894bf952 .
+
+ab:c36c5c62-bd38-43ac-8ea8-3782a10f5109 a tb:Report .
+
+ab:c37d3a5e-0777-43c8-8041-8b9f3942e902 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:3cea48d9-3a50-40f6-82c6-1b9c236081d7 .
 
 ab:c4 a odrl:Constraint ;
     odrl:leftOperand ab:Age ;
@@ -572,14 +1078,154 @@ ab:c4 a odrl:Constraint ;
     odrl:rightOperand 25 .
 
 ab:c5 a odrl:Constraint ;
-    odrl:leftOperand ab:Survival ;
+    odrl:leftOperand ab:Age ;
     odrl:operator "odrl:gteq" ;
-    odrl:rightOperand 100 .
+    odrl:rightOperand 10 .
 
-ab:c9e6e873-3a54-418b-8f93-00cb0f7d94a1 a tb:Report ;
-    tb:result true .
+ab:c60b3049-f15c-492a-a3b3-5df36b6d544b a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:3f6f9203-3a6a-47bc-a74f-8e42aac53188 .
 
-ab:cc71840b-ad69-40e7-852a-2068bf071d2e a tb:Operation ;
+ab:c831befb-8c53-4828-a3be-0326195379cd a tb:Operation ;
+    tb:hasAbstract ab:qM ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:39551dc5-31fc-4d6f-abb2-83926b97543b .
+
+ab:cd88301e-121a-485a-b048-e270bcb576de a tb:Report .
+
+ab:cdcde211-3f1a-4e4b-9d77-abba20da9f79 a tb:Report ;
+    tb:result "False" .
+
+ab:ce33019a-41a2-407a-9819-fcb44b2d884e a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:ID,
+        ab:data,
+        "odrl:isA",
+        "xsd:string" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:716c55ad-533b-4f72-b34c-0d236e2982a4 .
+
+ab:ce65b3e9-2bb6-47c4-9fa4-2091d612ff2e a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        odrl:lt,
+        5e+01 ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp4 ;
+    tb:nextStep ab:fdf43602-77d5-430a-921e-0d5fc064b3be .
+
+ab:countValues a prov:SoftwareAgent .
+
+ab:d5230bac-58e8-4c9a-82e2-4a41ff0761c8 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:b6f1e018-1f2b-4b83-89b8-0b85e99acb58 .
+
+ab:d8c1a267-b46b-4ab9-a676-6923a1e4b220 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        0.1,
+        "odrl:gteq" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp4 ;
+    tb:nextStep ab:cdcde211-3f1a-4e4b-9d77-abba20da9f79 .
+
+ab:d9cc8550-7a0d-460c-96eb-ec09e8b3deee a tb:Report .
+
+ab:dc6e7a71-a192-419d-ad36-167cef7d2974 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model.pkl" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp1111 ;
+    tb:nextStep ab:ee1562c3-49e9-4eec-8803-d233a001b351 .
+
+ab:dc_0002DCM a tb:DataContract ;
+    tb:hasMapping ab:bb168c68-596b-4833-986a-baf188563c14 ;
+    tb:hasPolicy ab:p1 .
+
+ab:dc_UPENN-GBM_clinical_info_v21csv a tb:DataContract ;
+    tb:hasMapping ab:1128499c-0ac7-4252-9ce8-bb88f3df1476,
+        ab:146d0251-51ca-49d8-bc53-d124ca21c6db,
+        ab:8c668758-67a0-4804-b32e-d3a20ff9bb67 ;
+    tb:hasPolicy ab:p1,
+        ab:p1v2,
+        ab:p2,
+        ab:p3,
+        ab:p5 .
+
+ab:dc_modelpkl a tb:DataContract ;
+    tb:hasMapping ab:5d8e5689-cdab-4a66-88b8-f033d93d02ec,
+        ab:f2496137-04e1-4271-901f-6939dee840ba ;
+    tb:hasPolicy ab:p4 .
+
+ab:dd9c5313-99ff-4afc-892d-986d177add7c a tb:Report .
+
+ab:e20a1505-18e5-4493-b8d0-68ddd6ef7de6 a tb:Report .
+
+ab:e242d92d-747a-40f6-aeca-516bcea63862 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:9f048dfb-b052-4a90-a971-64d3a8dd1063 .
+
+ab:e6613ddd-2fd7-4dc6-96af-0c2f7a14f68f a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        0.1,
+        "odrl:gteq" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:af0ff8b1-a3d5-41f0-b363-5e4f41083b25 .
+
+ab:eba2c85d-07d7-4bdd-8f5a-a0dba9c410c7 a tb:Report .
+
+ab:ee1562c3-49e9-4eec-8803-d233a001b351 a tb:Operation ;
+    tb:hasAbstract ab:DemographicParity ;
+    tb:hasInput ab:Gender,
+        ab:data,
+        "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/test.csv" ;
+    tb:hasOutput ab:data ;
+    tb:hasTranslation ab:Imp20000 ;
+    tb:nextStep ab:d8c1a267-b46b-4ab9-a676-6923a1e4b220 .
+
+ab:ee83cd99-1ff8-44f0-8df1-813fdf05b641 a tb:Operation ;
+    tb:hasAbstract ab:LoadData ;
+    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:ce33019a-41a2-407a-9819-fcb44b2d884e .
+
+ab:eece8591-5b0d-4209-a1f3-5fa8db17d5e7 a tb:Operation ;
+    tb:hasAbstract odrl:Constraint ;
+    tb:hasInput ab:data,
+        99.0,
+        "odrl:gteq" ;
+    tb:hasOutput ab:data ;
+    tb:nextStep ab:d9cc8550-7a0d-460c-96eb-ec09e8b3deee .
+
+ab:f2496137-04e1-4271-901f-6939dee840ba a tb:SchemaMapping ;
+    tb:mfrom ab:target ;
+    tb:mto ab:Survival .
+
+ab:f2a66970-e263-4d98-81e2-75c3cac166c2 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:PatientID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:hasTranslation ab:Imp6 ;
+    tb:nextStep ab:5813fe81-2798-4592-8dc0-6dcff69d8504 .
+
+ab:f3ae4895-35c2-46e7-9803-d1ab6de394f8 a tb:Operation ;
+    tb:hasAbstract odrl:anonymize ;
+    tb:hasInput ab:ID,
+        ab:data ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:66788a07-3fba-440c-b930-9bddb45de4ad .
+
+ab:fa49f6ce-22b7-4b6f-b2ed-ec2fc741d5bf a tb:Operation ;
     tb:hasAbstract odrl:Constraint ;
     tb:hasInput ab:ID,
         ab:data,
@@ -587,62 +1233,135 @@ ab:cc71840b-ad69-40e7-852a-2068bf071d2e a tb:Operation ;
         "xsd:string" ;
     tb:hasOutput ab:boolean ;
     tb:hasTranslation ab:Imp4 ;
-    tb:nextStep ab:c9e6e873-3a54-418b-8f93-00cb0f7d94a1 .
+    tb:nextStep ab:9c4fb96a-45be-4829-bbf3-72c43a78b772 .
 
-ab:countValues a prov:SoftwareAgent .
+ab:fd6aa043-51fd-4a63-af1e-05c7a44d2f0f a tb:Report .
 
-ab:d0af2856-8e8f-4373-82ba-4f222df45b54 a tb:Operation ;
-    tb:hasAbstract odrl:anonymize ;
-    tb:hasInput ab:PatientID,
-        ab:data ;
+ab:fdf43602-77d5-430a-921e-0d5fc064b3be a tb:Report ;
+    tb:result false .
+
+ab:modelpkl_TA a tb:TechnologyAspects ;
+    tb:typeAcces ab:bf70f0a7-b54f-4f26-90f9-b4e01cde57c6 .
+
+ab:op_128e48e2-d027-4e8e-a4d3-af0ddc67d37a a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:boolean,
+        ab:data,
+        10,
+        "odrl:gteq" ;
     tb:hasOutput ab:boolean ;
-    tb:hasTranslation ab:Imp6 ;
-    tb:nextStep ab:4353c3ce-9b97-47b1-a958-869f38106d69 .
+    tb:hasTranslation ab:Imp234 ;
+    tb:nextStep ab:46d3c71b-2032-4f95-9001-d67fc5ba96e5 .
 
-ab:dc_0002DCM a tb:DataContract ;
-    tb:hasMapping ab:eb13ecd3-7c66-4192-adf5-30756d64c305 ;
-    tb:hasPolicy ab:p1 .
-
-ab:dc_UPENN-GBM_clinical_info_v21csv a tb:DataContract ;
-    tb:hasMapping ab:21c488ea-95f2-445a-8c67-ddc0e7974091,
-        ab:5e436f70-8fe7-4a3f-b649-f244575983a5,
-        ab:83b95539-23ef-432a-b25a-26c6b720457d ;
-    tb:hasPolicy ab:p1,
-        ab:p2,
-        ab:p3,
-        ab:p4 .
-
-ab:ddcdd7f4-d2fb-4896-bad1-3371c9bb696f a tb:Operation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct/Data/Explotation/UPENN-GBM_clinical_info_v2.1.csv" ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp1 ;
-    tb:nextStep ab:2fb0b2ba-5229-4384-ab90-7df1598e727e .
-
-ab:eb13ecd3-7c66-4192-adf5-30756d64c305 a tb:SchemaMapping ;
-    tb:mfrom ab:PatientID ;
-    tb:mto ab:Subject .
-
-ab:eb78920d-9b45-4e46-ae61-b9885c2e3917 a tb:Operation ;
-    tb:hasAbstract ab:LoadData ;
-    tb:hasInput "/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct2/Data/0002.DCM" ;
-    tb:hasOutput ab:data ;
-    tb:hasTranslation ab:Imp9 ;
-    tb:nextStep ab:d0af2856-8e8f-4373-82ba-4f222df45b54 .
-
-ab:fe06cd56-878c-4113-8a58-d56cef5f3d4a a tb:Operation ;
-    tb:hasAbstract odrl:anonymize ;
-    tb:hasInput ab:ID,
-        ab:data ;
+ab:op_5646ce3f-13fb-4375-911a-c2d7a319a763 a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data,
+        25,
+        "odrl:gteq" ;
     tb:hasOutput ab:boolean ;
-    tb:hasTranslation ab:Imp2 ;
-    tb:nextStep ab:10bda59f-ea52-4646-98a3-0ec82a56f836 .
+    tb:nextStep ab:op_6087cec9-ff35-4940-a9c5-320135e7264d .
+
+ab:op_5fcded91-0e22-4532-98ce-03ffdb483a1a a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data,
+        25,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:hasTranslation ab:Imp234 ;
+    tb:nextStep ab:op_128e48e2-d027-4e8e-a4d3-af0ddc67d37a .
+
+ab:op_6087cec9-ff35-4940-a9c5-320135e7264d a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:boolean,
+        ab:data,
+        10,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:62661dc1-9ef2-4207-be13-bcdb8e220253 .
+
+ab:op_740bc61b-ce8b-4fe2-9204-f3838d53183e a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:boolean,
+        ab:data,
+        10,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:708471bd-6257-4e9b-9ec0-c3b2d2da4262 .
+
+ab:op_84c59c35-846d-45cb-9ad8-a93462f0d098 a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:boolean,
+        ab:data,
+        10,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:fd6aa043-51fd-4a63-af1e-05c7a44d2f0f .
+
+ab:op_a5537190-8a94-4619-8e7d-3d87f846dafa a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data,
+        25,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:op_740bc61b-ce8b-4fe2-9204-f3838d53183e .
+
+ab:op_c728feaf-d731-4b0e-b451-9e22340771d8 a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data,
+        25,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:op_f798fc69-f86c-4ddb-b308-8e94963c6607 .
+
+ab:op_f798fc69-f86c-4ddb-b308-8e94963c6607 a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:boolean,
+        ab:data,
+        10,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:dd9c5313-99ff-4afc-892d-986d177add7c .
+
+ab:op_fee14fff-2323-4738-96bd-e8e08105d0fd a tb:Operation ;
+    tb:hasAbstract odrl:LConstraint ;
+    tb:hasInput ab:Age_at_scan_years,
+        ab:data,
+        25,
+        "odrl:gteq" ;
+    tb:hasOutput ab:boolean ;
+    tb:nextStep ab:op_84c59c35-846d-45cb-9ad8-a93462f0d098 .
 
 ab:percentatgeFromTotal a ns1:Metric ;
     ns1:inDimension ab:Completeness .
 
-odrl:Privacy a owl:Class ;
-    rdfs:subClassOf odrl:Policy .
+ab:testcsv a tb:DataProduct,
+        ns2:DataProduct ;
+    dcterms:identifier "8cc8f892a6c0d7a2899637c510ec24547bcc52ac46b0d18e066ff801d9e5c611" ;
+    tb:hasAttribute ab:Age_at_scan_years,
+        ab:GTR_over90percent,
+        ab:Gender,
+        ab:IDH1,
+        ab:KPS,
+        ab:MGMT,
+        ab:target ;
+    tb:hasDTT ab:Tabular ;
+    tb:hasTA ab:testcsv_TA ;
+    tb:owner "Unknown" .
+
+ab:testcsv_TA a tb:TechnologyAspects ;
+    tb:typeAcces ab:3ade6b35-18ff-4c84-9069-d0a81e6b05a8 .
+
+odrl:anonymization a odrl:Action ;
+    odrl:refinement ab:MembershipInferenceAccuracyRefinement .
 
 odrl:c1 a odrl:Constraint ;
     odrl:leftOperand ab:qM ;
@@ -655,73 +1374,146 @@ odrl:c2 a odrl:Constraint ;
     odrl:rightOperand "xsd:string" .
 
 odrl:c5 a odrl:Constraint ;
-    odrl:leftOperand ab:FairnessDegree ;
+    odrl:leftOperand ab:FairnessTest ;
     odrl:operator "odrl:gteq" ;
-    odrl:rightOperand 99.0 .
+    odrl:rightOperand 0.1 .
 
 dcat1:Dataset a owl:Class ;
     rdfs:subClassOf tb:DataProduct .
 
-ab:Imp10Code a tb:Code ;
-    tb:code "(data[attr].count()/len(data))*100" .
-
-ab:Imp10CodeDep1 a tb:Library ;
-    tb:name "pandas" .
-
-ab:Imp10CodeParam1 a tb:Parameter ;
-    tb:name "attr" ;
-    tb:type "str" .
-
-ab:Imp10CodeParam2 a tb:Parameter ;
-    tb:name "data" ;
-    tb:type "pandas.DataFrame" .
+ab:0002DCM a tb:DataProduct ;
+    dcterms:identifier "9dd5ec0077b9e3725105a52ab53bee9921f25820fef3561e5ef0c4c1823d28dd" ;
+    tb:hasAttribute ab:AccessionNumber,
+        ab:BitsAllocated,
+        ab:BitsStored,
+        ab:Columns,
+        ab:Exposure,
+        ab:FrameIncrementPointer,
+        ab:FrameTime,
+        ab:HighBit,
+        ab:ImageType,
+        ab:InstanceNumber,
+        ab:InstitutionAddress,
+        ab:InstitutionName,
+        ab:KVP,
+        ab:LossyImageCompressionRetired,
+        ab:Manufacturer,
+        ab:MaskSubtractionSequence,
+        ab:Modality,
+        ab:NumberOfFrames,
+        ab:PatientBirthDate,
+        ab:PatientID,
+        ab:PatientName,
+        ab:PatientOrientation,
+        ab:PatientSex,
+        ab:PerformingPhysicianName,
+        ab:PhotometricInterpretation,
+        ab:PixelData,
+        ab:PixelIntensityRelationship,
+        ab:PixelRepresentation,
+        ab:PositionerMotion,
+        ab:PositionerPrimaryAngle,
+        ab:PositionerSecondaryAngle,
+        ab:RWavePointer,
+        ab:RadiationSetting,
+        ab:RecommendedViewingMode,
+        ab:ReferringPhysicianName,
+        ab:Rows,
+        ab:SOPClassUID,
+        ab:SOPInstanceUID,
+        ab:SamplesPerPixel ;
+    tb:hasDC ab:dc_0002DCM ;
+    tb:hasDTT ab:Image ;
+    tb:hasTA ab:0002DCM_TA ;
+    tb:owner "Unknown" .
 
 ab:Imp1CodeDep1 a tb:Library ;
     tb:name "pandas" ;
     tb:version "1.0.0" .
 
-ab:p2 a ns1:QualityPolicy ;
-    odrl:duty ab:CompleteDuty .
+ab:Imp234 a tb:Implementation ;
+    tb:dependsOn ab:Imp4CodeDep1 ;
+    tb:forOp odrl:LConstraint ;
+    tb:forType ab:Tabular ;
+    tb:hasCode ab:Imp4Code ;
+    tb:hasParameters ab:Imp343CodeParam2,
+        ab:Imp423CodeParam1,
+        ab:Imp4433CodeParam3 .
 
-ab:p3 a odrl:Policy ;
-    odrl:duty ab:AnonDutyC .
+ab:Imp4Code a tb:Code ;
+    tb:code "data >= ro",
+        "data if not (data[attr] >= ro).all() else (data[attr] >= ro).all()" .
 
-ab:p4 a tb:FairnessPolicy ;
-    odrl:duty ab:FairnessDuty .
+ab:Imp4CodeDep1 a tb:Library ;
+    tb:name "pandas" .
+
+ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
+    tb:attribute "Survival_from_surgery_days_UPDATED" .
+
+ab:modelpkl a tb:DataProduct ;
+    dcterms:identifier "cee00412f198106c0e157e1387f6715898a6d7453530e1a3559f2b9f646b3f73" ;
+    tb:hasAttribute ab:Age_at_scan_years,
+        ab:GTR_over90percent,
+        ab:Gender,
+        ab:IDH1,
+        ab:KPS,
+        ab:MGMT,
+        ab:target ;
+    tb:hasDC ab:dc_modelpkl ;
+    tb:hasDTT ab:ML ;
+    tb:hasTA ab:modelpkl_TA ;
+    tb:owner "Unknown" .
 
 tb:CommonDataModel a owl:Class .
 
-ab:Age_at_scan_years a tb:Attribute ;
-    tb:attribute "Age_at_scan_years" .
+odrl:Privacy a owl:Class ;
+    rdfs:subClassOf odrl:Policy .
 
-ab:FairnessDegree a tb:Operation,
-        <https://purl.org/twc/fmo#FairnessMetric> .
+ab:GTR_over90percent a tb:Attribute ;
+    tb:attribute "GTR_over90percent" .
+
+ab:IDH1 a tb:Attribute ;
+    tb:attribute "IDH1" .
 
 ab:Image a tb:DatasetTypeTemplate ;
     dcterms:format ".DCM" .
 
+ab:KPS a tb:Attribute ;
+    tb:attribute "KPS" .
+
+ab:MGMT a tb:Attribute ;
+    tb:attribute "MGMT" .
+
+ab:Sex a tb:Feature .
+
+ab:Survival a tb:Feature .
+
+ab:p4 a tb:FairnessPolicy ;
+    odrl:duty ab:FairnessDuty .
+
+ab:target a tb:Attribute ;
+    tb:attribute "target" .
+
+ab:DemographicParity a tb:Operation,
+        ns2:FairnessMetric .
+
 ab:Imp4 a tb:Implementation ;
     tb:dependsOn ab:Imp4CodeDep1 ;
     tb:forOp odrl:Constraint ;
-    tb:forType ab:Tabular ;
+    tb:forType ab:ML,
+        ab:Tabular ;
     tb:hasCode ab:Imp4Code ;
     tb:hasParameters ab:Imp4CodeParam1,
         ab:Imp4CodeParam2,
         ab:Imp4CodeParam3 .
 
+ab:ML a tb:DatasetTypeTemplate ;
+    dcterms:format ".pkl" .
+
 ab:PatientID a tb:Attribute ;
     tb:attribute "PatientID" .
 
-ab:Survival_from_surgery_days_UPDATED a tb:Attribute ;
-    tb:attribute "Survival_from_surgery_days_UPDATED" .
-
-ab:qM a tb:Operation,
-        ns1:QualityMeasurement ;
-    ns1:isMeasurementOf ab:percentatgeFromTotal ;
-    ns1:value "" ;
-    prov:wasAssociatedWith ab:countValues .
-
-tb:TechnologyAspects a owl:Class .
+ab:Subject a tb:Feature .
 
 ab:Imp1 a tb:Implementation ;
     tb:dependsOn ab:Imp1CodeDep1 ;
@@ -731,9 +1523,73 @@ ab:Imp1 a tb:Implementation ;
     tb:hasParameters ab:Imp1CodeParam1 ;
     tb:returns "pandas.DataFrame" .
 
-ab:Subject a tb:Feature .
+tb:DataContract a owl:Class .
 
-ab:Survival a tb:Feature .
+tb:TechnologyAspects a owl:Class .
+
+odrl:Duty a owl:Class .
+
+odrl:Policy a owl:Class .
+
+ab:Gender a tb:Attribute ;
+    tb:attribute "Gender" .
+
+ab:p1v2 a odrl:Privacy ;
+    odrl:duty ab:AnonDutyPrivacy .
+
+ab:p2 a ns1:QualityPolicy ;
+    odrl:duty ab:CompleteDuty .
+
+ab:p3 a odrl:Policy ;
+    odrl:duty ab:AnonDutyC .
+
+ab:p5 a tb:DCPolicy ;
+    odrl:prohibition ab:DConstraint .
+
+tb:DataProduct a owl:Class ;
+    rdfs:label "DataProduct"@en ;
+    rdfs:subClassOf odrl:Asset .
+
+tb:DatasetTypeTemplate a owl:Class .
+
+tb:Feature a owl:Class .
+
+odrl:Asset a owl:Class .
+
+ab:Age a tb:Feature .
+
+ab:MembershipInferenceAccuracy a tb:Operation .
+
+ab:qM a tb:Operation,
+        ns1:QualityMeasurement ;
+    ns1:isMeasurementOf ab:percentatgeFromTotal ;
+    ns1:value "" ;
+    prov:wasAssociatedWith ab:countValues .
+
+ab:Tabular a tb:DatasetTypeTemplate ;
+    dcterms:format ".csv" .
+
+ab:p1 a odrl:Privacy ;
+    odrl:duty ab:AnonDuty .
+
+odrl:anonymize a tb:Operation,
+        odrl:Action .
+
+tb:Code a owl:Class .
+
+odrl:LConstraint a tb:Operation .
+
+tb:Implementation a owl:Class .
+
+ab:ID a tb:Attribute ;
+    tb:attribute "ID" .
+
+tb:Library a owl:Class .
+
+odrl:Constraint a tb:Operation .
+
+ab:Age_at_scan_years a tb:Attribute ;
+    tb:attribute "Age_at_scan_years" .
 
 ab:UPENN-GBM_clinical_info_v21csv a tb:DataProduct ;
     dcterms:identifier "209a1558e4632d7bb78819c8f337a8cd0e4c1db764206da35144ee5f10f31df9" ;
@@ -754,49 +1610,11 @@ ab:UPENN-GBM_clinical_info_v21csv a tb:DataProduct ;
     tb:hasTA ab:UPENN-GBM_clinical_info_v21csv_TA ;
     tb:owner "Unknown" .
 
-ab:p1 a odrl:Privacy ;
-    odrl:duty ab:AnonDuty .
-
-tb:DataContract a owl:Class .
-
-tb:DataProduct a owl:Class ;
-    rdfs:label "DataProduct"@en ;
-    rdfs:subClassOf odrl:Asset .
-
-odrl:Duty a owl:Class .
-
-ab:Age a tb:Feature .
-
-tb:DatasetTypeTemplate a owl:Class .
-
-tb:Feature a owl:Class .
-
-odrl:Policy a owl:Class .
-
-odrl:anonymize a tb:Operation,
-        odrl:Action .
-
-ab:ID a tb:Attribute ;
-    tb:attribute "ID" .
-
-ab:Tabular a tb:DatasetTypeTemplate ;
-    dcterms:format ".csv" .
-
-odrl:Asset a owl:Class .
-
 ab:LoadData a tb:Operation .
-
-tb:Code a owl:Class .
-
-tb:Library a owl:Class .
-
-odrl:Constraint a tb:Operation .
-
-tb:Implementation a owl:Class .
 
 tb:PolicyChecker a owl:Class .
 
-tb:Operation a owl:Class .
-
 tb:Attribute a owl:Class .
+
+tb:Operation a owl:Class .
 

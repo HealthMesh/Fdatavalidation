@@ -26,6 +26,10 @@
     {
       "@id": "ab:Survival",
       "@type": "tb:Feature"
+    },
+    {
+      "@id": "ab:Sex",
+      "@type": "tb:Feature"
     }
   ]
 }

@@ -21,7 +21,7 @@
           "@id": "ab:FairnessDuty",
           "@type": "odrl:Duty",
           "odrl:target": {
-            "@id": "ab:Survival"
+            "@id": "ab:Sex"
           },
           "odrl:constraint": [
             {
@@ -29,19 +29,31 @@
               "@type": "odrl:Constraint",
               "odrl:operator": "odrl:gteq",
               "odrl:rightOperand": {
-                "@value": "99",
+                "@value": "0.1",
                 "@type": "xsd:decimal"
               },
               "odrl:leftOperand": [
                 {
-                  "@id": "ab:FairnessDegree",
-                  "@type": "fmo:FairnessMetric"
+                  "@id": "ab:FairnessTest",
+                  "@type": "fmo:MLModelEvaluation"
                 }
               ]
             }
           ]
         }
       ]
+    },
+    {
+      "@id": "ab:FairnessTest",
+      "@type": "fmo:MLModelEvaluation",
+      "fmo:hasinput": [{
+        "@id": "ab:testcsv",
+        "@type": "fmo:DataProduct"
+      }],
+      "fmo:hasoutput": [{
+          "@id": "ab:DemographicParity",
+          "@type": "fmo:FairnessMetric"
+      }]
     }
   ]
 }

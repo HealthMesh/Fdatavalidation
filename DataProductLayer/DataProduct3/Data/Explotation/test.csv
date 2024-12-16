@@ -1,0 +1,195 @@
+Gender,Age_at_scan_years,IDH1,MGMT,KPS,GTR_over90percent,target
+M,65.4,Wildtype,Methylated,90,Y,1
+M,62.82,Wildtype,Not Available,Not Available,N,0
+M,84.31,Wildtype,Not Available,Not Available,Y,1
+F,55.87,Wildtype,Not Available,Not Available,Y,1
+M,49.03,NOS/NEC,Not Available,Not Available,N,1
+M,67.11,Wildtype,Methylated,40,N,0
+F,66.65,Wildtype,Not Available,60,N,0
+M,77.86,Wildtype,Not Available,Not Available,Y,1
+M,58.81,Wildtype,Not Available,Not Available,N,0
+F,71.61,Wildtype,Unmethylated,Not Available,Y,1
+M,86.59,Wildtype,Not Available,Not Available,Y,0
+F,59.98,Wildtype,Not Available,Not Available,N,1
+F,57.28,NOS/NEC,Not Available,Not Available,Not Applicable,0
+M,36.32,Mutated,Methylated,Not Available,N,1
+M,56.07,Wildtype,Unmethylated,Not Available,Not Available,1
+M,64.85,Wildtype,Unmethylated,Not Available,Not Applicable,0
+M,52.97,Wildtype,Not Available,Not Available,N,1
+F,54.56,Wildtype,Unmethylated,Not Available,Not Applicable,0
+M,76.15,Wildtype,Unmethylated,90,N,0
+M,71.96,Wildtype,Methylated,Not Available,Not Applicable,0
+M,63.99,Wildtype,Unmethylated,Not Available,N,0
+F,63.42,Wildtype,Not Available,Not Available,N,1
+F,82.41,Wildtype,Unmethylated,Not Available,N,0
+F,48.75,Wildtype,Unmethylated,Not Available,Not Applicable,0
+M,73.29,NOS/NEC,Not Available,Not Available,Y,1
+F,50.8,Wildtype,Not Available,Not Available,Y,1
+F,39.61,NOS/NEC,Not Available,Not Available,Y,1
+M,63.2,Wildtype,Unmethylated,90,Y,0
+F,65.75,Wildtype,Methylated,Not Available,Y,1
+M,51.81,Wildtype,Unmethylated,90,Y,1
+M,53.85,Wildtype,Not Available,Not Available,Y,1
+F,59.62,Wildtype,Indeterminate,Not Available,N,0
+F,61.42,Wildtype,Methylated,Not Available,N,1
+F,69.7,Wildtype,Indeterminate,Not Available,Y,0
+M,56.66,Wildtype,Not Available,Not Available,Y,0
+M,69.45,NOS/NEC,Not Available,Not Available,Y,1
+M,75.76,Wildtype,Not Available,Not Available,Y,0
+F,69.33,NOS/NEC,Not Available,Not Available,Y,0
+M,65.26,Wildtype,Indeterminate,Not Available,N,0
+M,43.53,Wildtype,Unmethylated,Not Available,Y,1
+M,52.45,Wildtype,Not Available,Not Available,Y,0
+F,72.25,Wildtype,Unmethylated,60,N,0
+M,57.86,NOS/NEC,Not Available,Not Available,Not Applicable,0
+M,80.2,Wildtype,Not Available,Not Available,Y,0
+M,52.61,Wildtype,Not Available,Not Available,Y,1
+F,75.2,Wildtype,Not Available,80,N,0
+F,60.26,NOS/NEC,Not Available,Not Available,Not Applicable,0
+M,77.54,Wildtype,Not Available,Not Available,Y,1
+M,61.66,NOS/NEC,Not Available,Not Available,Not Available,1
+M,50.03,Wildtype,Methylated,Not Available,Y,1
+M,56.51,NOS/NEC,Not Available,Not Available,Y,1
+F,70.14,Wildtype,Not Available,Not Available,Y,0
+M,57.87,Wildtype,Not Available,Not Available,Y,0
+F,52.31,Wildtype,Not Available,Not Available,Y,1
+F,73.14,Wildtype,Not Available,Not Available,Y,1
+M,55.51,Wildtype,Unmethylated,Not Available,Y,1
+F,71.68,Wildtype,Unmethylated,Not Available,Y,0
+M,58.92,Wildtype,Not Available,Not Available,Y,1
+F,86.21,NOS/NEC,Not Available,Not Available,Y,0
+F,51.54,Wildtype,Methylated,Not Available,Y,1
+M,81.77,Wildtype,Methylated,Not Available,Y,0
+F,59.47,Wildtype,Indeterminate,80,Y,1
+F,80.89,Wildtype,Not Available,Not Available,N,0
+F,69.46,NOS/NEC,Not Available,Not Available,Y,1
+M,75.32,Wildtype,Unmethylated,Not Available,Y,1
+M,50.76,Wildtype,Indeterminate,Not Available,N,1
+M,68.78,Wildtype,Not Available,60,Y,0
+F,78.75,Wildtype,Unmethylated,90,N,0
+M,57.63,Wildtype,Unmethylated,90,N,0
+F,49.61,Wildtype,Methylated,Not Available,Y,1
+M,67.72,Wildtype,Unmethylated,Not Available,Not Available,0
+M,60.48,Wildtype,Unmethylated,Not Available,N,0
+F,61.74,Wildtype,Methylated,Not Available,N,1
+F,61.39,NOS/NEC,Not Available,Not Available,N,0
+M,51.52,Wildtype,Not Available,Not Available,Y,1
+M,59.07,Wildtype,Not Available,Not Available,Y,1
+F,83.43,Wildtype,Not Available,100,N,1
+M,76.8,NOS/NEC,Not Available,Not Available,Not Available,1
+M,62.83,NOS/NEC,Not Available,Not Available,Not Applicable,0
+F,86.64,Wildtype,Methylated,90,N,0
+F,62.48,Wildtype,Methylated,Not Available,Y,1
+F,22.79,Wildtype,Unmethylated,Not Available,Y,0
+F,53.63,Wildtype,Unmethylated,Not Available,N,1
+M,58.72,Wildtype,Unmethylated,Not Available,Not Applicable,0
+F,61.44,NOS/NEC,Not Available,Not Available,N,0
+M,53.33,Wildtype,Not Available,Not Available,Y,1
+M,57.19,Wildtype,Methylated,Not Available,Y,1
+M,56.53,Wildtype,Not Available,Not Available,Y,0
+F,75.43,Wildtype,Methylated,Not Available,Y,0
+M,50.86,Wildtype,Not Available,Not Available,Y,1
+M,83.37,Wildtype,Not Available,Not Available,N,0
+M,54.26,Wildtype,Not Available,Not Available,Y,1
+F,62.0,Wildtype,Unmethylated,90,Not Available,0
+F,71.41,Wildtype,Not Available,Not Available,Not Available,0
+M,51.47,Wildtype,Methylated,Not Available,N,1
+M,66.52,Wildtype,Methylated,Not Available,Y,0
+M,55.68,Wildtype,Not Available,Not Available,Y,1
+M,65.19,Wildtype,Indeterminate,Not Available,Y,1
+M,64.78,Wildtype,Methylated,80,Not Available,1
+M,65.47,Wildtype,Methylated,Not Available,Not Applicable,0
+M,54.04,Wildtype,Not Available,Not Available,Y,1
+M,54.22,Wildtype,Not Available,Not Available,Y,1
+F,66.34,Wildtype,Unmethylated,90,Y,0
+M,87.59,Wildtype,Unmethylated,Not Available,Y,1
+M,73.59,Wildtype,Not Available,Not Available,Y,1
+M,65.52,Wildtype,Methylated,Not Available,N,1
+M,70.57,Wildtype,Methylated,Not Available,Y,1
+F,78.67,NOS/NEC,Not Available,Not Available,Y,0
+M,69.17,Wildtype,Unmethylated,Not Available,Y,1
+F,63.58,Wildtype,Not Available,Not Available,N,0
+F,64.86,NOS/NEC,Not Available,Not Available,N,0
+M,22.03,Wildtype,Not Available,Not Available,Y,1
+F,53.07,Wildtype,Unmethylated,Not Available,Y,0
+M,65.36,NOS/NEC,Not Available,Not Available,Y,0
+F,66.53,Wildtype,Not Available,Not Available,Not Applicable,0
+M,71.07,NOS/NEC,Not Available,Not Available,N,0
+M,76.37,NOS/NEC,Not Available,Not Available,Y,0
+M,57.99,Wildtype,Not Available,Not Available,N,0
+F,60.66,Wildtype,Methylated,Not Available,N,1
+F,66.91,Wildtype,Not Available,Not Available,N,1
+M,57.26,Wildtype,Unmethylated,Not Available,Y,0
+M,54.63,Wildtype,Unmethylated,Not Available,Y,0
+F,57.21,Wildtype,Not Available,Not Available,Y,1
+F,55.7,Wildtype,Not Available,90,N,0
+M,32.77,Mutated,Unmethylated,Not Available,Not Applicable,0
+M,60.4,NOS/NEC,Not Available,Not Available,N,0
+F,85.46,Wildtype,Not Available,30,N,0
+M,68.86,Wildtype,Unmethylated,Not Available,Y,0
+M,57.72,Wildtype,Not Available,Not Available,Y,0
+F,82.87,Wildtype,Indeterminate,60,N,0
+M,66.0,Wildtype,Not Available,Not Available,N,0
+F,72.28,Wildtype,Not Available,Not Available,Y,0
+M,37.79,Wildtype,Unmethylated,Not Available,Not Applicable,1
+M,73.91,Wildtype,Methylated,Not Available,N,0
+M,48.97,Wildtype,Unmethylated,80,N,1
+M,54.35,NOS/NEC,Not Available,Not Available,N,1
+F,61.82,Wildtype,Methylated,90,N,1
+F,63.78,Wildtype,Indeterminate,Not Available,N,1
+M,65.22,Wildtype,Not Available,Not Available,N,1
+F,66.43,Wildtype,Not Available,80,Y,1
+M,60.01,Wildtype,Unmethylated,Not Available,Y,1
+M,66.99,NOS/NEC,Not Available,Not Available,N,0
+F,64.28,Wildtype,Unmethylated,Not Available,Not Available,0
+M,57.99,Wildtype,Unmethylated,Not Available,Y,0
+M,63.31,NOS/NEC,Not Available,Not Available,Not Available,0
+F,33.29,Wildtype,Not Available,Not Available,Y,0
+F,73.32,Wildtype,Methylated,Not Available,N,1
+M,70.74,Wildtype,Indeterminate,Not Available,Y,0
+M,83.48,NOS/NEC,Not Available,Not Available,N,0
+M,73.72,Wildtype,Not Available,Not Available,Not Applicable,1
+M,73.33,Wildtype,Not Available,Not Available,N,0
+F,60.63,Wildtype,Unmethylated,Not Available,Y,1
+F,43.12,Wildtype,Not Available,Not Available,Y,1
+F,79.9,Wildtype,Methylated,Not Available,N,1
+F,86.95,NOS/NEC,Not Available,Not Available,Y,0
+M,50.57,NOS/NEC,Not Available,Not Available,Not Available,1
+M,54.24,Wildtype,Not Available,Not Available,Y,0
+F,66.44,Wildtype,Unmethylated,80,Y,0
+M,71.01,Wildtype,Not Available,Not Available,Y,1
+M,85.46,NOS/NEC,Not Available,Not Available,Y,0
+F,82.36,Wildtype,Unmethylated,90,Y,1
+M,53.83,NOS/NEC,Not Available,Not Available,Y,1
+F,77.03,Wildtype,Unmethylated,Not Available,N,0
+F,73.09,Wildtype,Not Available,Not Available,N,0
+M,46.9,Wildtype,Not Available,Not Available,Y,1
+F,68.75,Wildtype,Methylated,Not Available,Y,1
+M,75.88,Wildtype,Indeterminate,Not Available,Y,0
+F,51.75,Wildtype,Unmethylated,90,N,0
+M,79.32,Wildtype,Not Available,Not Available,Not Available,0
+F,77.45,Wildtype,Methylated,Not Available,Y,0
+M,61.42,Wildtype,Unmethylated,Not Available,N,0
+F,53.88,Wildtype,Unmethylated,Not Available,Not Available,1
+F,73.49,NOS/NEC,Not Available,Not Available,Y,1
+F,47.63,NOS/NEC,Not Available,Not Available,Not Applicable,0
+F,61.05,Wildtype,Unmethylated,Not Available,Y,1
+M,76.94,NOS/NEC,Not Available,Not Available,N,1
+M,64.0,Wildtype,Not Available,Not Available,Y,1
+M,29.01,Wildtype,Unmethylated,Not Available,N,0
+M,65.92,Wildtype,Not Available,Not Available,N,1
+F,68.15,Wildtype,Methylated,Not Available,N,1
+F,51.11,NOS/NEC,Not Available,Not Available,Not Applicable,1
+M,71.27,Wildtype,Methylated,70,N,0
+M,72.03,Wildtype,Not Available,Not Available,N,0
+M,53.34,Wildtype,Unmethylated,Not Available,N,0
+M,65.95,Wildtype,Unmethylated,Not Available,Y,1
+F,81.95,Wildtype,Unmethylated,60,Not Available,0
+M,38.9,Wildtype,Unmethylated,Not Available,Y,1
+M,53.19,Wildtype,Unmethylated,70,Y,1
+M,68.99,NOS/NEC,Not Available,Not Available,Y,0
+M,45.23,Wildtype,Not Available,Not Available,Y,1
+F,78.58,Wildtype,Not Available,Not Available,Y,1
+F,63.36,Wildtype,Methylated,Not Available,Y,1
+M,65.51,Wildtype,Not Available,Not Available,Y,1
+M,45.03,Wildtype,Unmethylated,90,Y,1

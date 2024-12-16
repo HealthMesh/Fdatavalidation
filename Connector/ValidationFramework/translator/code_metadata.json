@@ -273,6 +273,9 @@
           {
             "@id": "ab:Tabular",
             "@type": "tb:DatasetTypeTemplate"
+          },{
+            "@id": "ab:ML",
+            "@type": "tb:DatasetTypeTemplate"
           }
         ]
      },
@@ -355,6 +358,198 @@
         "tb:forOp": [
           {
             "@id": "ab:FairnessDegree",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:Tabular",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ],
+        "tb:returns": "integer"
+    }, {
+      "@id": "ab:Imp234",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:Imp4Code",
+          "@type": "tb:Code",
+          "tb:code": "data if not (data[attr] >= ro).all() else (data[attr] >= ro).all()"
+        }
+      ],
+      "tb:hasParameters": [
+        {
+            "@id": "ab:Imp423CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "data",
+            "tb:type": "pandas.DataFrame"
+          },
+          {
+            "@id": "ab:Imp343CodeParam2",
+            "@type": "tb:Parameter",
+            "tb:name": "attr",
+            "tb:type": "str"
+          },
+          {
+            "@id": "ab:Imp4433CodeParam3",
+            "@type": "tb:Parameter",
+            "tb:name": "ro",
+            "tb:type": "int"
+          }
+          ],
+      "tb:dependsOn": [
+            {
+                "@id": "ab:Imp4CodeDep1",
+                "tb:name": "pandas",
+                "@type": "tb:Library"
+            }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "odrl:LConstraint",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:Tabular",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ]
+     },
+    {
+      "@id": "ab:Imp1111",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:Imp23111Code",
+          "@type": "tb:Code",
+          "tb:code": "pycaret.classification.load_model(p.split('.')[0])"
+        }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp11111CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "p",
+            "tb:type": "str"
+          }
+      ],
+        "tb:dependsOn": [
+          {
+            "@id": "ab:Imp11111CodeDep1",
+            "tb:name": "pycaret.classification",
+            "@type": "tb:Library"
+          }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "ab:LoadData",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:ML",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ],
+      "tb:returns": "pandas.DataFrame"
+    },
+    {
+      "@id": "ab:Imp20000",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:ImpImp20000Code",
+          "@type": "tb:Code",
+          "tb:code": "pycaret.classification.predict_model(data, data=pandas.read_csv(attr))\nfairlearn.metrics.demographic_parity_difference(data['target'],data['prediction_label'],sensitive_features=data['Gender'])"
+        }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp12000CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "attr",
+            "tb:type": "str"
+          },
+          {
+            "@id": "ab:Imp12220CodeParam2",
+            "@type": "tb:Parameter",
+            "tb:name": "data",
+            "tb:type": "pandas.DataFrame"
+          }
+      ],
+        "tb:dependsOn": [
+          {
+            "@id": "ab:Imp12220CodeDep1",
+            "tb:name": "pycaret",
+            "@type": "tb:Library"
+          },{
+            "@id": "ab:Imp12220CodeDep23",
+            "tb:name": "fairlearn.metrics",
+            "@type": "tb:Library"
+          },
+          {
+            "@id": "ab:Imp12220CodeDep233",
+            "tb:name": "pandas",
+            "@type": "tb:Library"
+          }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "ab:DemographicParity",
+            "@type": "tb:Operation"
+          }
+        ],
+        "tb:forType": [
+          {
+            "@id": "ab:ML",
+            "@type": "tb:DatasetTypeTemplate"
+          }
+        ],
+        "tb:returns": "integer"
+    },
+      {
+      "@id": "ab:Imp30000",
+      "@type": "tb:Implementation",
+      "tb:hasCode": [
+        {
+          "@id": "ab:ImpImp2330000Code",
+          "@type": "tb:Code",
+          "tb:code": "(lambda splits: 1 - RandomForestClassifier(n_estimators=10).fit(splits[0], splits[2]).score(splits[1], splits[3]))(train_test_split(pandas.get_dummies(data.drop(columns=attr).fillna(0)), data[attr] > data[attr].median())) * 100"
+        }
+      ],
+      "tb:hasParameters": [
+          {
+            "@id": "ab:Imp123000CodeParam1",
+            "@type": "tb:Parameter",
+            "tb:name": "attr",
+            "tb:type": "str"
+          },
+          {
+            "@id": "ab:Imp123220CodeParam2",
+            "@type": "tb:Parameter",
+            "tb:name": "data",
+            "tb:type": "pandas.DataFrame"
+          }
+      ],
+        "tb:dependsOn": [
+          {
+            "@id": "ab:Imp1323220CodeDep1",
+            "tb:name": "sklearn",
+            "@type": "tb:Library"
+          },
+          {
+            "@id": "ab:Imp122240CodeDep233",
+            "tb:name": "pandas",
+            "@type": "tb:Library"
+          }
+        ],
+        "tb:forOp": [
+          {
+            "@id": "ab:MembershipInferenceAccuracy",
             "@type": "tb:Operation"
           }
         ],

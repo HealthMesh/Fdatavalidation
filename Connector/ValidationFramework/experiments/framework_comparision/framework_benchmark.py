@@ -13,7 +13,7 @@ from rdflib import *
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='framework_benchmark.log'
+    filename='framework_benchmark_new.log'
 )
 
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -29,12 +29,12 @@ def get_process_memory() -> float:
     return process.memory_info().rss / 1024 / 1024
 
 
-def save_metrics(metrics: List[Dict], filename: str = 'framework_benchmark_results.csv'):
+def save_metrics(metrics: List[Dict], filename: str = 'framework_benchmark_results_new.csv'):
 
     pd.DataFrame(metrics).to_csv(filename, index=False)
 
 
-def plot_results(metrics: List[Dict], output_file: str = 'framework_benchmark_results.png'):
+def plot_results(metrics: List[Dict], output_file: str = 'framework_benchmark_results_new.png'):
 
     results = pd.DataFrame(metrics)
     plt.figure(figsize=(15, 10))
@@ -92,10 +92,16 @@ def run_framework_benchmark(initial_df: pd.DataFrame, sdm: Graph) -> List[Dict]:
 
     # Prepare framework components
     dp = "UPENN-GBM_clinical_info_v21csv"
+
+    #parsing
     parser = DCParser(dp, sdm).parse_contracts()
     sdm_local = sdm + parser
     pc = queryPC(sdm_local, dp)[0]
+
+    #translation
     udf = PCTranslator(pc.split("#")[1], sdm_local).translate()
+
+
     initOP = sdm_local.value(subject=abox[pc.split("#")[1]], predicate=tbox.nextStep)
     path = sdm_local.value(subject=initOP, predicate=tbox.hasInput)
 

@@ -110,6 +110,8 @@ def plot_overhead(policy_times, policies_map):
     avg_translation_times = []
     policies = list(policies_map.keys())
 
+    policies.remove('p1')
+    policies.sort()
     for policy in policies:
         parser_times = []
         translation_times = []
@@ -119,12 +121,12 @@ def plot_overhead(policy_times, policies_map):
                 translation_times.extend(policy_times[pc]['translation_times'])
 
         if parser_times:
-            avg_parser_times.append(np.mean(parser_times) * 1000)  # Convert to milliseconds
+            avg_parser_times.append(np.mean(parser_times) * 1000)
         else:
             avg_parser_times.append(0)
 
         if translation_times:
-            avg_translation_times.append(np.mean(translation_times) * 1000)  # Convert to milliseconds
+            avg_translation_times.append(np.mean(translation_times) * 1000)
         else:
             avg_translation_times.append(0)
 
@@ -137,9 +139,20 @@ def plot_overhead(policy_times, policies_map):
     translation_bars = ax.bar(x + width / 2, avg_translation_times, width, label='Translation Time (ms)', color='green',
                               hatch='xx')
 
+    policy_label_mapping = {
+        'p1v2': 'Privacy',
+        'p2': 'Statistical Properties',
+        'p3': 'Schema Validation',
+        'p4': 'Fairness',
+        'p5': 'Data Consistency'
+    }
+
+    policies = [policy_label_mapping.get(policy, policy) for policy in policies]
+
     ax.set_xlabel('Policies')
     ax.set_ylabel('Time (ms)')
     ax.set_xticks(x)
+
     ax.set_xticklabels(policies, rotation=45)
     ax.set_yscale('log')
 
@@ -147,7 +160,7 @@ def plot_overhead(policy_times, policies_map):
         height = bar.get_height()
         ax.annotate(f'{height:.2f}',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 3),  # 3 points vertical offset
+                    xytext=(0, 3),
                     textcoords="offset points",
                     ha='center', va='bottom')
 
@@ -165,7 +178,7 @@ def plot_overhead(policy_times, policies_map):
 
     fig.tight_layout(rect=[0, 0, 0.85, 1])
 
-    plt.savefig('policy_times_fixed.png', bbox_inches='tight')
+    plt.savefig('policy_times_fixed_final.png', bbox_inches='tight')
     plt.show()
 
 

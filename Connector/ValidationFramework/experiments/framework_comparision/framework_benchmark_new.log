@@ -1,0 +1,34 @@
+2024-11-24 23:03:31,731 - INFO - 
+Starting Framework benchmark iteration 1, size: 671
+2024-11-24 23:03:32,649 - INFO - 
+Starting Framework benchmark iteration 2, size: 1342
+2024-11-24 23:03:33,265 - INFO - 
+Starting Framework benchmark iteration 3, size: 2684
+2024-11-24 23:03:33,876 - INFO - 
+Starting Framework benchmark iteration 4, size: 5368
+2024-11-24 23:03:34,542 - INFO - 
+Starting Framework benchmark iteration 5, size: 10736
+2024-11-24 23:03:35,272 - INFO - 
+Starting Framework benchmark iteration 6, size: 21472
+2024-11-24 23:03:36,046 - INFO - 
+Starting Framework benchmark iteration 7, size: 42944
+2024-11-24 23:03:37,022 - INFO - 
+Starting Framework benchmark iteration 8, size: 85888
+2024-11-24 23:03:38,494 - INFO - 
+Starting Framework benchmark iteration 9, size: 171776
+2024-11-24 23:03:40,472 - INFO - 
+Starting Framework benchmark iteration 10, size: 343552
+2024-11-24 23:03:43,702 - INFO - 
+Starting Framework benchmark iteration 11, size: 687104
+2024-11-24 23:03:49,540 - INFO - 
+Starting Framework benchmark iteration 12, size: 1374208
+2024-11-24 23:04:00,982 - INFO - 
+Starting Framework benchmark iteration 13, size: 2748416
+2024-11-24 23:04:24,041 - INFO - 
+Starting Framework benchmark iteration 14, size: 5496832
+2024-11-24 23:05:07,975 - INFO - 
+Starting Framework benchmark iteration 15, size: 10993664
+2024-11-24 23:06:31,863 - INFO - 
+Starting Framework benchmark iteration 16, size: 21987328
+2024-11-24 23:09:11,902 - INFO - 
+Starting Framework benchmark iteration 17, size: 43974656

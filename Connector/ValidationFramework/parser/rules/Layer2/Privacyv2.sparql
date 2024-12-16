@@ -8,8 +8,15 @@ CONSTRUCT {
                tb:hasInput ?attribute ;
                tb:hasAbstract ?operation;
                tb:hasInput ab:data ;
-               tb:hasOutput ab:boolean .
+               tb:hasOutput ab:data .
     <{last_op}> tb:nextStep <{op_uri}>.
+    ?new_op_uri a tb:Operation ;
+            tb:hasInput ab:data ;
+            tb:hasAbstract odrl:Constraint ;
+            tb:hasInput ?operator ;
+            tb:hasInput ?rightOperand ;
+            tb:hasOutput ab:data .
+    <{op_uri}> tb:nextStep ?new_op_uri.
 }
 WHERE {
     <{dp}> tb:hasDC ?dc .
@@ -19,11 +26,15 @@ WHERE {
             odrl:duty ?duty .
     ?duty odrl:action ?action .
     ?duty odrl:target ?target .
-    FILTER NOT EXISTS { ?duty odrl:constraint ?constraint }
-    FILTER EXISTS { ?duty odrl:action ?action }
-    FILTER NOT EXISTS { ?duty odrl:action ?otherAction . FILTER(?otherAction != ?action) }
-    FILTER NOT EXISTS { ?duty odrl:target ?otherTarget . FILTER(?otherTarget != ?target) }
 
-    BIND( ?action AS ?operation)
+    # Get the refinement details
+    ?action odrl:refinement ?refinement .
+    ?refinement odrl:leftOperand ?leftOperand ;
+                odrl:operator ?operator ;
+                odrl:rightOperand ?rightOperand .
+
+    BIND( ?leftOperand AS ?operation)
     BIND( ?target AS ?attribute)
+    BIND( ?leftOperand AS ?operand)
+    BIND(IRI(CONCAT(STR(ab:), STRUUID())) AS ?new_op_uri)
 }

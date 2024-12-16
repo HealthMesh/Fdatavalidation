@@ -120,7 +120,6 @@ def validate_graph(g: Graph, shape_path: str) -> Tuple[bool, str]:
 
 
 def run_shacl_benchmark(initial_df: pd.DataFrame, shape_path: str) -> List[Dict]:
-
     metrics = []
     tbox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#')
     abox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
@@ -137,11 +136,15 @@ def run_shacl_benchmark(initial_df: pd.DataFrame, shape_path: str) -> List[Dict]
             start_memory = get_process_memory()
             start_time = time.time()
 
-
+            rdf_start = time.time()
             tbox_graph = extract_tbox_from_dataframe(current_df, tbox)
             abox_graph = convert_to_rdf(current_df, abox)
             combined_graph = tbox_graph + abox_graph
+            rdf_time = time.time() - rdf_start
+
+            shacl_start = time.time()
             conforms, results = validate_graph(combined_graph, shape_path)
+            shacl_time = time.time() - shacl_start
 
             end_time = time.time()
             end_memory = get_process_memory()
@@ -154,14 +157,16 @@ def run_shacl_benchmark(initial_df: pd.DataFrame, shape_path: str) -> List[Dict]
                 'size': current_size,
                 'execution_time': execution_time,
                 'memory_used': memory_used,
-                'success': True
+                'success': True,
+                'rdf_conversion_time': rdf_time,
+                'shacl_validation_time': shacl_time
             })
 
             save_metrics(metrics)
             plot_results(metrics)
 
             print(
-                f"SHACL Iteration {iteration} - Size: {current_size}, Time: {execution_time:.2f}s, Memory: {memory_used:.2f}MB")
+                f"Iteration {iteration} - Size: {current_size}, Time: {execution_time:.2f}s, Memory: {memory_used:.2f}MB")
 
             current_df = pd.concat([current_df, current_df], ignore_index=True)
             iteration += 1
@@ -171,8 +176,6 @@ def run_shacl_benchmark(initial_df: pd.DataFrame, shape_path: str) -> List[Dict]
             break
 
     return metrics
-
-
 if __name__ == "__main__":
 
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))

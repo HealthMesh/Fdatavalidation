@@ -1,0 +1,250 @@
+2024-12-13 16:35:26,848:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:35:26,848:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:35:26,848:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:35:26,848:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-13 16:35:27,313:INFO:Initializing load_model()
+2024-12-13 16:35:27,313:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:37:27,289:INFO:Initializing load_model()
+2024-12-13 16:37:27,290:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:38:17,810:INFO:Initializing load_model()
+2024-12-13 16:38:17,811:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:38:17,882:INFO:Initializing predict_model()
+2024-12-13 16:38:17,882:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe85055a290>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe89d0afa60>)
+2024-12-13 16:38:17,882:INFO:Checking exceptions
+2024-12-13 16:38:17,882:INFO:Preloading libraries
+2024-12-13 16:38:17,883:INFO:Set up data.
+2024-12-13 16:38:17,890:INFO:Set up index.
+2024-12-13 16:39:14,432:INFO:Initializing load_model()
+2024-12-13 16:39:14,432:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:39:14,535:INFO:Initializing predict_model()
+2024-12-13 16:39:14,535:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe89d31ad10>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe89d7f2520>)
+2024-12-13 16:39:14,535:INFO:Checking exceptions
+2024-12-13 16:39:14,535:INFO:Preloading libraries
+2024-12-13 16:39:14,536:INFO:Set up data.
+2024-12-13 16:39:14,543:INFO:Set up index.
+2024-12-13 16:40:48,705:INFO:Initializing load_model()
+2024-12-13 16:40:48,706:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:40:48,808:INFO:Initializing predict_model()
+2024-12-13 16:40:48,809:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe89dc9e190>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe8897e4e00>)
+2024-12-13 16:40:48,809:INFO:Checking exceptions
+2024-12-13 16:40:48,809:INFO:Preloading libraries
+2024-12-13 16:40:48,809:INFO:Set up data.
+2024-12-13 16:40:48,818:INFO:Set up index.
+2024-12-13 16:41:22,328:INFO:Initializing load_model()
+2024-12-13 16:41:22,329:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:41:22,425:INFO:Initializing predict_model()
+2024-12-13 16:41:22,425:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe89db63590>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe8895a6160>)
+2024-12-13 16:41:22,425:INFO:Checking exceptions
+2024-12-13 16:41:22,425:INFO:Preloading libraries
+2024-12-13 16:41:22,425:INFO:Set up data.
+2024-12-13 16:41:22,435:INFO:Set up index.
+2024-12-13 16:46:12,942:INFO:Initializing load_model()
+2024-12-13 16:46:12,943:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:46:13,029:INFO:Initializing predict_model()
+2024-12-13 16:46:13,029:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe85121a8d0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe889553d80>)
+2024-12-13 16:46:13,029:INFO:Checking exceptions
+2024-12-13 16:46:13,029:INFO:Preloading libraries
+2024-12-13 16:46:13,030:INFO:Set up data.
+2024-12-13 16:46:13,036:INFO:Set up index.
+2024-12-13 16:52:54,468:INFO:Initializing load_model()
+2024-12-13 16:52:54,468:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:52:54,554:INFO:Initializing predict_model()
+2024-12-13 16:52:54,554:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe8896063d0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe8894eb2e0>)
+2024-12-13 16:52:54,554:INFO:Checking exceptions
+2024-12-13 16:52:54,554:INFO:Preloading libraries
+2024-12-13 16:52:54,555:INFO:Set up data.
+2024-12-13 16:52:54,561:INFO:Set up index.
+2024-12-13 16:55:04,364:INFO:Initializing load_model()
+2024-12-13 16:55:04,372:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-13 16:55:04,471:INFO:Initializing predict_model()
+2024-12-13 16:55:04,471:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7fe851136190>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7fe8891ebf60>)
+2024-12-13 16:55:04,471:INFO:Checking exceptions
+2024-12-13 16:55:04,471:INFO:Preloading libraries
+2024-12-13 16:55:04,472:INFO:Set up data.
+2024-12-13 16:55:04,481:INFO:Set up index.

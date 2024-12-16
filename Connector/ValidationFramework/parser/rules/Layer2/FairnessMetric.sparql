@@ -3,20 +3,22 @@ PREFIX tb: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#>
 PREFIX ab: <http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX fmo: <https://purl.org/twc/fmo#>
 
 CONSTRUCT {
     <{op_uri}> a tb:Operation ;
                tb:hasInput ?attribute ;
-               tb:hasAbstract ?lop ;
+               tb:hasAbstract ?metric ;
                tb:hasInput ab:data ;
+               tb:hasInput ?data2;
                tb:hasOutput ab:data .
     <{last_op}> tb:nextStep <{op_uri}>.
-    ?new_op_uri a tb:Operation ;
-                tb:hasInput ab:data ;
-                tb:hasAbstract odrl:Constraint ;
-                tb:hasInput ?operator ;
-                tb:hasInput ?value ;
-                tb:hasOutput ab:data .
+   ?new_op_uri a tb:Operation ;
+            tb:hasInput ab:data ;
+            tb:hasAbstract odrl:Constraint ;
+            tb:hasInput ?operator ;
+            tb:hasInput ?value ;
+            tb:hasOutput ab:data .
     <{op_uri}> tb:nextStep ?new_op_uri.
 }
 WHERE {
@@ -30,7 +32,20 @@ WHERE {
     ?constraint odrl:leftOperand ?lop ;
                 odrl:rightOperand ?rop ;
                 odrl:operator ?op .
-    # Only bind the leftOperand (FairnessDegree) as the operation
+
+    ?lop a fmo:MLModelEvaluation;
+            fmo:hasinput ?testdata ;
+            fmo:hasoutput ?fairnessmetric .
+
+    ?testdata tb:hasTA ?ta .
+    ?ta tb:typeAcces ?access .
+    ?access rdfs:label ?label ;
+    tb:path ?path .
+    FILTER(?label = ab:Static)
+
+
+    BIND( ?path AS ?data2)
+    BIND( ?fairnessmetric AS ?metric)
     BIND( ?lop AS ?operation)
     BIND( ?target AS ?attribute)
     BIND( ?op AS ?operator)

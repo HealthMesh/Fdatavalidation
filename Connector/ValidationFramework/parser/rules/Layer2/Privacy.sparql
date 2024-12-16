@@ -20,6 +20,7 @@ WHERE {
     ?duty odrl:action ?action .
     ?duty odrl:target ?target .
     FILTER NOT EXISTS { ?duty odrl:constraint ?constraint }
+    FILTER NOT EXISTS { ?action odrl:refinement ?refinement }
     FILTER EXISTS { ?duty odrl:action ?action }
     FILTER NOT EXISTS { ?duty odrl:action ?otherAction . FILTER(?otherAction != ?action) }
     FILTER NOT EXISTS { ?duty odrl:target ?otherTarget . FILTER(?otherTarget != ?target) }

@@ -9,18 +9,18 @@
     "tb": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#",
     "ab": "http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#"
   },
-  "@id": "ab:p1",
+  "@id": "ab:p1v2",
   "@type": "odrl:Privacy",
   "odrl:duty": [
     {
-    "@id": "ab:AnonDuty",
+    "@id": "ab:AnonDutyPrivacy",
     "@type": "odrl:Duty",
     "odrl:target": {
-            "@id": "ab:Subject"
+            "@id": "ab:Age"
      },
     "odrl:action":[
       {
-        "@id": "odrl:anonymize",
+        "@id": "odrl:anonymization",
         "@type": "odrl:Action",
         "odrl:refinement": [
             {

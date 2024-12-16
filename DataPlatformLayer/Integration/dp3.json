@@ -1,9 +1,8 @@
 {
-  "name": "UPENN-GBM_clinical_info_v21csv",
+  "name": "modelpkl",
   "mappings": {
-    "ID": "Subject",
-    "Age_at_scan_years": "Age",
-    "Survival_from_surgery_days_UPDATED": "Survival"
+    "Gender": "Sex",
+    "target": "Survival"
   },
-  "policies": ["p5"]
+  "policies": ["p4"]
 }

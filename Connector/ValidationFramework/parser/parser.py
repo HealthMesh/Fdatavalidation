@@ -151,7 +151,7 @@ class DCParser:
         :return:
         """
 
-        initOPrules = os.path.join(base_dir, "rules/initOP")
+        initOPrules = os.path.join(base_dir, "rules/Layer1")
         mappings = {
             "dp": abox[self.dp],
             "pc": pc.get_URI(),
@@ -176,7 +176,7 @@ class DCParser:
 
     def _handle_policy_patterns(self, pc, initOP):
 
-        initOPrules = os.path.join(base_dir, "rules/OPS")
+        initOPrules = os.path.join(base_dir, "rules/Layer2")
         mappings = {
             "dp": abox[self.dp],
             "pc": pc.get_URI(),

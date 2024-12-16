@@ -210,6 +210,9 @@ def Operation_Constraint(data, lo=None, op=None, ro=None):
     if str(op) == "odrl:gteq":
         return data >= ro
 
+    if op == odrl["lt"]:
+        return data < ro
+
     if str(op) == "odrl:isA":
         if str(ro) == "xsd:string":
             return pd.api.types.is_string_dtype(data[lo])
@@ -276,7 +279,7 @@ class PCTranslator:
         :param operation:
         :return:
         """
-
+        #TODO: FIX THIS FUNCTION
         inputs = self.g.objects(subject=operation, predicate=tbox.hasInput)
         inputs_dict = {}
 
@@ -292,6 +295,15 @@ class PCTranslator:
                     inputs_dict["ro"] = input
                 if abox in input and input != abox["data"]:
                     inputs_dict["lo"] = input.split("#")[-1]
+            elif abstract_op == odrl["LConstraint"]:
+                if input == abox["boolean"]:
+                    continue
+                if isinstance(input, Literal) and input.datatype in [XSD.float, XSD.double,XSD.decimal, XSD.integer, XSD.int]:
+                     inputs_dict["ro"] = float(input)
+                if "odrl" in input:
+                    inputs_dict["op"] = input
+                if abox in input and input != abox["data"]:
+                    inputs_dict["attr"] = input.split("#")[-1]
             else:
                 if input != abox["data"]:
                     inputs_dict["attr"] = input.split("#")[-1]
