@@ -46,7 +46,6 @@ def add_jsonld_instances(graph, path):
 
 # URI functions
 def get_urii(uri):
-
     return uri.split("#")[-1]
 
 

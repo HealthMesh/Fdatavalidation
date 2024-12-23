@@ -102,6 +102,7 @@ def run_framework_benchmark(initial_df: pd.DataFrame, sdm: Graph) -> List[Dict]:
     udf = PCTranslator(pc.split("#")[1], sdm_local).translate()
 
 
+    #Execution
     initOP = sdm_local.value(subject=abox[pc.split("#")[1]], predicate=tbox.nextStep)
     path = sdm_local.value(subject=initOP, predicate=tbox.hasInput)
 

@@ -228,3 +228,213 @@ dtype: int64}]))),
 2024-12-15 22:40:48,416:INFO:Preloading libraries
 2024-12-15 22:40:48,418:INFO:Set up data.
 2024-12-15 22:40:48,426:INFO:Set up index.
+2024-12-18 12:26:01,754:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:26:01,756:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:26:01,756:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:26:01,756:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:26:02,246:INFO:Initializing load_model()
+2024-12-18 12:26:02,246:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-18 12:26:02,383:INFO:Initializing predict_model()
+2024-12-18 12:26:02,383:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f626d946710>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f627d093600>)
+2024-12-18 12:26:02,383:INFO:Checking exceptions
+2024-12-18 12:26:02,383:INFO:Preloading libraries
+2024-12-18 12:26:02,386:INFO:Set up data.
+2024-12-18 12:26:02,394:INFO:Set up index.
+2024-12-18 12:38:59,207:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:38:59,207:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:38:59,207:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:38:59,207:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 12:38:59,936:INFO:Initializing load_model()
+2024-12-18 12:38:59,936:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-18 12:39:00,173:INFO:Initializing predict_model()
+2024-12-18 12:39:00,174:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f6e3397b6d0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f6e02f47600>)
+2024-12-18 12:39:00,174:INFO:Checking exceptions
+2024-12-18 12:39:00,174:INFO:Preloading libraries
+2024-12-18 12:39:00,174:INFO:Set up data.
+2024-12-18 12:39:00,183:INFO:Set up index.
+2024-12-18 13:24:06,104:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:24:06,105:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:24:06,105:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:24:06,105:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:24:06,490:INFO:Initializing load_model()
+2024-12-18 13:24:06,490:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-18 13:24:06,593:INFO:Initializing predict_model()
+2024-12-18 13:24:06,593:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f61e3f5e310>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f61e42e7600>)
+2024-12-18 13:24:06,593:INFO:Checking exceptions
+2024-12-18 13:24:06,593:INFO:Preloading libraries
+2024-12-18 13:24:06,595:INFO:Set up data.
+2024-12-18 13:24:06,603:INFO:Set up index.
+2024-12-18 13:28:19,684:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:28:19,684:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:28:19,684:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:28:19,684:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:28:20,033:INFO:Initializing load_model()
+2024-12-18 13:28:20,033:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-18 13:28:20,129:INFO:Initializing predict_model()
+2024-12-18 13:28:20,129:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f04b9a80b10>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f04b854b600>)
+2024-12-18 13:28:20,129:INFO:Checking exceptions
+2024-12-18 13:28:20,129:INFO:Preloading libraries
+2024-12-18 13:28:20,129:INFO:Set up data.
+2024-12-18 13:28:20,135:INFO:Set up index.
+2024-12-18 13:35:13,175:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:35:13,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:35:13,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:35:13,176:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-12-18 13:35:13,602:INFO:Initializing load_model()
+2024-12-18 13:35:13,602:INFO:load_model(model_name=/home/acraf/psr/Fdatavalidation/DataProductLayer/DataProduct3/Data/Explotation/model, platform=None, authentication=None, verbose=True)
+2024-12-18 13:35:13,716:INFO:Initializing predict_model()
+2024-12-18 13:35:13,716:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f836b096a50>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Age_at_scan_years'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['Gender', 'IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('ordinal_encoding',
+                 TransformerWrapper(include=['G...
+                                                               mapping=[{'col': 'Gender',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': F      0
+M      1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['IDH1', 'MGMT', 'KPS',
+                                             'GTR_over90percent'],
+                                    transformer=OneHotEncoder(cols=['IDH1',
+                                                                    'MGMT',
+                                                                    'KPS',
+                                                                    'GTR_over90percent'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('trained_model',
+                 LogisticRegression(max_iter=1000, random_state=4984))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f837e4a3560>)
+2024-12-18 13:35:13,716:INFO:Checking exceptions
+2024-12-18 13:35:13,716:INFO:Preloading libraries
+2024-12-18 13:35:13,717:INFO:Set up data.
+2024-12-18 13:35:13,723:INFO:Set up index.
