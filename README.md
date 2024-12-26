@@ -58,8 +58,7 @@ The approach is build upon a federated architectural framework and encompasses t
 
 
 ## Key Features
-
-- Policy-based data validation
+- Policy-based data validation~~
 - Support for multi-modal data
 - Tracability and Transparency
 
@@ -67,14 +66,12 @@ The approach is build upon a federated architectural framework and encompasses t
 ## Future Work
 
 - Support for more expressive policy patterns and use cases
-- Integration and deployement within existing Data Space initiatives
+- Integration and deployement within existing Data Space components
 - Optimizations and user-framework interaction interfaces
 
 ## Contributing
 Guidelines for contributing to this project will be added soon.
 
-## License
 
-[License information to be added]
 
 

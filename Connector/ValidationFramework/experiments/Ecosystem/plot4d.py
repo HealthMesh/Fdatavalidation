@@ -35,9 +35,9 @@ def create_enhanced_4d_visualization(results_df, save_path='4d_analysis_enhanced
 
     ax.grid(True, linestyle='--', alpha=0.6)
 
-    ax.set_xlabel('Number of Data Products', fontsize=12, labelpad=15)
-    ax.set_ylabel('Execution Time (s)', fontsize=12, labelpad=15)
-    ax.set_zlabel('Number of Operations', fontsize=12, labelpad=15)
+    ax.set_xlabel('Number of Data Products', fontsize=16, labelpad=15)
+    ax.set_ylabel('Execution Time (s)', fontsize=16, labelpad=15)
+    ax.set_zlabel('Number of Operations', fontsize=16, labelpad=15)
 
 
     ax.view_init(elev=20, azim=45)
@@ -48,16 +48,16 @@ def create_enhanced_4d_visualization(results_df, save_path='4d_analysis_enhanced
 
     m = plt.cm.ScalarMappable(cmap=plt.cm.viridis, norm=norm)
     cbar = plt.colorbar(m, ax=ax, pad=0.1, aspect=30)
-    cbar.set_label('Number of Policies', fontsize=12, fontweight='bold', labelpad=15)
+    cbar.set_label('Number of Policies', fontsize=14, fontweight='bold', labelpad=15)
     cbar.ax.tick_params(labelsize=10)
 
     ax.xaxis.pane.fill = False
     ax.yaxis.pane.fill = False
     ax.zaxis.pane.fill = False
 
-    ax.tick_params(axis='x', labelsize=10)
-    ax.tick_params(axis='y', labelsize=10)
-    ax.tick_params(axis='z', labelsize=10)
+    ax.tick_params(axis='x', labelsize=14)
+    ax.tick_params(axis='y', labelsize=14)
+    ax.tick_params(axis='z', labelsize=14)
 
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight', transparent=False)
