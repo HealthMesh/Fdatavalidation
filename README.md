@@ -5,7 +5,7 @@ This repository contains a prototype wokrflow for automating data validation in 
 
 ## Architectural Framework Overview
 
-![](\\wsl$\Ubuntu-24.04\home\acraf\psr\Fdatavalidation\demo\demo_images\framework-workflow.png)
+![](\\wsl$\Ubuntu-24.04\home\acraf\psr\Fdatavalidation\demo\demo_images\framework-preliminaries.png)
 
 The approach is build upon a federated architectural framework and encompasses the following layers:
 - **Data Product Layer**: Contains data products and their infrastructure extensions (e.g., connectors).
@@ -13,10 +13,17 @@ The approach is build upon a federated architectural framework and encompasses t
 - **Federated Computational Governance Layer**: Establishes guidelines and artifacts for data product management and governance.
 
 
+## Data Validation Workflow
+
+
+
+![](\\wsl$\Ubuntu-24.04\home\acraf\psr\Fdatavalidation\demo\demo_images\framework-workflow.png "workflow")
+
 ## Prototype Folders and Files
 
 | Folder                           | File                                            | Description                                                         | Defined by     |
 |----------------------------------|-------------------------------------------------|---------------------------------------------------------------------|:---------------|
+| **FRAMEWORK**                        |                                                 |                                                                     |                |
 | FederatedComputationalGovernance | ComputationalCatalogues/p*.json                 | Federation defined Policies in JSON-LD                              | Federated Team |
 | FederatedComputationalGovernance | ComputationalCatalogues/common_data_models.json | Common Data Models in JSON-LD                                       | Federated Team |
 | FederatedComputationalGovernance | FederatedTeam/tbox.ttl                          | Terminology Box for Semantic Data Model                             | Federated Team |
@@ -27,9 +34,10 @@ The approach is build upon a federated architectural framework and encompasses t
 | DataPlatformLayer                | Registration/profiler.ipynb                     | Notebook to automate boostraping of data sources                    |                |
 | DataPlatformLayer                | Registration/integrator.ipynb                   | Notebook to generate mappings from DataProducts to CommonDataModels |                |
 | DataPlatformLayer                | Registration/dpX.json                           | Data Products integrated with Data Contracts                        |                |
-| Connector                        | parser/parser.ipynb                             | Parser implementation p                                             |                |
+| **WORKFLOW**                         |                                                 |                                                                     |                |
+| Connector                        | parser/planner.ipynb                            | Planner implementation                                              |                |
 | Connector                        | parser/rules                                    | Graph Transformation Rules as SPARQL CONSTRUCT queries              |                |
-| Connector                        | translator/translator.ipynb                     | Translator implementation                                           |                |
+| Connector                        | translator/executor.ipynb                       | Executor implementation                                             |                |
 | Connector                        | translator/code_metadata.json                   | Code metadata in JSON-LD                                            |                |
 | Connector                        | experiments/policy_times                        | Measure processing times                                            |                |
 | Connector                        | experiments/transforming_bottleneck             | Workflow vs RDFValidation                                           |                |

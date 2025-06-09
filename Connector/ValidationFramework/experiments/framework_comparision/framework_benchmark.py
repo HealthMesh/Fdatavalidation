@@ -19,8 +19,8 @@ logging.basicConfig(
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 sys.path.append(base_dir)
 
-from Connector.ValidationFramework.parser.parser import DCParser
-from Connector.ValidationFramework.translator.translator import PCTranslator
+from Connector.ValidationFramework.planner.planner import DCParser
+from Connector.ValidationFramework.translator.executor import PCTranslator
 
 
 def get_process_memory() -> float:
