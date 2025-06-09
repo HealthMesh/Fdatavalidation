@@ -5,7 +5,7 @@ This repository contains a prototype workflow for automating data validation in 
 
 ## Architectural Framework Overview
 
-![](demo\demo_images\framework-preliminaries.png)
+![](.\demo\demo_images\framework-preliminaries.png)
 
 The approach is build upon a federated architectural framework and encompasses the following layers:
 - **Data Product Layer**: Contains data products and their infrastructure extensions (e.g., connectors).
@@ -17,7 +17,7 @@ The Federated Computational Governance Layer is particularly significant, as it 
 ## Data Validation Workflow
 
 
-![](demo\demo_images\framework-workflow.png "workflow")
+![](.\demo\demo_images\framework-workflow.png "workflow")
 
 
 The data validation workflow starts with a data consumer initiating an analytical service over SDM. The consumer’s
