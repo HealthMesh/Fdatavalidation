@@ -60,27 +60,27 @@ Generates validation reports and annotations
 
 ## Prototype Folders and Files
 
-| Folder                           | File                                            | Description                                                         | Defined by     |
-|----------------------------------|-------------------------------------------------|---------------------------------------------------------------------|:---------------|
-| **FRAMEWORK**                        |                                                 |                                                                     |                |
-| FederatedComputationalGovernance | ComputationalCatalogues/p*.json                 | Federation defined Policies in JSON-LD                              | Federated Team |
-| FederatedComputationalGovernance | ComputationalCatalogues/common_data_models.json | Common Data Models in JSON-LD                                       | Federated Team |
-| FederatedComputationalGovernance | FederatedTeam/tbox.ttl                          | Terminology Box for Semantic Data Model                             | Federated Team |
-| FederatedComputationalGovernance | SemanticDataModel/sdm.ttl                       | Semantic Data Model with all annotations                            | Federated Team |
-| DataProductLayer                 | DataProduct1                                    | CSV with Patient Demographics                                       |                |
-| DataProductLayer                 | DataProduct2                                    | DICOM Image                                                         |                |
-| DataProductLayer                 | DataProduct3                                    | ML Model                                                            |                |
-| DataPlatformLayer                | Registration/profiler.ipynb                     | Notebook to automate boostraping of data sources                    |                |
-| DataPlatformLayer                | Registration/integrator.ipynb                   | Notebook to generate mappings from DataProducts to CommonDataModels |                |
-| DataPlatformLayer                | Registration/dpX.json                           | Data Products integrated with Data Contracts                        |                |
-| **WORKFLOW**                         |                                                 |                                                                     |                |
-| Connector                        | parser/planner.ipynb                            | Planner implementation                                              |                |
-| Connector                        | parser/rules                                    | Graph Transformation Rules as SPARQL CONSTRUCT queries              |                |
-| Connector                        | translator/executor.ipynb                       | Executor implementation                                             |                |
-| Connector                        | translator/code_metadata.json                   | Code metadata in JSON-LD                                            |                |
-| Connector                        | experiments/policy_times                        | Measure processing times                                            |                |
-| Connector                        | experiments/transforming_bottleneck             | Workflow vs RDFValidation                                           |                |
-| Connector                        | experiments/ecosystem                           | Measure parsing scalability                                         |                |
+| Folder                           | File                                            | Description                                                                                 |
+|----------------------------------|-------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **FRAMEWORK**                        |                                                 |                                                                                             |
+| FederatedComputationalGovernance | ComputationalCatalogues/p*.json                 | Federation defined Policies in JSON-LD                                                      |
+| FederatedComputationalGovernance | ComputationalCatalogues/common_data_models.json | Common Data Models in JSON-LD                                                               |
+| FederatedComputationalGovernance | FederatedTeam/tbox.ttl                          | Terminology Box for Semantic Data Model                                                     |
+| FederatedComputationalGovernance | SemanticDataModel/sdm.ttl                       | Semantic Data Model with all annotations                                                    |
+| DataProductLayer                 | DataProduct1                                    | CSV with Patient Demographics [(Bakas et al. 2021)](https://doi.org/10.7937/TCIA.709X-DN49) |
+| DataProductLayer                 | DataProduct2                                    | DICOM Image  [(Bakas et al. 2021)](https://doi.org/10.7937/TCIA.709X-DN49)                                                                               |
+| DataProductLayer                 | DataProduct3                                    | ML Model (manually trained from Data Product 1)                                             |
+| DataPlatformLayer                | Registration/profiler.ipynb                     | Notebook to automate boostraping of data sources                                            |
+| DataPlatformLayer                | Registration/integrator.ipynb                   | Notebook to generate mappings from DataProducts to CommonDataModels                         |
+| DataPlatformLayer                | Registration/dpX.json                           | Data Products integrated with Data Contracts                                                |
+| **WORKFLOW**                         |                                                 |                                                                                             |
+| Connector                        | parser/planner.ipynb                            | Planner implementation                                                                      |
+| Connector                        | parser/rules                                    | Graph Transformation Rules as SPARQL CONSTRUCT queries                                      |
+| Connector                        | translator/executor.ipynb                       | Executor implementation                                                                     |
+| Connector                        | translator/code_metadata.json                   | Code metadata in JSON-LD                                                                    |
+| Connector                        | experiments/policy_times                        | Measure processing times                                                                    |
+| Connector                        | experiments/transforming_bottleneck             | Workflow vs RDFValidation                                                                   |
+| Connector                        | experiments/ecosystem                           | Measure parsing scalability                                                                 |
 
 
 ## Quick-Start Instructions
