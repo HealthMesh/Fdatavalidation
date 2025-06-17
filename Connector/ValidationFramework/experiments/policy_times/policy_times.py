@@ -11,8 +11,8 @@ import pandas as pd
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 sys.path.append(base_dir)
 
-from Connector.ValidationFramework.parser.parser import DCParser
-from Connector.ValidationFramework.translator.translator import *
+from Connector.ValidationFramework.planner.planner import DCParser
+from Connector.ValidationFramework.translator.executor import *
 
 #%
 base_dir = os.path.dirname(os.path.realpath(__file__))

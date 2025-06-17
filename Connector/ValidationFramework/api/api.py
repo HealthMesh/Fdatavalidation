@@ -16,8 +16,8 @@ base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.pa
 sys.path.append(base_dir)
 
 
-from Connector.ValidationFramework.parser.parser import DCParser
-from Connector.ValidationFramework.translator.translator import PCTranslator
+from Connector.ValidationFramework.planner.planner import DCParser
+from Connector.ValidationFramework.translator.executor import PCTranslator
 
 
 logging.basicConfig(

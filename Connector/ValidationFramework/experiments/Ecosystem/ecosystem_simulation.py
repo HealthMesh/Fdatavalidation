@@ -15,7 +15,7 @@ from mpl_toolkits.mplot3d import Axes3D
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 sys.path.append(base_dir)
 
-from Connector.ValidationFramework.parser.parser import DCParser
+from Connector.ValidationFramework.planner.planner import DCParser
 
 tbox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/tbox#')
 abox = Namespace('http://www.semanticweb.org/acraf/ontologies/2024/healthmesh/abox#')
